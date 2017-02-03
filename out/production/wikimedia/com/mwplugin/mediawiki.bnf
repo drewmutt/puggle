@@ -1,0 +1,23 @@
+{
+  parserClass="com.mwplugin.parser.MediaWikiParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="MediaWiki"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.mwplugin.psi"
+  psiImplPackage="com.mwplugin.psi.impl"
+
+  elementTypeHolderClass="com.mwplugin.psi.MediaWikiTypes"
+  elementTypeClass="com.mwplugin.psi.MediaWikiElementType"
+  tokenTypeClass="com.mwplugin.psi.MediaWikiTokenType"
+
+  psiImplUtilClass="com.mwplugin.psi.impl.MediaWikiPsiImplUtil"
+}
+
+
+simpleFile ::= item_*
+
+private item_ ::= (property|link|header|comment|subheader|reference|template|bold|content|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY {methods=[]}
