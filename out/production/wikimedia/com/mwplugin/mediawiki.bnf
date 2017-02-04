@@ -18,6 +18,6 @@
 
 simpleFile ::= item_*
 
-private item_ ::= (property|link|header|comment|subheader|reference|template|bold|content|COMMENT|CRLF)
+private item_ ::= (property|link|header|comment|subheader|reference|italic|template|bold|content|COMMENT|CRLF)
 
 property ::= (KEY? SEPARATOR VALUE?) | KEY {methods=[]}

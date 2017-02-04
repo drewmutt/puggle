@@ -37,7 +37,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // property|link|header|comment|subheader|reference|template|bold|content|COMMENT|CRLF
+  // property|link|header|comment|subheader|reference|italic|template|bold|content|COMMENT|CRLF
   static boolean item_(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item_")) return false;
     boolean r;
@@ -48,6 +48,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, COMMENT);
     if (!r) r = consumeToken(b, SUBHEADER);
     if (!r) r = consumeToken(b, REFERENCE);
+    if (!r) r = consumeToken(b, ITALIC);
     if (!r) r = consumeToken(b, TEMPLATE);
     if (!r) r = consumeToken(b, BOLD);
     if (!r) r = consumeToken(b, CONTENT);

@@ -15,6 +15,7 @@ public interface MediaWikiTypes {
   IElementType CONTENT = new MediaWikiTokenType("content");
   IElementType CRLF = new MediaWikiTokenType("CRLF");
   IElementType HEADER = new MediaWikiTokenType("header");
+  IElementType ITALIC = new MediaWikiTokenType("italic");
   IElementType KEY = new MediaWikiTokenType("KEY");
   IElementType LINK = new MediaWikiTokenType("link");
   IElementType REFERENCE = new MediaWikiTokenType("reference");

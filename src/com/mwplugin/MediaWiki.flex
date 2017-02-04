@@ -31,13 +31,14 @@ WHITE_SPACE=[\ \n\t\f]
 <YYINITIAL> {
 
     "[[" . ~"]]"                                    { return MediaWikiTypes.LINK; }
-    "===" . ~"==="                                    { return MediaWikiTypes.HEADER; }
-    "==" . ~"=="                                    { return MediaWikiTypes.SUBHEADER; }
+    "==" . ~"=="                                    { return MediaWikiTypes.HEADER; }
+    "===" . ~"==="                                    { return MediaWikiTypes.SUBHEADER; }
     "{{"                                            { yybegin(template); return MediaWikiTypes.TEMPLATE; }
     "}}"                                            { return MediaWikiTypes.TEMPLATE; }
     "'''" . ~"'''"                                    { return MediaWikiTypes.BOLD; }
+    "''" . ~"''"                                    { return MediaWikiTypes.ITALIC; }
     "<!--" . ~"-->"                                    { return MediaWikiTypes.COMMENT; }
-    "<ref" [.|] ~"</ref>"                                    { return MediaWikiTypes.REFERENCE; }
+    "<ref" . ~"</ref>"                                    { return MediaWikiTypes.REFERENCE; }
 
     //{SEPARATOR}                                     { yybegin(WAITING_VALUE); return MediaWikiTypes.SEPARATOR; }
 }

@@ -65,12 +65,13 @@ class MediaWikiLexer implements FlexLexer {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\2\0\1\1\1\2\6\1\4\3\2\0\1\4\3\0"+
-    "\1\5\1\6\15\0\1\7\1\10\1\0\1\10\3\0"+
-    "\1\7\2\10\4\0\1\11\1\0\1\12\2\0\1\11"+
-    "\1\0\1\12\1\13\1\0\1\11\1\12\3\0\1\14";
+    "\1\5\1\6\20\0\1\7\1\10\1\0\1\10\1\11"+
+    "\1\0\1\11\2\0\1\7\2\10\1\0\1\10\2\11"+
+    "\3\0\1\10\1\0\1\12\1\13\3\0\1\12\1\0"+
+    "\1\13\1\0\1\14\1\0\1\12\1\13\2\0\1\15";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[65];
+    int [] result = new int[75];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -100,13 +101,14 @@ class MediaWikiLexer implements FlexLexer {
     "\0\42\0\377\0\u0110\0\u0121\0\42\0\42\0\u0132\0\u0143"+
     "\0\u0154\0\u0165\0\u0176\0\u0187\0\u0198\0\u01a9\0\u01ba\0\u01cb"+
     "\0\u01dc\0\u01ed\0\u01fe\0\u020f\0\u0220\0\u0231\0\u0242\0\u0253"+
-    "\0\u0264\0\u0275\0\42\0\42\0\u0286\0\u0297\0\u02a8\0\u02b9"+
-    "\0\u02ca\0\u02db\0\u02ec\0\u02fd\0\u030e\0\u031f\0\u0330\0\u0286"+
-    "\0\u0341\0\42\0\u0352\0\42\0\42\0\u0363\0\u0374\0\u0385"+
-    "\0\42";
+    "\0\u0264\0\u0275\0\u0286\0\u0297\0\u02a8\0\u02b9\0\u02ca\0\42"+
+    "\0\42\0\u02db\0\u02ec\0\u02fd\0\42\0\u030e\0\u031f\0\u0330"+
+    "\0\u0341\0\u0352\0\u0363\0\u0352\0\u0374\0\u0385\0\u0396\0\u03a7"+
+    "\0\u03b8\0\u02fd\0\u03c9\0\u030e\0\42\0\u03da\0\42\0\42"+
+    "\0\u03eb\0\u03fc\0\42";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[65];
+    int [] result = new int[75];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -134,25 +136,28 @@ class MediaWikiLexer implements FlexLexer {
     "\22\0\2\4\21\0\1\17\22\0\1\20\21\0\1\21"+
     "\21\0\1\13\21\0\1\22\22\0\1\23\2\0\1\24"+
     "\4\0\2\14\24\0\1\25\21\0\1\26\11\0\1\27"+
-    "\1\0\17\27\1\30\1\0\3\30\1\31\13\30\10\0"+
-    "\1\32\23\0\1\33\23\0\1\34\2\0\4\27\1\35"+
-    "\14\27\5\30\1\36\13\30\1\37\1\30\3\37\1\40"+
-    "\13\37\1\41\1\0\17\41\13\0\1\42\24\0\1\43"+
-    "\1\0\4\27\1\44\14\27\5\30\1\45\13\30\5\37"+
-    "\1\46\20\37\1\47\13\37\10\41\1\50\10\41\1\51"+
-    "\1\0\17\51\14\0\1\52\10\0\1\53\21\0\1\54"+
-    "\13\0\5\37\1\55\13\37\5\56\1\55\13\56\10\41"+
-    "\1\57\10\41\13\51\1\60\5\51\1\61\1\0\17\61"+
-    "\5\56\1\62\20\56\1\63\13\56\10\41\1\64\10\41"+
-    "\13\51\1\65\5\51\11\61\1\66\7\61\5\0\1\67"+
-    "\13\0\5\56\1\70\13\56\10\0\1\71\10\0\13\51"+
-    "\1\65\1\72\4\51\11\61\1\66\6\61\1\73\5\0"+
-    "\1\74\23\0\1\75\10\0\11\61\1\66\3\61\1\76"+
-    "\14\61\1\66\4\61\1\77\13\61\1\66\5\61\1\100"+
-    "\12\61\1\66\2\61\1\101\4\61";
+    "\1\0\17\27\1\30\1\0\3\30\1\31\13\30\1\32"+
+    "\1\0\6\32\1\33\10\32\13\0\1\34\23\0\1\35"+
+    "\2\0\4\27\1\36\14\27\5\30\1\37\13\30\1\40"+
+    "\1\30\3\40\1\41\13\40\10\32\1\42\10\32\1\43"+
+    "\1\32\6\43\1\44\10\43\13\0\1\45\24\0\1\46"+
+    "\1\0\4\27\1\47\14\27\5\30\1\50\13\30\5\40"+
+    "\1\51\20\40\1\52\13\40\10\32\1\53\10\32\10\43"+
+    "\1\54\20\43\1\55\10\43\1\56\1\0\17\56\1\57"+
+    "\1\0\17\57\4\0\1\60\21\0\1\61\13\0\5\40"+
+    "\1\62\13\40\5\63\1\64\13\63\10\0\1\65\10\0"+
+    "\10\43\1\66\10\43\10\67\1\66\10\67\13\56\1\70"+
+    "\5\56\11\57\1\71\7\57\5\63\1\72\20\63\1\73"+
+    "\20\63\1\74\13\63\10\67\1\75\20\67\1\76\10\67"+
+    "\13\56\1\77\5\56\11\57\1\71\6\57\1\100\5\0"+
+    "\1\101\13\0\5\63\1\102\13\63\10\0\1\103\10\0"+
+    "\10\67\1\104\10\67\13\56\1\77\1\105\4\56\11\57"+
+    "\1\71\3\57\1\106\3\57\5\0\1\107\23\0\1\110"+
+    "\10\0\11\57\1\71\4\57\1\111\13\57\1\71\5\57"+
+    "\1\112\12\57\1\71\2\57\1\113\4\57";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[918];
+    int [] result = new int[1037];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -191,12 +196,13 @@ class MediaWikiLexer implements FlexLexer {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\2\0\1\11\7\1\1\11\3\1\2\0\1\11\3\0"+
-    "\2\11\15\0\2\1\1\0\1\1\3\0\2\11\1\1"+
-    "\4\0\1\1\1\0\1\1\2\0\1\1\1\0\1\1"+
-    "\1\11\1\0\2\11\3\0\1\11";
+    "\2\11\20\0\2\1\1\0\2\1\1\0\1\1\2\0"+
+    "\2\11\1\1\1\0\1\1\1\11\1\1\3\0\1\1"+
+    "\1\0\2\1\3\0\1\1\1\0\1\1\1\0\1\11"+
+    "\1\0\2\11\2\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[65];
+    int [] result = new int[75];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -515,52 +521,56 @@ private int nestCount = 0;
           case 1: 
             { return MediaWikiTypes.CONTENT;
             }
-          case 13: break;
+          case 14: break;
           case 2: 
             { yybegin(YYINITIAL); return TokenType.WHITE_SPACE;
             }
-          case 14: break;
+          case 15: break;
           case 3: 
             { return MediaWikiTypes.TEMPLATE;
             }
-          case 15: break;
+          case 16: break;
           case 4: 
             { yybegin(template); return MediaWikiTypes.TEMPLATE;
             }
-          case 16: break;
+          case 17: break;
           case 5: 
             { ++nestCount; return MediaWikiTypes.TEMPLATE;
             }
-          case 17: break;
+          case 18: break;
           case 6: 
             { if (nestCount > 0) --nestCount;
                        else yybegin(YYINITIAL); return MediaWikiTypes.TEMPLATE;
             }
-          case 18: break;
+          case 19: break;
           case 7: 
             { return MediaWikiTypes.LINK;
             }
-          case 19: break;
-          case 8: 
-            { return MediaWikiTypes.SUBHEADER;
-            }
           case 20: break;
-          case 9: 
+          case 8: 
             { return MediaWikiTypes.HEADER;
             }
           case 21: break;
-          case 10: 
-            { return MediaWikiTypes.BOLD;
+          case 9: 
+            { return MediaWikiTypes.ITALIC;
             }
           case 22: break;
-          case 11: 
-            { return MediaWikiTypes.COMMENT;
+          case 10: 
+            { return MediaWikiTypes.SUBHEADER;
             }
           case 23: break;
-          case 12: 
-            { return MediaWikiTypes.REFERENCE;
+          case 11: 
+            { return MediaWikiTypes.BOLD;
             }
           case 24: break;
+          case 12: 
+            { return MediaWikiTypes.COMMENT;
+            }
+          case 25: break;
+          case 13: 
+            { return MediaWikiTypes.REFERENCE;
+            }
+          case 26: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }
