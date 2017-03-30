@@ -1,0 +1,73 @@
+<component name="libraryTable">
+  <library name="aspectjrt-1.8.10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-beanutils-1.9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections4-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-configuration-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cssparser-0.9.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/htmlcleaner-2.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcl-over-slf4j-1.7.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom2-2.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom-1.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/log4j-over-slf4j-1.7.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-classic-1.1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-core-1.1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sac-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stax-utils-20070216.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/validation-api-1.0.0.GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xercesImpl-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xml-apis-1.4.01.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlpull-1.1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xpp3_min-1.1.4c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xstream-1.4.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-cache-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-component-observation-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-configuration-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-context-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-environment-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-filter-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-filter-xml-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-job-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-legacy-component-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-legacy-component-default-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-legacy-configuration-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-logging-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-observation-api-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-properties-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-script-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-stability-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-text-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-commons-xml-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-box-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-comment-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-footnotes-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-html-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-id-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-message-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-macro-toc-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-annotatedxhtml-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-plain-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-wikimodel-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-xdomxmlcurrent-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-xhtml-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-xwiki20-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-syntax-xwiki21-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-transformation-icon-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-transformation-macro-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-transformation-wikiword-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-wikimodel-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwiki-rendering-xml-9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/xwiki-rendering-legacy-api-9.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

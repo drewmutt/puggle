@@ -26,7 +26,7 @@ public class MediaWikiFile extends PsiFileBase
 
 	@Override
 	public String toString() {
-		return "Simple File";
+		return "MediaWiki";
 	}
 
 	@Override

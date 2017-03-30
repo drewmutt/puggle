@@ -2,10 +2,9 @@
 
 package com.mwplugin;
 
-import com.intellij.lexer.FlexLexer;
+import com.intellij.lexer.*;
 import com.intellij.psi.tree.IElementType;
-import com.mwplugin.psi.MediaWikiTypes;
-import com.intellij.psi.TokenType;
+import static com.mwplugin.psi.MediaWikiTypes.*;
 
 
 /**
@@ -13,7 +12,7 @@ import com.intellij.psi.TokenType;
  * <a href="http://www.jflex.de/">JFlex</a> 1.7.0-SNAPSHOT
  * from the specification file <tt>MediaWiki.flex</tt>
  */
-class MediaWikiLexer implements FlexLexer {
+public class MediaWikiLexer implements FlexLexer {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -23,7 +22,6 @@ class MediaWikiLexer implements FlexLexer {
 
   /** lexical states */
   public static final int YYINITIAL = 0;
-  public static final int template = 2;
 
   /**
    * ZZ_LEXSTATE[l] is the state in the DFA for the lexical state l
@@ -32,31 +30,32 @@ class MediaWikiLexer implements FlexLexer {
    * l is of the form l = 2*k, k a non negative integer
    */
   private static final int ZZ_LEXSTATE[] = { 
-     0,  0,  1, 1
+     0, 0
   };
 
   /** 
    * Translates characters to character classes
-   * Chosen bits are [9, 6, 6]
-   * Total runtime size is 1568 bytes
+   * Chosen bits are [7, 7, 7]
+   * Total runtime size is 1928 bytes
    */
   public static int ZZ_CMAP(int ch) {
-    return ZZ_CMAP_A[(ZZ_CMAP_Y[ZZ_CMAP_Z[ch>>12]|((ch>>6)&0x3f)]<<6)|(ch&0x3f)];
+    return ZZ_CMAP_A[(ZZ_CMAP_Y[ZZ_CMAP_Z[ch>>14]|((ch>>7)&0x7f)]<<7)|(ch&0x7f)];
   }
 
-  /* The ZZ_CMAP_Z table has 272 entries */
+  /* The ZZ_CMAP_Z table has 68 entries */
   static final char ZZ_CMAP_Z[] = zzUnpackCMap(
-    "\1\0\1\100\1\200\u010d\100");
+    "\1\0\103\200");
 
-  /* The ZZ_CMAP_Y table has 192 entries */
+  /* The ZZ_CMAP_Y table has 256 entries */
   static final char ZZ_CMAP_Y[] = zzUnpackCMap(
-    "\1\0\1\1\1\2\175\3\1\4\77\3");
+    "\1\0\1\1\53\2\1\3\22\2\1\4\37\2\1\3\237\2");
 
-  /* The ZZ_CMAP_A table has 320 entries */
+  /* The ZZ_CMAP_A table has 640 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\2\4\1\22\0\1\2\1\12\5\0\1\10\5\0\1\13\1\0\1\20\14\0\1\11\1\5\1\14"+
-    "\34\0\1\3\1\0\1\4\7\0\1\16\1\17\13\0\1\15\10\0\1\6\1\0\1\7\7\0\1\1\242\0\2"+
-    "\1\26\0");
+    "\11\0\1\1\1\2\2\1\1\3\22\0\1\1\16\0\1\12\2\0\1\27\1\30\10\0\1\5\1\0\1\11\34"+
+    "\0\1\13\1\0\1\4\3\0\1\15\1\26\1\17\1\16\1\7\1\10\1\0\1\14\1\33\1\0\1\35\1"+
+    "\32\1\21\1\22\1\20\1\31\1\0\1\6\1\24\1\23\1\25\2\0\1\34\14\0\1\1\32\0\1\1"+
+    "\337\0\1\1\177\0\13\1\35\0\2\1\5\0\1\1\57\0\1\1\40\0");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -64,14 +63,14 @@ class MediaWikiLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\2\0\1\1\1\2\6\1\4\3\2\0\1\4\3\0"+
-    "\1\5\1\6\20\0\1\7\1\10\1\0\1\10\1\11"+
-    "\1\0\1\11\2\0\1\7\2\10\1\0\1\10\2\11"+
-    "\3\0\1\10\1\0\1\12\1\13\3\0\1\12\1\0"+
-    "\1\13\1\0\1\14\1\0\1\12\1\13\2\0\1\15";
+    "\1\0\1\1\2\2\1\3\1\4\1\1\1\4\1\5"+
+    "\6\1\1\6\2\0\7\1\2\0\7\1\2\0\5\1"+
+    "\1\7\1\1\1\10\1\0\6\1\1\11\1\1\1\12"+
+    "\3\1\1\13\1\1\1\14\3\1\1\15\2\1\1\16"+
+    "\1\1\1\17\1\20\1\1\1\21";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[75];
+    int [] result = new int[72];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -96,19 +95,18 @@ class MediaWikiLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\21\0\42\0\63\0\104\0\125\0\146\0\167"+
-    "\0\210\0\231\0\42\0\252\0\273\0\314\0\335\0\356"+
-    "\0\42\0\377\0\u0110\0\u0121\0\42\0\42\0\u0132\0\u0143"+
-    "\0\u0154\0\u0165\0\u0176\0\u0187\0\u0198\0\u01a9\0\u01ba\0\u01cb"+
-    "\0\u01dc\0\u01ed\0\u01fe\0\u020f\0\u0220\0\u0231\0\u0242\0\u0253"+
-    "\0\u0264\0\u0275\0\u0286\0\u0297\0\u02a8\0\u02b9\0\u02ca\0\42"+
-    "\0\42\0\u02db\0\u02ec\0\u02fd\0\42\0\u030e\0\u031f\0\u0330"+
-    "\0\u0341\0\u0352\0\u0363\0\u0352\0\u0374\0\u0385\0\u0396\0\u03a7"+
-    "\0\u03b8\0\u02fd\0\u03c9\0\u030e\0\42\0\u03da\0\42\0\42"+
-    "\0\u03eb\0\u03fc\0\42";
+    "\0\0\0\36\0\36\0\74\0\132\0\170\0\226\0\132"+
+    "\0\132\0\264\0\322\0\360\0\u010e\0\u012c\0\u014a\0\36"+
+    "\0\u0168\0\u0186\0\u01a4\0\u01c2\0\u01e0\0\u01fe\0\u021c\0\u023a"+
+    "\0\u0258\0\u0276\0\u0294\0\u02b2\0\u02d0\0\u02ee\0\u030c\0\u032a"+
+    "\0\u0348\0\u0366\0\u0384\0\u03a2\0\u03c0\0\u03de\0\u03fc\0\u041a"+
+    "\0\u0438\0\36\0\u0456\0\132\0\u0474\0\u0492\0\u04b0\0\u04ce"+
+    "\0\u04ec\0\u050a\0\u0528\0\132\0\u0546\0\36\0\u0564\0\u0582"+
+    "\0\u05a0\0\36\0\u05be\0\36\0\u05dc\0\u05fa\0\u0618\0\36"+
+    "\0\u0636\0\u0654\0\u0672\0\u0690\0\36\0\36\0\u06ae\0\36";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[75];
+    int [] result = new int[72];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -131,33 +129,63 @@ class MediaWikiLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\3\2\4\1\5\1\3\1\6\1\7\1\10\1\11"+
-    "\1\12\7\3\1\13\2\14\3\13\1\15\1\16\11\13"+
-    "\22\0\2\4\21\0\1\17\22\0\1\20\21\0\1\21"+
-    "\21\0\1\13\21\0\1\22\22\0\1\23\2\0\1\24"+
-    "\4\0\2\14\24\0\1\25\21\0\1\26\11\0\1\27"+
-    "\1\0\17\27\1\30\1\0\3\30\1\31\13\30\1\32"+
-    "\1\0\6\32\1\33\10\32\13\0\1\34\23\0\1\35"+
-    "\2\0\4\27\1\36\14\27\5\30\1\37\13\30\1\40"+
-    "\1\30\3\40\1\41\13\40\10\32\1\42\10\32\1\43"+
-    "\1\32\6\43\1\44\10\43\13\0\1\45\24\0\1\46"+
-    "\1\0\4\27\1\47\14\27\5\30\1\50\13\30\5\40"+
-    "\1\51\20\40\1\52\13\40\10\32\1\53\10\32\10\43"+
-    "\1\54\20\43\1\55\10\43\1\56\1\0\17\56\1\57"+
-    "\1\0\17\57\4\0\1\60\21\0\1\61\13\0\5\40"+
-    "\1\62\13\40\5\63\1\64\13\63\10\0\1\65\10\0"+
-    "\10\43\1\66\10\43\10\67\1\66\10\67\13\56\1\70"+
-    "\5\56\11\57\1\71\7\57\5\63\1\72\20\63\1\73"+
-    "\20\63\1\74\13\63\10\67\1\75\20\67\1\76\10\67"+
-    "\13\56\1\77\5\56\11\57\1\71\6\57\1\100\5\0"+
-    "\1\101\13\0\5\63\1\102\13\63\10\0\1\103\10\0"+
-    "\10\67\1\104\10\67\13\56\1\77\1\105\4\56\11\57"+
-    "\1\71\3\57\1\106\3\57\5\0\1\107\23\0\1\110"+
-    "\10\0\11\57\1\71\4\57\1\111\13\57\1\71\5\57"+
-    "\1\112\12\57\1\71\2\57\1\113\4\57";
+    "\1\2\2\3\1\4\1\5\1\6\1\2\1\7\1\2"+
+    "\1\10\1\2\1\11\1\12\2\2\1\13\3\2\1\14"+
+    "\1\15\1\2\1\16\4\2\1\17\6\2\2\0\3\2"+
+    "\1\0\1\2\1\0\24\2\1\20\1\2\2\0\3\2"+
+    "\1\0\1\2\1\0\22\2\44\0\1\21\3\0\1\22"+
+    "\23\0\4\2\2\0\3\2\1\0\1\2\1\0\20\2"+
+    "\1\23\5\2\2\0\1\2\1\24\1\2\1\0\1\2"+
+    "\1\0\26\2\2\0\3\2\1\0\1\2\1\0\4\2"+
+    "\1\25\21\2\2\0\1\2\1\26\1\2\1\0\1\2"+
+    "\1\0\26\2\2\0\3\2\1\0\1\2\1\0\11\2"+
+    "\1\27\14\2\2\0\3\2\1\0\1\2\1\0\4\2"+
+    "\1\30\21\2\2\0\3\2\1\0\1\2\1\0\7\2"+
+    "\1\31\12\2\7\0\1\32\34\0\1\33\27\0\4\2"+
+    "\2\0\3\2\1\0\1\2\1\0\7\2\1\34\16\2"+
+    "\2\0\3\2\1\0\1\2\1\0\1\2\1\35\24\2"+
+    "\2\0\3\2\1\0\1\2\1\0\5\2\1\36\20\2"+
+    "\2\0\3\2\1\0\1\2\1\0\5\2\1\37\20\2"+
+    "\2\0\3\2\1\0\1\2\1\0\12\2\1\40\13\2"+
+    "\2\0\3\2\1\0\1\2\1\0\16\2\1\41\7\2"+
+    "\2\0\3\2\1\0\1\2\1\0\1\2\1\42\20\2"+
+    "\10\0\1\43\34\0\1\44\26\0\4\2\2\0\1\2"+
+    "\1\45\1\2\1\0\1\2\1\0\26\2\2\0\3\2"+
+    "\1\0\1\2\1\0\2\2\1\46\23\2\2\0\3\2"+
+    "\1\0\1\2\1\0\5\2\1\47\20\2\2\0\3\2"+
+    "\1\0\1\2\1\0\15\2\1\50\10\2\2\0\3\2"+
+    "\1\0\1\2\1\0\1\51\25\2\2\0\3\2\1\0"+
+    "\1\2\1\0\2\2\1\52\23\2\2\0\3\2\1\0"+
+    "\1\2\1\0\16\2\1\53\3\2\11\0\1\54\34\0"+
+    "\1\55\25\0\4\2\2\0\1\56\2\2\1\0\1\2"+
+    "\1\0\26\2\2\0\1\2\1\57\1\2\1\0\1\2"+
+    "\1\0\26\2\2\0\1\2\1\60\1\2\1\0\1\2"+
+    "\1\0\26\2\2\0\3\2\1\0\1\2\1\0\16\2"+
+    "\1\61\7\2\2\0\1\2\1\62\1\2\1\0\1\2"+
+    "\1\0\26\2\2\0\3\2\1\0\1\2\1\0\17\2"+
+    "\1\63\2\2\11\0\1\64\24\0\4\2\2\0\3\2"+
+    "\1\0\1\2\1\0\6\2\1\65\17\2\2\0\1\66"+
+    "\2\2\1\0\1\2\1\0\26\2\2\0\3\2\1\0"+
+    "\1\2\1\0\6\2\1\67\17\2\2\0\3\2\1\0"+
+    "\1\2\1\0\1\2\1\70\24\2\2\0\3\2\1\0"+
+    "\1\2\1\0\1\2\1\71\24\2\2\0\3\2\1\0"+
+    "\1\2\1\0\3\2\1\72\22\2\2\0\3\2\1\0"+
+    "\1\2\1\0\1\2\1\73\24\2\2\0\3\2\1\0"+
+    "\1\2\1\0\7\2\1\74\16\2\2\0\3\2\1\0"+
+    "\1\2\1\0\7\2\1\75\16\2\2\0\3\2\1\0"+
+    "\1\2\1\0\2\2\1\76\23\2\2\0\3\2\1\0"+
+    "\1\2\1\0\16\2\1\77\7\2\2\0\1\2\1\100"+
+    "\1\2\1\0\1\2\1\0\26\2\2\0\1\2\1\101"+
+    "\1\2\1\0\1\2\1\0\26\2\2\0\3\2\1\0"+
+    "\1\2\1\0\16\2\1\102\7\2\2\0\1\103\2\2"+
+    "\1\0\1\2\1\0\26\2\2\0\3\2\1\0\1\2"+
+    "\1\0\17\2\1\104\6\2\2\0\3\2\1\0\1\2"+
+    "\1\0\13\2\1\105\1\106\11\2\2\0\3\2\1\0"+
+    "\1\2\1\0\6\2\1\107\17\2\2\0\3\2\1\0"+
+    "\1\2\1\0\21\2\1\110";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[1037];
+    int [] result = new int[1740];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -195,14 +223,12 @@ class MediaWikiLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\2\0\1\11\7\1\1\11\3\1\2\0\1\11\3\0"+
-    "\2\11\20\0\2\1\1\0\2\1\1\0\1\1\2\0"+
-    "\2\11\1\1\1\0\1\1\1\11\1\1\3\0\1\1"+
-    "\1\0\2\1\3\0\1\1\1\0\1\1\1\0\1\11"+
-    "\1\0\2\11\2\0\1\11";
+    "\1\0\3\1\1\11\2\1\2\11\7\1\2\0\7\1"+
+    "\2\0\7\1\2\0\7\1\1\11\1\0\6\1\1\11"+
+    "\24\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[75];
+    int [] result = new int[72];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -258,7 +284,9 @@ class MediaWikiLexer implements FlexLexer {
   private boolean zzEOFDone;
 
   /* user code: */
-private int nestCount = 0;
+  public MediaWikiLexer() {
+    this((java.io.Reader)null);
+  }
 
 
   /**
@@ -266,7 +294,7 @@ private int nestCount = 0;
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  MediaWikiLexer(java.io.Reader in) {
+  public MediaWikiLexer(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -416,18 +444,6 @@ private int nestCount = 0;
 
 
   /**
-   * Contains user EOF-code, which will be executed exactly once,
-   * when the end of file is reached
-   */
-  private void zzDoEOF() {
-    if (!zzEOFDone) {
-      zzEOFDone = true;
-    
-    }
-  }
-
-
-  /**
    * Resumes scanning until the next regular expression is matched,
    * the end of input is encountered or an I/O-Error occurs.
    *
@@ -513,64 +529,78 @@ private int nestCount = 0;
 
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
-        zzDoEOF();
         return null;
       }
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { return MediaWikiTypes.CONTENT;
-            }
-          case 14: break;
-          case 2: 
-            { yybegin(YYINITIAL); return TokenType.WHITE_SPACE;
-            }
-          case 15: break;
-          case 3: 
-            { return MediaWikiTypes.TEMPLATE;
-            }
-          case 16: break;
-          case 4: 
-            { yybegin(template); return MediaWikiTypes.TEMPLATE;
-            }
-          case 17: break;
-          case 5: 
-            { ++nestCount; return MediaWikiTypes.TEMPLATE;
+            { return CONTENT;
             }
           case 18: break;
-          case 6: 
-            { if (nestCount > 0) --nestCount;
-                       else yybegin(YYINITIAL); return MediaWikiTypes.TEMPLATE;
+          case 2: 
+            { return com.intellij.psi.TokenType.WHITE_SPACE;
             }
           case 19: break;
-          case 7: 
-            { return MediaWikiTypes.LINK;
+          case 3: 
+            { return CLOSEBRACKET;
             }
           case 20: break;
-          case 8: 
-            { return MediaWikiTypes.HEADER;
+          case 4: 
+            { return com.intellij.psi.TokenType.BAD_CHARACTER;
             }
           case 21: break;
-          case 9: 
-            { return MediaWikiTypes.ITALIC;
+          case 5: 
+            { return OPENBRACKET;
             }
           case 22: break;
-          case 10: 
-            { return MediaWikiTypes.SUBHEADER;
+          case 6: 
+            { return CRLF;
             }
           case 23: break;
-          case 11: 
-            { return MediaWikiTypes.BOLD;
+          case 7: 
+            { return BOLD;
             }
           case 24: break;
-          case 12: 
-            { return MediaWikiTypes.COMMENT;
+          case 8: 
+            { return REFSTART;
             }
           case 25: break;
-          case 13: 
-            { return MediaWikiTypes.REFERENCE;
+          case 9: 
+            { return REFEND;
             }
           case 26: break;
+          case 10: 
+            { return HEADER;
+            }
+          case 27: break;
+          case 11: 
+            { return ITALIC;
+            }
+          case 28: break;
+          case 12: 
+            { return COMMENT;
+            }
+          case 29: break;
+          case 13: 
+            { return TEMPLATE;
+            }
+          case 30: break;
+          case 14: 
+            { return SUBHEADER;
+            }
+          case 31: break;
+          case 15: 
+            { return SUBHEADER2;
+            }
+          case 32: break;
+          case 16: 
+            { return SUBHEADER3;
+            }
+          case 33: break;
+          case 17: 
+            { return EXTERNALLINK;
+            }
+          case 34: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

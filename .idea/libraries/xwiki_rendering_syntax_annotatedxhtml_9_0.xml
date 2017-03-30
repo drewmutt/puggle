@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="xwiki-rendering-syntax-annotatedxhtml-9.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib-old/xwiki-rendering-syntax-annotatedxhtml-9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib-old/xwiki-rendering-syntax-mediawiki-7.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

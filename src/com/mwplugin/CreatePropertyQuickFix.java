@@ -1,6 +1,10 @@
 package com.mwplugin;
 
 import com.intellij.codeInsight.intention.impl.BaseIntentionAction;
+import com.intellij.ide.browsers.WebBrowser;
+import com.intellij.ide.browsers.WebBrowserManager;
+import com.intellij.ide.browsers.WebBrowserReferenceConverter;
+import com.intellij.ide.browsers.WebBrowserService;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.Result;
@@ -21,7 +25,6 @@ import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.indexing.FileBasedIndex;
 import com.mwplugin.psi.MediaWikiElementFactory;
 import com.mwplugin.psi.MediaWikiFile;
-import com.mwplugin.psi.MediaWikiProperty;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
@@ -102,9 +105,9 @@ class CreatePropertyQuickFix extends BaseIntentionAction
 					MediaWikiFile.getNode().addChild(MediaWikiElementFactory.createCRLF(project).getNode());
 				}
 				// IMPORTANT: change spaces to escaped spaces or the new node will only have the first word for the key
-				MediaWikiProperty property = MediaWikiElementFactory.createProperty(project, key.replaceAll(" ", "\\\\ "), "");
-				MediaWikiFile.getNode().addChild(property.getNode());
-				((Navigatable) property.getLastChild().getNavigationElement()).navigate(true);
+//				MediaWikiProperty property = MediaWikiElementFactory.createProperty(project, key.replaceAll(" ", "\\\\ "), "");
+//				MediaWikiFile.getNode().addChild(property.getNode());
+//				((Navigatable) property.getLastChild().getNavigationElement()).navigate(true);
 				FileEditorManager.getInstance(project).getSelectedTextEditor().getCaretModel().moveCaretRelatively(2, 0, false, false, false);
 
 				// almost the same thing but manipulating plain text of the document instead of PSI

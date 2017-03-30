@@ -8,27 +8,37 @@ import com.mwplugin.psi.impl.*;
 
 public interface MediaWikiTypes {
 
-  IElementType PROPERTY = new MediaWikiElementType("PROPERTY");
+  IElementType LINK = new MediaWikiElementType("LINK");
+  IElementType REFERENCE = new MediaWikiElementType("REFERENCE");
+  IElementType URL = new MediaWikiElementType("URL");
 
   IElementType BOLD = new MediaWikiTokenType("bold");
+  IElementType CLOSEBRACKET = new MediaWikiTokenType("]");
   IElementType COMMENT = new MediaWikiTokenType("COMMENT");
   IElementType CONTENT = new MediaWikiTokenType("content");
   IElementType CRLF = new MediaWikiTokenType("CRLF");
+  IElementType EXTERNALLINK = new MediaWikiTokenType("externallink");
   IElementType HEADER = new MediaWikiTokenType("header");
   IElementType ITALIC = new MediaWikiTokenType("italic");
-  IElementType KEY = new MediaWikiTokenType("KEY");
-  IElementType LINK = new MediaWikiTokenType("link");
-  IElementType REFERENCE = new MediaWikiTokenType("reference");
-  IElementType SEPARATOR = new MediaWikiTokenType("SEPARATOR");
+  IElementType OPENBRACKET = new MediaWikiTokenType("[");
+  IElementType REFEND = new MediaWikiTokenType("</ref>");
+  IElementType REFSTART = new MediaWikiTokenType("<ref>");
   IElementType SUBHEADER = new MediaWikiTokenType("subheader");
+  IElementType SUBHEADER2 = new MediaWikiTokenType("subheader2");
+  IElementType SUBHEADER3 = new MediaWikiTokenType("subheader3");
   IElementType TEMPLATE = new MediaWikiTokenType("template");
-  IElementType VALUE = new MediaWikiTokenType("VALUE");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == PROPERTY) {
-        return new MediaWikiPropertyImpl(node);
+       if (type == LINK) {
+        return new MediaWikiLinkImpl(node);
+      }
+      else if (type == REFERENCE) {
+        return new MediaWikiReferenceImpl(node);
+      }
+      else if (type == URL) {
+        return new MediaWikiUrlImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

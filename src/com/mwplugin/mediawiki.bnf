@@ -1,3 +1,4 @@
+
 {
   parserClass="com.mwplugin.parser.MediaWikiParser"
 
@@ -13,11 +14,94 @@
   tokenTypeClass="com.mwplugin.psi.MediaWikiTokenType"
 
   psiImplUtilClass="com.mwplugin.psi.impl.MediaWikiPsiImplUtil"
+
+   tokens=[
+   refstart = '<ref>'
+   refend = '</ref>'
+   openbracket = '['
+   closebracket = ']'
+   equals2 = '=='
+   equals3 = '==='
+   equals4 = '===='
+   equals5 = '====='
+    CRLF='regexp:\R'
+    content='regexp:[^><\[\]\=]+'
+//   string="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+//   reference_token = 'regexp:<ref>[^<]</ref>'
+//      SEMI=';'
+//      EQ='='
+//      LP='('
+//      RP=')'
+//
+//      space='regexp:\s+'
+//      comment='regexp://.*'
+//      number='regexp:\d+(\.\d*)?'
+//      id='regexp:\p{Alpha}\w*'
+//      string="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+//
+//      op_1='+'
+    ]
+//
+//    name(".*expr")='expression'
+//    extends(".*expr")=expr
+}
+
+//root ::= ref *
+//private root_item ::= !<<eof>> property ';'// {pin=1 recoverWhile=property_recover}
+//
+//property ::= id '=' expr  {pin=2}
+////private property_recover ::= !(';' | id '=')
+//
+//private factor ::= primary_inner *
+//expr ::= factor plus_expr *
+//left plus_expr ::= plus_op factor
+//private plus_op ::= '+'
+//private primary_inner ::= literal_expr
+//literal_expr ::= number | float
+//
+//ref ::= '<ref>'id'</ref>'
+
+
+item_ ::= (
+link
+|header
+|comment
+|subheader
+|subheader2
+|subheader3
+|reference
+|template
+|bold
+|italic
+|content
+|COMMENT
+|CRLF
+|externallink)*
+
+
+//private recover_property ::= !(KEY|SEPARATOR|COMMENT)
+
+
+link ::= ('[[' url ']]')  {
+    pin=1
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[setName getNameIdentifier getName]
+}
+
+header ::= ('==' content '==')  {
+    pin=1
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[setName getNameIdentifier getName]
 }
 
 
-simpleFile ::= item_*
+reference ::= (refstart url refend) {
+    pin=1
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[setName getURL setURL getPresentation getNameIdentifier getName]
+}
 
-private item_ ::= (property|link|header|comment|subheader|reference|italic|template|bold|content|COMMENT|CRLF)
-
-property ::= (KEY? SEPARATOR VALUE?) | KEY {methods=[]}
+url ::= content

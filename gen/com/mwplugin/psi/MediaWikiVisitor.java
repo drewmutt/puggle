@@ -7,8 +7,20 @@ import com.intellij.psi.PsiElement;
 
 public class MediaWikiVisitor extends PsiElementVisitor {
 
-  public void visitProperty(@NotNull MediaWikiProperty o) {
+  public void visitLink(@NotNull MediaWikiLink o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitReference(@NotNull MediaWikiReference o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitUrl(@NotNull MediaWikiUrl o) {
     visitPsiElement(o);
+  }
+
+  public void visitIMediaWikiNamedElement(@NotNull IMediaWikiNamedElement o) {
+    visitElement(o);
   }
 
   public void visitPsiElement(@NotNull PsiElement o) {

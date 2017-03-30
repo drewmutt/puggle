@@ -1,0 +1,99 @@
+// ------------------------------------------------------------------
+// NOTICE file containing copyrights,
+// in this case for XWiki Rendering - Standalone Distribution
+// ------------------------------------------------------------------
+
+XWiki Rendering - Standalone Distribution
+Copyright 2004-2017 XWiki
+
+This product includes/uses software developed by 'an unknown organization'
+  - javax.inject (http://code.google.com/p/atinject/)
+  - Bean Validation API
+  - StAX Utilities Project (http://java.net/projects/stax-utils/)
+  - CSS Parser (http://cssparser.sourceforge.net/)
+  - HtmlCleaner (http://htmlcleaner.sourceforge.net/)
+  - AspectJ runtime (http://www.aspectj.org)
+  - Xerces2-j (https://xerces.apache.org/xerces2-j/)
+  - XML Commons External Components XML APIs (http://xml.apache.org/commons/components/external/)
+  - XML Pull Parsing API (http://www.xmlpull.org)
+
+This product includes/uses software developed by 'Extreme! Lab, Indiana University' (http://www.extreme.indiana.edu/)
+  - MXP1: Xml Pull Parser 3rd Edition (XPP3) (http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/)
+
+This product includes/uses software developed by 'JDOM' (http://www.jdom.org)
+  - JDOM (http://www.jdom.org)
+  - JDOM (http://www.jdom.org)
+
+This product includes/uses software developed by 'MetaStuff Ltd.' (http://sourceforge.net/projects/dom4j)
+  - dom4j (http://dom4j.org)
+
+This product includes/uses software developed by 'QOS.ch' (http://www.qos.ch)
+  - Logback Classic Module (http://logback.qos.ch/logback-classic)
+  - Logback Core Module (http://logback.qos.ch/logback-core)
+  - JCL 1.1.1 implemented over SLF4J (http://www.slf4j.org)
+  - Log4j Implemented Over SLF4J (http://www.slf4j.org)
+  - SLF4J API Module (http://www.slf4j.org)
+
+This product includes/uses software developed by 'The Apache Software Foundation' (http://www.apache.org/)
+  - Apache Commons Collections (http://commons.apache.org/collections/)
+  - Apache Commons Configuration (http://commons.apache.org/configuration/)
+  - Apache Commons IO (http://commons.apache.org/proper/commons-io/)
+  - Commons Lang (http://commons.apache.org/lang/)
+  - Apache Commons Collections (http://commons.apache.org/proper/commons-collections/)
+
+This product includes/uses software developed by 'The Apache Software Foundation' (https://www.apache.org/)
+  - Apache Commons BeanUtils (https://commons.apache.org/proper/commons-beanutils/)
+  - Apache Commons Lang (http://commons.apache.org/proper/commons-lang/)
+
+This product includes/uses software developed by 'World Wide Web Consortium' (http://www.w3.org/)
+  - Simple API for CSS (http://www.w3.org/Style/CSS/SAC/)
+
+This product includes/uses software developed by 'XStream' (http://x-stream.github.io)
+  - XStream Core (http://x-stream.github.io/xstream)
+
+This product includes/uses software developed by 'XWiki' (http://xwiki.org/)
+  - XWiki Commons - Cache - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-cache-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-cache/xwiki-commons-cache-api)
+  - XWiki Commons - Component - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-component-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api)
+  - XWiki Commons - Component - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-component-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api)
+  - XWiki Commons - Component - Default Implementation (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-component-default:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-default)
+  - XWiki Commons - Component - Observation (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-component-observation:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-observation)
+  - XWiki Commons - Configuration - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-configuration-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-configuration/xwiki-commons-configuration-api)
+  - XWiki Commons - Context (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-context:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-context)
+  - XWiki Commons - Environment - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-environment-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-environment/xwiki-commons-environment-api)
+  - XWiki Commons - Filter - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-filter-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-api)
+  - XWiki Commons - Filter - XML (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-filter-xml:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml)
+  - XWiki Commons - Job (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-job:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-job)
+  - XWiki Commons - Legacy - Component - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-legacy-component-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-legacy/xwiki-commons-legacy-component/xwiki-commons-legacy-component-api)
+  - XWiki Commons - Legacy - Component - Default Implementation (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-legacy-component-default:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-legacy/xwiki-commons-legacy-component/xwiki-commons-legacy-component-default)
+  - XWiki Commons - Legacy - Configuration (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-legacy-configuration:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-legacy/xwiki-commons-legacy-configuration)
+  - XWiki Commons - Logging - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-logging-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-logging/xwiki-commons-logging-api)
+  - XWiki Commons - Observation - API (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-observation-api:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-observation/xwiki-commons-observation-api)
+  - XWiki Commons - Properties (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-properties:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-properties)
+  - XWiki Commons - Script (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-script:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-script)
+  - XWiki Commons - Stability (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-stability:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-stability)
+  - XWiki Commons - Text (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-text:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-text)
+  - XWiki Commons - XML (http://extensions.xwiki.org?id=org.xwiki.commons:xwiki-commons-xml:9.0:::/xwiki-commons-pom/xwiki-commons-core/xwiki-commons-xml)
+  - XWiki Rendering - Api (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-api:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-api)
+  - XWiki Rendering - Api (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-api:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-api)
+  - XWiki Rendering - Legacy - API (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-legacy-api:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-legacy/xwiki-rendering-legacy-api)
+  - XWiki Rendering - Macro - Box (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-box:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-box)
+  - XWiki Rendering - Macro - Comment (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-comment:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-comment)
+  - XWiki Rendering - Macro - Footnotes (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-footnotes:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-footnotes)
+  - XWiki Rendering - Macro - HTML (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-html:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-html)
+  - XWiki Rendering - Macro - Id (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-id:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-id)
+  - XWiki Rendering - Macro - Message (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-message:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-message)
+  - XWiki Rendering - Macro - Toc (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-macro-toc:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-macros/xwiki-rendering-macro-toc)
+  - XWiki Rendering - Syntax - Annotated XHTML (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-annotatedxhtml:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-annotatedxhtml)
+  - XWiki Rendering - Syntax - Plain (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-plain:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-plain)
+  - XWiki Rendering - Syntax - WikiModel Bridge (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-wikimodel:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-wikimodel)
+  - XWiki Rendering - Syntax - XDOM+XML Current (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-xdomxmlcurrent:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-xdomxmlcurrent)
+  - XWiki Rendering - Syntax - XHTML (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-xhtml:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-xhtml)
+  - XWiki Rendering - Syntax - XWiki 2.0 (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-xwiki20:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-xwiki20)
+  - XWiki Rendering - Syntax - XWiki 2.1 (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-syntax-xwiki21:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-syntaxes/xwiki-rendering-syntax-xwiki21)
+  - XWiki Rendering - Transformation - Icon (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-transformation-icon:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-transformations/xwiki-rendering-transformation-icon)
+  - XWiki Rendering - Transformation - Macro (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-transformation-macro:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-transformations/xwiki-rendering-transformation-macro)
+  - XWiki Rendering - Transformation - WikiWord (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-transformation-wikiword:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-transformations/xwiki-rendering-transformation-wikiword)
+  - XWiki Rendering - WikiModel (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-wikimodel:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-wikimodel)
+  - XWiki Rendering - XML (http://extensions.xwiki.org?id=org.xwiki.rendering:xwiki-rendering-xml:9.0:::/xwiki-commons-pom/xwiki-rendering/xwiki-rendering-xml)
+
+

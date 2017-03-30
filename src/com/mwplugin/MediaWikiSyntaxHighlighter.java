@@ -1,5 +1,6 @@
 package com.mwplugin;
 
+import com.intellij.ide.highlighter.JavaHighlightingColors;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.*;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
@@ -17,8 +18,7 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
 
 public class MediaWikiSyntaxHighlighter extends SyntaxHighlighterBase
 {
-
-	private HashMap<String, TextAttributesKey[]> keysMap;
+	static HashMap<String, TextAttributesKey[]> keysMap;
 	void addNewKey(IElementType type, TextAttributesKey textKey)
 	{
 		String name = type.toString();
@@ -28,31 +28,36 @@ public class MediaWikiSyntaxHighlighter extends SyntaxHighlighterBase
 		keysMap.put(type.toString(), keys);
 	}
 
+
+
 	TextAttributesKey[] getKeys(IElementType type)
 	{
 		return keysMap.get(type.toString());
 	}
 
-	public TextAttributesKey getKey(IElementType type)
+	public static TextAttributesKey getKey(IElementType type)
 	{
 		return keysMap.get(type.toString())[0];
 	}
+
 	public MediaWikiSyntaxHighlighter()
 	{
 		keysMap = new HashMap<>();
 		addNewKey(MediaWikiTypes.CONTENT, HighlighterColors.TEXT);
 		addNewKey(MediaWikiTypes.LINK, DefaultLanguageHighlighterColors.STRING);
 		addNewKey(MediaWikiTypes.TEMPLATE, DefaultLanguageHighlighterColors.CONSTANT);
-		addNewKey(MediaWikiTypes.BOLD, DefaultLanguageHighlighterColors.METADATA);
+		addNewKey(MediaWikiTypes.BOLD, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_BOLD"));
 		addNewKey(MediaWikiTypes.COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
 		addNewKey(MediaWikiTypes.HEADER, DefaultLanguageHighlighterColors.KEYWORD);
-		addNewKey(MediaWikiTypes.SUBHEADER, DefaultLanguageHighlighterColors.SEMICOLON);
-		addNewKey(MediaWikiTypes.REFERENCE, DefaultLanguageHighlighterColors.NUMBER);
 
-		TextAttributes defaultAttributes = DefaultLanguageHighlighterColors.KEYWORD.getDefaultAttributes().clone();
-		defaultAttributes.setFontType(Font.ITALIC);
-		TextAttributesKey key = createTextAttributesKey("hoogie boogie", defaultAttributes);
-		addNewKey(MediaWikiTypes.ITALIC, key);
+		addNewKey(MediaWikiTypes.SUBHEADER, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER"));
+		addNewKey(MediaWikiTypes.SUBHEADER2, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER2"));
+		addNewKey(MediaWikiTypes.SUBHEADER3, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER3"));
+
+//		addNewKey(MediaWikiTypes.REFERENCE_TOKEN, DefaultLanguageHighlighterColors.NUMBER);
+
+		TextAttributesKey MEDIAWIKI_ITALIC = TextAttributesKey.createTextAttributesKey("MEDIAWIKI_ITALIC");
+		addNewKey(MediaWikiTypes.ITALIC, MEDIAWIKI_ITALIC);
 	}
 
 	private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
@@ -69,6 +74,7 @@ public class MediaWikiSyntaxHighlighter extends SyntaxHighlighterBase
 	@Override
 	public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
 	{
+
 		TextAttributesKey[] keys = getKeys(tokenType);
 		if(keys == null)
 			return EMPTY_KEYS;

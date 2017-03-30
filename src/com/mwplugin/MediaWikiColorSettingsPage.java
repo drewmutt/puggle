@@ -11,7 +11,7 @@ import java.util.Map;
 public class MediaWikiColorSettingsPage implements ColorSettingsPage
 {
 	private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
-//			new AttributesDescriptor("Key", MediaWikiSyntaxHighlighter.KEY),
+//			new AttributesDescriptor("Key", MediaWikiSyntaxHighlighter.getKey()KEY),
 //			new AttributesDescriptor("Separator", MediaWikiSyntaxHighlighter.SEPARATOR),
 //			new AttributesDescriptor("Value", MediaWikiSyntaxHighlighter.VALUE),
 	};
@@ -33,6 +33,7 @@ public class MediaWikiColorSettingsPage implements ColorSettingsPage
 	@NotNull
 	@Override
 	public String getDemoText()
+
 	{
 		return "# You are reading the \".properties\" entry.\n" +
 				"! The exclamation mark can also mark text as comments.\n" +

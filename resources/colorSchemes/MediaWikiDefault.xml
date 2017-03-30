@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+<list>
+    <option name="MY_VAR">
+        <value>
+            <option name="FOREGROUND" value="660000"/>
+        </value>
+    </option>
+    <option name="MEDIAWIKI_ITALIC">
+        <value>
+            <option name="FONT_TYPE" value="2"/>
+        </value>
+    </option>
+    <option name="MEDIAWIKI_BOLD">
+        <value>
+            <option name="FONT_TYPE" value="1"/>
+            <option name="FOREGROUND" value="CBDCEE"/>
+        </value>
+    </option>
+    <option name="MEDIAWIKI_SUBHEADER">
+        <value>
+            <option name="FONT_TYPE" value="0"/>
+            <option name="FOREGROUND" value="CC7832"/>
+        </value>
+    </option>
+    <option name="MEDIAWIKI_SUBHEADER2">
+        <value>
+            <option name="FONT_TYPE" value="0"/>
+            <option name="FOREGROUND" value="CC8952"/>
+        </value>
+    </option>
+    <option name="MEDIAWIKI_SUBHEADER3">
+        <value>
+            <option name="FONT_TYPE" value="0"/>
+            <option name="FOREGROUND" value="CCAA8F"/>
+        </value>
+    </option>
+</list>

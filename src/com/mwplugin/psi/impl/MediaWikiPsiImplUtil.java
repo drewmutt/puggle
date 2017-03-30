@@ -3,16 +3,19 @@ package com.mwplugin.psi.impl;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.psi.*;
+import com.intellij.util.IncorrectOperationException;
 import com.mwplugin.MediaWikiIcons;
 import com.mwplugin.psi.*;
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
 public class MediaWikiPsiImplUtil {
-	/*
-	public static String getKey(MediaWikiProperty element) {
-		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.KEY);
+
+	public static String getURL(MediaWikiReference element) {
+		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.URL);
 		if (keyNode != null) {
 			// IMPORTANT: Convert embedded escaped spaces to MediaWiki spaces
 			return keyNode.getText().replaceAll("\\\\ ", " ");
@@ -21,8 +24,8 @@ public class MediaWikiPsiImplUtil {
 		}
 	}
 
-	public static String getValue(MediaWikiProperty element) {
-		ASTNode valueNode = element.getNode().findChildByType(MediaWikiTypes.VALUE);
+	public static String setURL(MediaWikiReference element) {
+		ASTNode valueNode = element.getNode().findChildByType(MediaWikiTypes.URL);
 		if (valueNode != null) {
 			return valueNode.getText();
 		} else {
@@ -30,22 +33,24 @@ public class MediaWikiPsiImplUtil {
 		}
 	}
 
-	public static String getName(MediaWikiProperty element) {
-		return getKey(element);
+	public static String getName(IMediaWikiNamedElement element) {
+		return "dude";
 	}
 
-	public static PsiElement setName(MediaWikiProperty element, String newName) {
-		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.KEY);
+
+	public static PsiElement setName(IMediaWikiNamedElement element, String newName) {
+		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.URL);
 		if (keyNode != null) {
-			MediaWikiProperty property = MediaWikiElementFactory.createProperty(element.getProject(), newName);
+			MediaWikiReference property = MediaWikiElementFactory.createReference(element.getProject(), newName);
 			ASTNode newKeyNode = property.getFirstChild().getNode();
 			element.getNode().replaceChild(keyNode, newKeyNode);
 		}
 		return element;
 	}
 
-	public static PsiElement getNameIdentifier(MediaWikiProperty element) {
-		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.KEY);
+
+	public static PsiElement getNameIdentifier(IMediaWikiNamedElement element) {
+		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.URL);
 		if (keyNode != null) {
 			return keyNode.getPsi();
 		} else {
@@ -53,12 +58,13 @@ public class MediaWikiPsiImplUtil {
 		}
 	}
 
-	public static ItemPresentation getPresentation(final MediaWikiProperty element) {
+
+	public static ItemPresentation getPresentation(final MediaWikiReference element) {
 		return new ItemPresentation() {
 			@Nullable
 			@Override
 			public String getPresentableText() {
-				return element.getKey();
+				return element.getUrl().getText();
 			}
 
 			@Nullable
@@ -75,5 +81,5 @@ public class MediaWikiPsiImplUtil {
 			}
 		};
 	}
-	*/
+
 }

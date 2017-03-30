@@ -12,12 +12,11 @@ import java.util.*;
 
 public class MediaWikiUtil
 {
+	/*
 	public static List<MediaWikiProperty> findProperties(Project project, String key)
 	{
 		List<MediaWikiProperty> result = null;
-		Collection<VirtualFile> virtualFiles =
-				FileBasedIndex.getInstance().getContainingFiles(FileTypeIndex.NAME, MediaWikiFileType.INSTANCE,
-						GlobalSearchScope.allScope(project));
+		Collection<VirtualFile> virtualFiles = FileBasedIndex.getInstance().getContainingFiles(FileTypeIndex.NAME, MediaWikiFileType.INSTANCE, GlobalSearchScope.allScope(project));
 		for (VirtualFile virtualFile : virtualFiles)
 		{
 			MediaWikiFile MediaWikiFile = (MediaWikiFile) PsiManager.getInstance(project).findFile(virtualFile);
@@ -28,14 +27,14 @@ public class MediaWikiUtil
 				{
 					for (MediaWikiProperty property : properties)
 					{
-//						if (key.equals(property.getKey()))
-//						{
+						if (key.equals(property.getKey()))
+						{
 							if (result == null)
 							{
 								result = new ArrayList<MediaWikiProperty>();
 							}
 							result.add(property);
-//						}
+						}
 					}
 				}
 			}
@@ -46,9 +45,7 @@ public class MediaWikiUtil
 	public static List<MediaWikiProperty> findProperties(Project project)
 	{
 		List<MediaWikiProperty> result = new ArrayList<MediaWikiProperty>();
-		Collection<VirtualFile> virtualFiles =
-				FileBasedIndex.getInstance().getContainingFiles(FileTypeIndex.NAME, MediaWikiFileType.INSTANCE,
-						GlobalSearchScope.allScope(project));
+		Collection<VirtualFile> virtualFiles = FileBasedIndex.getInstance().getContainingFiles(FileTypeIndex.NAME, MediaWikiFileType.INSTANCE, GlobalSearchScope.allScope(project));
 		for (VirtualFile virtualFile : virtualFiles)
 		{
 			MediaWikiFile MediaWikiFile = (MediaWikiFile) PsiManager.getInstance(project).findFile(virtualFile);
@@ -62,5 +59,5 @@ public class MediaWikiUtil
 			}
 		}
 		return result;
-	}
+	}*/
 }

@@ -6,16 +6,16 @@ import com.mwplugin.MediaWikiFileType;
 
 public class MediaWikiElementFactory
 {
-	public static MediaWikiProperty createProperty(Project project, String name, String value)
+	public static MediaWikiReference createReference(Project project, String name, String value)
 	{
 		final MediaWikiFile file = createFile(project, name + " = " + value);
-		return (MediaWikiProperty) file.getFirstChild();
+		return (MediaWikiReference) file.getFirstChild();
 	}
 
-	public static MediaWikiProperty createProperty(Project project, String name)
+	public static MediaWikiReference createReference(Project project, String name)
 	{
 		final MediaWikiFile file = createFile(project, name);
-		return (MediaWikiProperty) file.getFirstChild();
+		return (MediaWikiReference) file.getFirstChild();
 	}
 
 	public static PsiElement createCRLF(Project project)
