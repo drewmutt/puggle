@@ -3,6 +3,7 @@ package com.mwplugin.psi.impl;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.psi.*;
+import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import com.mwplugin.MediaWikiIcons;
 import com.mwplugin.psi.*;
@@ -13,18 +14,24 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 
 public class MediaWikiPsiImplUtil {
-
-	public static String getURL(MediaWikiReference element) {
-		ASTNode keyNode = element.getNode().findChildByType(MediaWikiTypes.URL);
-		if (keyNode != null) {
-			// IMPORTANT: Convert embedded escaped spaces to MediaWiki spaces
-			return keyNode.getText().replaceAll("\\\\ ", " ");
-		} else {
-			return null;
-		}
+	public static String getReferenceName(MediaWikiNamedReferenceBlock element) {
+		MediaWikiReferenceName childOfType = PsiTreeUtil.findChildOfType(element, MediaWikiReferenceName.class);
+		String text = childOfType.getText();
+		return text;
+//		if (keyNode != null) {
+//			 IMPORTANT: Convert embedded escaped spaces to MediaWiki spaces
+//			return keyNode.getText().replaceAll("\\\\ ", " ");
+//		} else {
+//			return null;
+//		}
 	}
 
-	public static String setURL(MediaWikiReference element) {
+	public static String getURL(IMediaWikiNamedElement element) {
+		MediaWikiUrl urlNode = PsiTreeUtil.findChildOfType(element, MediaWikiUrl.class);
+		return urlNode != null ? urlNode.getText() : null;
+	}
+/*
+	public static String setURL(IMediaWikiNamedElement element) {
 		ASTNode valueNode = element.getNode().findChildByType(MediaWikiTypes.URL);
 		if (valueNode != null) {
 			return valueNode.getText();
@@ -81,5 +88,5 @@ public class MediaWikiPsiImplUtil {
 			}
 		};
 	}
-
+*/
 }

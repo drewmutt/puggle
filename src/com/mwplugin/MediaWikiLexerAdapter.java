@@ -8,11 +8,11 @@ import java.io.Reader;
 /**
  * Created by andrewsimmons on 2/2/17.
  */
-public class MediaWikiLexerAdapter extends LayeredLexer
+public class MediaWikiLexerAdapter extends FlexAdapter
 {
 	public MediaWikiLexerAdapter()
 	{
-		super(new FlexAdapter(new MediaWikiLexer((Reader) null)));
+		super(new MediaWikiLexer((Reader) null));
 
 	}
 }

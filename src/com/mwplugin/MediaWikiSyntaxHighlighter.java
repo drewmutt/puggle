@@ -43,21 +43,21 @@ public class MediaWikiSyntaxHighlighter extends SyntaxHighlighterBase
 	public MediaWikiSyntaxHighlighter()
 	{
 		keysMap = new HashMap<>();
-		addNewKey(MediaWikiTypes.CONTENT, HighlighterColors.TEXT);
-		addNewKey(MediaWikiTypes.LINK, DefaultLanguageHighlighterColors.STRING);
-		addNewKey(MediaWikiTypes.TEMPLATE, DefaultLanguageHighlighterColors.CONSTANT);
-		addNewKey(MediaWikiTypes.BOLD, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_BOLD"));
-		addNewKey(MediaWikiTypes.COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
-		addNewKey(MediaWikiTypes.HEADER, DefaultLanguageHighlighterColors.KEYWORD);
+//		addNewKey(MediaWikiTypes.CONTENT, HighlighterColors.TEXT);
+//		addNewKey(MediaWikiTypes.LINK, DefaultLanguageHighlighterColors.STRING);
+//		addNewKey(MediaWikiTypes.TEMPLATE, DefaultLanguageHighlighterColors.CONSTANT);
+//		addNewKey(MediaWikiTypes.BOLD, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_BOLD"));
+//		addNewKey(MediaWikiTypes.COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
+//		addNewKey(MediaWikiTypes.HEADER, DefaultLanguageHighlighterColors.KEYWORD);
 
-		addNewKey(MediaWikiTypes.SUBHEADER, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER"));
-		addNewKey(MediaWikiTypes.SUBHEADER2, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER2"));
-		addNewKey(MediaWikiTypes.SUBHEADER3, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER3"));
+//		addNewKey(MediaWikiTypes.SUBHEADER, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER"));
+//		addNewKey(MediaWikiTypes.SUBHEADER2, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER2"));
+//		addNewKey(MediaWikiTypes.SUBHEADER3, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_SUBHEADER3"));
 
 //		addNewKey(MediaWikiTypes.REFERENCE_TOKEN, DefaultLanguageHighlighterColors.NUMBER);
 
 		TextAttributesKey MEDIAWIKI_ITALIC = TextAttributesKey.createTextAttributesKey("MEDIAWIKI_ITALIC");
-		addNewKey(MediaWikiTypes.ITALIC, MEDIAWIKI_ITALIC);
+//		addNewKey(MediaWikiTypes.ITALIC, MEDIAWIKI_ITALIC);
 	}
 
 	private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];

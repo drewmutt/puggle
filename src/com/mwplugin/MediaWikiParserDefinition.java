@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class MediaWikiParserDefinition implements ParserDefinition
 {
 	public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
-	public static final TokenSet COMMENTS = TokenSet.create(MediaWikiTypes.LINK);
+	public static final TokenSet COMMENTS = TokenSet.create(TokenType.CODE_FRAGMENT);
 
 	public static final IFileElementType FILE =
 			new IFileElementType(Language.<MediaWikiLanguage>findInstance(MediaWikiLanguage.class));
@@ -56,6 +56,7 @@ public class MediaWikiParserDefinition implements ParserDefinition
 
 	public PsiFile createFile(FileViewProvider viewProvider)
 	{
+
 		return new MediaWikiFile(viewProvider);
 	}
 

@@ -1,0 +1,319 @@
+{
+  classHeader="license.txt"
+  generate=[names="long"]
+
+  parserClass="org.intellij.jflex.parser.JFlexParser"
+  parserUtilClass="org.intellij.jflex.parser.JFlexParserUtil"
+
+  implements="org.intellij.jflex.psi.JFlexCompositeElement"
+  extends="org.intellij.jflex.psi.impl.JFlexCompositeElementImpl"
+
+  psiClassPrefix="JFlex"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.intellij.jflex.psi"
+  psiImplPackage="org.intellij.jflex.psi.impl"
+  psiImplUtilClass="org.intellij.jflex.psi.impl.JFlexPsiImplUtil"
+
+  elementTypeHolderClass="org.intellij.jflex.psi.JFlexTypes"
+  elementTypePrefix="FLEX_"
+  elementTypeClass="org.intellij.jflex.psi.JFlexCompositeElementType"
+  tokenTypeClass="org.intellij.jflex.psi.JFlexTokenType"
+
+  tokens = [
+    id = 'regexp:(_|\p{Alpha})\w*'
+    line_comment='regexp://..'
+    block_comment='regexp:/*..*/'
+    raw='code block'
+    unclosed='unclosed'
+
+    two_percs = '%%'
+    star = '*'
+    paren1 = '('
+    paren2 = ')'
+    brack1 = '['
+    brack2 = ']'
+    brace1 = '{'
+    brace2 = '}'
+    question = '?'
+    dash = '-'
+    plus = '+'
+    hat = '^'
+    fslash = '/'
+
+    dashdash = '--'
+    ampamp = '&&'
+    barbar = '||'
+    tildetilde = '~~'
+
+    dot = '.'
+    comma = ','
+
+    angle1 = '<'
+    angle2 = '>'
+    bar = '|'
+    dollar = '$'
+    eq = '='
+    bang = '!'
+    tilde = '~'
+
+    eof = '<<EOF>>'
+
+    opt_class='%class'
+    opt_implements='%implements'
+    opt_extends='%extends'
+    opt_public='%public'
+    opt_final='%final'
+    opt_abstract='%abstract'
+    opt_apiprivate='%apiprivate'
+    opt_code1='%{'
+    opt_code2='%}'
+    opt_init1='%init{'
+    opt_init2='%init}'
+    opt_initthrow='%initthrow'
+    opt_initthrow1='%initthrow{'
+    opt_initthrow2='%initthrow}'
+    opt_ctorarg='%ctorarg'
+    opt_scanerror='%scanerror'
+    opt_buffer='%buffer'
+    opt_include='%include'
+    opt_function='%function'
+    opt_integer='%integer'
+    opt_int='%int'
+    opt_intwrap='%intwrap'
+    opt_type='%type'
+    opt_yylexthrow='%yylexthrow'
+    opt_yylexthrow1='%yylexthrow{'
+    opt_yylexthrow2='%yylexthrow}'
+    opt_eofval1='%eofval{'
+    opt_eofval2='%eofval}'
+    opt_eof1='%eof{'
+    opt_eof2='%eof}'
+    opt_eofthrow='%eofthrow'
+    opt_eofthrow1='%eofthrow{'
+    opt_eofthrow2='%eofthrow}'
+    opt_eofclose='%eofclose'
+    opt_debug='%debug'
+    opt_standalone='%standalone'
+    opt_cup='%cup'
+    opt_cupsym='%cupsym'
+    opt_cupdebug='%cupdebug'
+    opt_7bit='%7bit'
+    opt_full='%full'
+    opt_8bit='%8bit'
+    opt_unicode='%unicode'
+    opt16bit='%16bit'
+    opt_caseless='%caseless'
+    opt_ignorecase='%ignorecase'
+    opt_char='%char'
+    opt_line='%line'
+    opt_column='%column'
+    opt_notunix='%notunix'
+    opt_yyeof='%yyeof'
+    opt_state='%state'
+    opt_xstate='%xstate'
+  ]
+
+  extends(".*_section")=file_section
+  recoverWhile(".*_section")=section_recover
+  pin(".*_section")=1
+
+  extends("option_.*")=option
+  elementType("option_.*")=option
+  pin("option_.*")=1
+  extends(".*_expression")=expression
+  name(".*_expression")="expression"
+  name("option.*")="option"
+  name("char_class_.*|char_range")="char"
+
+  //consumeTokenMethod("character|macro_reference|.*_(recover|expression|op)")="consumeTokenFast"
+  //consumeTokenMethod="consumeTokenFast"
+}
+
+flex_file ::= []
+  user_code_section
+  section_div
+  declarations_section
+  section_div
+  lexical_rules_section
+  {pin=1}
+fake file_section ::= '%%'
+
+private meta line ::= new_line <<p>> new_line {pin=2}
+private new_line ::= &<<is_new_line>>
+
+private section_div ::= <<line '%%'>>
+private section_recover ::= !'%%'
+
+user_code_section ::= [] java_code {pin=1}
+user_value ::= <<anything2 !new_line>>
+java_code ::= raw? { methods=[getReferences] }
+
+java_type ::= id ( safe_dot id ) * {pin(".*")=1 methods=[getReferences]}
+private safe_dot ::= '.' !'*'
+private java_type_list ::= [java_type (',' java_type) *] {pin(".*")=1 recoverWhile=declaration_recover}
+
+// ======================================================
+declarations_section ::=  [] (declaration) *
+
+private declaration ::= macro_definition | state_declaration | option  {recoverWhile=declaration_recover}
+private declaration_recover ::= !(<<is_percent>> | id '=') section_recover
+option ::= option_class
+  | option_implements
+  | option_extends
+  | option_public
+  | option_final
+  | option_abstract
+  | option_api_private
+  | option_user_code
+  | option_init
+  | option_init_throw
+  | option_ctor_arg
+  | option_scan_error
+  | option_buffer_size
+  | option_include
+
+  | option_function
+  | option_integer
+  | option_intwrap
+  | option_type
+  | option_yylexthrow
+
+  | option_eof_val
+  | option_eof
+  | option_eof_throw
+  | option_eof_close
+
+  | option_debug
+  | option_standalone
+
+  | option_cup
+  | option_cup_sym
+  | option_cup_debug
+
+  | option_byacc
+
+  | option_switch
+  | option_table
+  | option_7bit
+  | option_16bit
+  | option_full
+  | option_unicode
+  | option_ignore_case
+  | option_count_char
+  | option_count_line
+  | option_count_column
+
+  | option_obsolete
+
+
+option_class ::= '%class' java_type
+option_implements ::= '%implements' java_type_list
+option_extends ::= '%extends' java_type
+option_public ::= '%public'
+option_final ::= '%final'
+option_abstract ::= '%abstract'
+option_api_private ::= '%apiprivate'
+option_user_code ::= <<line '%{'>> java_code <<line '%}'>>
+option_init ::= <<line '%init{'>> java_code <<line '%init}'>>
+option_init_throw ::= '%initthrow' java_type_list | <<line '%initthrow{'>> java_type_list <<line '%initthrow}'>>
+option_ctor_arg ::= '%ctorarg' java_type id
+option_scan_error ::= '%scanerror' java_type
+option_buffer_size ::= '%buffer' number
+option_include ::= '%include' user_value
+
+option_function ::= '%function' id
+option_integer ::= '%integer' | '%int'
+option_intwrap ::= '%intwrap'
+option_type ::= '%type' java_type
+option_yylexthrow ::= '%yylexthrow' java_type_list | <<line '%yylexthrow{'>> java_type_list <<line '%yylexthrow}'>>
+
+option_eof_val ::= <<line '%eofval{'>> java_code <<line '%eofval}'>>
+option_eof ::= <<line '%eof{'>> java_code <<line '%eof}'>>
+option_eof_throw ::= '%eofthrow' java_type_list | <<line '%eofthrow{'>> java_type_list <<line '%eofthrow}'>>
+option_eof_close ::= '%eofclose' ['false']
+
+option_debug ::= '%debug'
+option_standalone ::= '%standalone'
+
+option_cup ::= '%cup'
+option_cup_sym ::= '%cupsym' java_type
+option_cup_debug ::= '%cupdebug'
+
+option_byacc ::= '%byacc'
+
+option_switch ::= '%switch'
+option_table ::= '%table'
+option_7bit ::= '%7bit'
+option_full ::= '%full' | '%8bit'
+option_16bit ::= '%16bit'
+option_unicode ::= '%unicode' [number | version]
+option_ignore_case ::= '%caseless' | '%ignorecase'
+option_count_char ::= '%char'
+option_count_line ::= '%line'
+option_count_column ::= '%column'
+
+option_obsolete ::= '%notunix' | '%yyeof'
+
+state_declaration ::= ('%state' | '%xstate') state_definition ((','? !(id '=')) state_definition) * ','? {pin=1}
+state_definition ::= id {
+  implements="com.intellij.psi.PsiNameIdentifierOwner"
+  methods=[getName setName getNameIdentifier]
+}
+
+macro_definition ::= new_line id '=' expression {pin=3
+  implements="com.intellij.psi.PsiNameIdentifierOwner"
+  methods=[getName setName getNameIdentifier]
+  recoverWhile=macro_definition_recover
+}
+private macro_definition_recover::=!(new_line id '=' | '%%' | <<is_percent>>)
+
+
+// ======================================================
+lexical_rules_section ::= [] rule_group_item +
+private rule_group_item ::= option_include | rule {recoverWhile=rule_recover}
+
+rule ::= state_list (rule_group | rule_tail ) | rule_tail {pin(".*")=1}
+private rule_recover ::= !('}' | '.' | '<' | '<<EOF>>' | '^'| new_line | atom_group)
+
+private rule_tail ::= rule_tail1 | rule_tail2
+private rule_tail1 ::= '<<EOF>>' action {pin=1}
+private rule_tail2 ::= ['^'] expression look_ahead? action {pin=2}
+private rule_group ::= !('{' id '}') '{' rule_group_item + '}' {pin=2} // empty block forbidden
+
+state_list ::= '<' state_reference (',' state_reference) * '>' {pin(".*")=1}
+state_reference ::= id { methods=[getReference] }
+look_ahead ::= '$' | '/' expression
+action ::= '{' raw? '}' | '|' {pin(".*")=1 elementType=java_code}
+
+expression ::= choice_expression
+  | sequence_expression
+  | paren_expression
+  | not_expression
+  | quantifier_expression
+  | atom_group
+
+private atom_group ::= class_expression
+  | predefined_class_expression
+  | macro_ref_expression
+  | literal_expression
+choice_expression ::= expression ('|' expression) +
+sequence_expression ::= expression (sequence_op expression) +
+paren_expression ::= '(' expression ')' {pin=1}
+not_expression ::= ('!'|'~') expression
+quantifier_expression ::=  expression ( '*' | '+' | '?' | '{' number [ ',' number] '}' )
+class_expression ::= '[' '^'? (char_class_item (char_class_op char_class_item)* )* ']' {pin(".*")=1}
+private char_class_item ::= char_range | class_expression | macro_ref_expression | char_class_atom
+private char_class_atom ::= string | char_class | char_or_esc
+private char_class_op ::= '&&' | '||' | '~~' | '--'
+private char_or_esc ::= char | char_esc
+char_range ::= char_or_esc '-' char_or_esc {extends=class_expression}
+macro_ref_expression ::= '{' macro_reference '}'
+macro_reference ::= id { methods=[getReference] }
+literal_expression ::= string | id | char_or_esc | number { methods=[id=""] }
+
+private sequence_op ::= &('!' | '(' | '.' | '[' | '~'
+  | char_or_esc | char_class | number | string
+  | '{' id | !new_line id )
+  {name="expression"}
+
+predefined_class_expression ::= char_class | '.'

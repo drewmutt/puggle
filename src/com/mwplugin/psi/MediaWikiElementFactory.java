@@ -6,6 +6,7 @@ import com.mwplugin.MediaWikiFileType;
 
 public class MediaWikiElementFactory
 {
+	/*
 	public static MediaWikiReference createReference(Project project, String name, String value)
 	{
 		final MediaWikiFile file = createFile(project, name + " = " + value);
@@ -17,7 +18,7 @@ public class MediaWikiElementFactory
 		final MediaWikiFile file = createFile(project, name);
 		return (MediaWikiReference) file.getFirstChild();
 	}
-
+*/
 	public static PsiElement createCRLF(Project project)
 	{
 		final MediaWikiFile file = createFile(project, "\n");

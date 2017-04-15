@@ -8,10 +8,11 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.mwplugin.psi.MediaWikiReference;
+import com.mwplugin.psi.MediaWikiNamedReferenceBlock;
+import com.mwplugin.psi.MediaWikiReferenceBlock;
 import com.mwplugin.psi.MediaWikiTypes;
 import com.mwplugin.psi.ReferenceNode;
-import com.mwplugin.psi.impl.MediaWikiReferenceImpl;
+import com.mwplugin.psi.impl.MediaWikiNamedReferenceBlockImpl;
 import org.jetbrains.annotations.*;
 
 import java.util.*;
@@ -25,53 +26,46 @@ public class MediaWikiFoldingBuilder extends FoldingBuilderEx
 		FoldingGroup group = FoldingGroup.newGroup("MediaWiki");
 
 		List<FoldingDescriptor> descriptors = new ArrayList<FoldingDescriptor>();
-		Collection<MediaWikiReference> references = PsiTreeUtil.findChildrenOfType(root, MediaWikiReference.class);
+		Collection<MediaWikiReferenceBlock> referenceBlocks = PsiTreeUtil.findChildrenOfType(root, MediaWikiReferenceBlock.class);
+		PsiElement psiElement = PsiTreeUtil.firstChild(root);
+//		PsiTreeUtil.processElements(root, element -> {
+//			if (element.getNode().getElementType() == MediaWikiTypes.REFERENCE) {
+//				System.out.println("He");
+//
+//			}
+//			return true;
+//		});
 
-		for (final MediaWikiReference reference : references)
+		for (final MediaWikiReferenceBlock referenceBlock : referenceBlocks)
 		{
-			descriptors.add(new FoldingDescriptor(reference.getNode(), new TextRange(reference.getTextRange().getStartOffset() + 1, reference.getTextRange().getEndOffset() - 1), group)
-			{
-				@Nullable
-				@Override
-				public String getPlaceholderText()
-				{
-					// IMPORTANT: keys can come with no values, so a test for null is needed
-					// IMPORTANT: Convert embedded \n to backslash n, so that the string will look like it has LF embedded
-					// in it and embedded " to escaped "
-//					String valueOf = properties.get(0).getValue();
-//					return valueOf == null ? "" : valueOf.replaceAll("\n", "\\n").replaceAll("\"", "\\\\\"");
-					return "(ref)";
-				}
-			});
-		}
-
-//		for (final ReferenceNode literalExpression : references)
-//		{
 //			String value = literalExpression.getValue() instanceof String ? (String) literalExpression.getValue() : null;
 
-			/*
-			if (value != null && value.startsWith("MediaWiki:"))
-			{
-				Project project = literalExpression.getProject();
-				String key = value.substring(7);
-				final List<MediaWikiProperty> properties = MediaWikiUtil.findProperties(project, key);
-				if (properties.size() == 1)
-				{
-					descriptors.add(new FoldingDescriptor(literalExpression.getNode(), new TextRange(literalExpression.getTextRange().getStartOffset() + 1, literalExpression.getTextRange().getEndOffset() - 1), group)
+
+//			if (value != null && value.startsWith("MediaWiki:"))
+//			{
+//				Project project = literalExpression.getProject();
+//				String key = value.substring(7);
+//				final List<MediaWikiProperty> properties = MediaWikiUtil.findProperties(project, key);
+//				if (properties.size() == 1)
+//				{
+					descriptors.add(new FoldingDescriptor(referenceBlock.getNode(), new TextRange(referenceBlock.getTextRange().getStartOffset() + 1, referenceBlock.getTextRange().getEndOffset() - 1), group)
 					{
 						@Nullable
 						@Override
 						public String getPlaceholderText()
 						{
-							// IMPORTANT: keys can come with no values, so a test for null is needed
-							// IMPORTANT: Convert embedded \n to backslash n, so that the string will look like it has LF embedded
-							// in it and embedded " to escaped "
-							String valueOf = properties.get(0).getValue();
-							return valueOf == null ? "" : valueOf.replaceAll("\n", "\\n").replaceAll("\"", "\\\\\"");
+							Collection<MediaWikiNamedReferenceBlock> namedRefBlockList = PsiTreeUtil.findChildrenOfType(referenceBlock, MediaWikiNamedReferenceBlock.class);
+							if(namedRefBlockList.size() > 0)
+							{
+								MediaWikiNamedReferenceBlock namedRefBlock = (MediaWikiNamedReferenceBlock) namedRefBlockList.toArray()[0];
+								String refName = namedRefBlock.getReferenceName();
+								return "ref:"+refName;
+							}
+							return "ref";
 						}
 					});
 				}
-			}*/
+//			}*/
 //		}
 		return descriptors.toArray(new FoldingDescriptor[descriptors.size()]);
 	}

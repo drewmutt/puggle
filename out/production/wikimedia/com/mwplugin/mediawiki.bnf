@@ -1,5 +1,189 @@
-
+/*
+"!"|
+	"$"|
+	"'"|
+	")"|
+	"%"|
+	","|
+	"-"|
+	"."|
+	"/"|
+	"0"|
+	"1"|
+	"2"|
+	"3"|
+	"4"|
+	"5"|
+	"6"|
+	"7"|
+	"8"|
+	"9"|
+	":"|
+	";"|
+	"="|
+	"?"|
+	"@"|
+	A|
+	B|
+	C|
+	D|
+	E|
+	F|
+	G|
+	H|
+	I|
+	J|
+	K|
+	L|
+	M|
+	N|
+	O|
+	P|
+	Q|
+	R|
+	S|
+	T|
+	U|
+	V|
+	W|
+	X|
+	Y|
+	Z|
+	"\\"|
+	"^"|
+	"_"|
+	"`"|
+	"\""|
+	"&"|
+	a|
+	b|
+	c|
+	"("|
+	d|
+	"*"|
+	e|
+	f|
+	g|
+	h|
+	i|
+	j|
+	k|
+	l|
+	m|
+	n|
+	o|
+	p|
+	q|
+	r|
+	s|
+	t|
+	u|
+	v|
+	w|
+	x|
+	y|
+	z|
+	"~"|
+	"¡"|
+	"¢"|
+	"£"|
+	"¤"|
+	"¥"|
+	"¦"|
+	"§"|
+	"¨"|
+	"©"|
+	"ª"|
+	"«"|
+	"¬"|
+	"­"|
+	"®"|
+	"¯"|
+	"°"|
+	"±"|
+	"²"|
+	"³"|
+	"´"|
+	"µ"|
+	"¶"|
+	"·"|
+	"¸"|
+	"¹"|
+	"º"|
+	"»"|
+	"¼"|
+	"½"|
+	"¾"|
+	"¿"|
+	"À"|
+	"Á"|
+	"Â"|
+	"Ã"|
+	"Ä"|
+	"Å"|
+	"Æ"|
+	"Ç"|
+	"È"|
+	"É"|
+	"Ê"|
+	"Ë"|
+	"Ì"|
+	"Í"|
+	"Î"|
+	"Ï"|
+	"Ð"|
+	"Ñ"|
+	"Ò"|
+	"Ó"|
+	"Ô"|
+	"Õ"|
+	"Ö"|
+	"×"|
+	"Ø"|
+	"Ù"|
+	"Ú"|
+	"Û"|
+	"Ü"|
+	"Ý"|
+	"Þ"|
+	"ß"|
+	"à"|
+	"á"|
+	"â"|
+	"ã"|
+	"ä"|
+	"å"|
+	"æ"|
+	"ç"|
+	"è"|
+	"é"|
+	"ê"|
+	"ë"|
+	"ì"|
+	"í"|
+	"î"|
+	"ï"|
+	"ð"|
+	"ñ"|
+	"ò"|
+	"ó"|
+	"ô"|
+	"õ"|
+	"ö"|
+	"÷"|
+	"ø"|
+	"ù"|
+	"ú"|
+	"û"|
+	"ü"|
+	"ý"|
+	"þ"|
+	"ÿ"|
+	"+"
+ */
 {
+
+
   parserClass="com.mwplugin.parser.MediaWikiParser"
 
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
@@ -15,83 +199,1400 @@
 
   psiImplUtilClass="com.mwplugin.psi.impl.MediaWikiPsiImplUtil"
 
-   tokens=[
-   refstart = '<ref>'
-   refend = '</ref>'
-   openbracket = '['
-   closebracket = ']'
-    CRLF='regexp:\R'
-    content='regexp:[^><\[\]]+'
-//   string="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
-//   reference_token = 'regexp:<ref>[^<]</ref>'
-//      SEMI=';'
-//      EQ='='
-//      LP='('
-//      RP=')'
-//
-//      space='regexp:\s+'
-//      comment='regexp://.*'
-//      number='regexp:\d+(\.\d*)?'
-//      id='regexp:\p{Alpha}\w*'
-//      string="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
-//
-//      op_1='+'
+    generate = [token-case="lower"]
+
+
+    tokens = [
+//        space='regexp:\s+'
+//        comment='regexp://.*'
+        refopen = "<ref"
+        refclose = "</ref>"
+        newline='regexp:[\r\n]'
+        lcaseletter='regexp:[a-z]'
+        ucaseletter='regexp:[A-Z]'
+        decimaldigit='regexp:\d'
+        equals5="====="
+        equals4="===="
+        equals3="==="
+        equals2="=="
+        unescapedampersand = "&"
+        unescapedlessthan = "<"
+        unescapedgreaterthan = ">"
+        underscore = "_"
+        openbracket = "["
+        closebracket = "]"
+        space = " "
+        doublequote = "\""
+        TAB = "regexp:\t"
+//        lcaseletter="regexp:\d"
     ]
-//
-//    name(".*expr")='expression'
-//    extends(".*expr")=expr
 }
 
-//root ::= ref *
-//private root_item ::= !<<eof>> property ';'// {pin=1 recoverWhile=property_recover}
-//
-//property ::= id '=' expr  {pin=2}
-////private property_recover ::= !(';' | id '=')
-//
-//private factor ::= primary_inner *
-//expr ::= factor plus_expr *
-//left plus_expr ::= plus_op factor
-//private plus_op ::= '+'
-//private primary_inner ::= literal_expr
-//literal_expr ::= number | float
-//
-//ref ::= '<ref>'id'</ref>'
+wiki-page ::=
+	article?
 
-
-item_ ::= (
-link
-|header
-|comment
-|subheader
-|subheader2
-|subheader3
-|reference
-|template
-|bold
-|italic
-|content
-|COMMENT
-|CRLF
-|externallink)*
-
-
-//private recover_property ::= !(KEY|SEPARATOR|COMMENT)
-
-
-link ::= ('[[' url ']]')  {
-    pin=1
+characters ::=
+	character+
+{    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+character ::=
+	whitespace-char|
+	non-whitespace-char|
+	html-entity
+{
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
-    methods=[setName getNameIdentifier getName]
 }
-
-
-
-reference ::= (refstart url refend) {
-    pin=1
+whitespace-char ::=
+	space-tab|
+	newline
+{
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
-    methods=[setName getURL setURL getPresentation getNameIdentifier getName]
+}
+space-tab ::=
+	space|
+	TAB
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+//newline ::=
+//	CR LF|
+//	LF CR|
+//	CR|
+//	LF
+//CR ::=
+//	"\r"
+//LF ::=
+//	"\n"
+non-whitespace-char ::=
+	letter|
+	decimaldigit|
+	symbol
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+letter ::=
+	ucaseletter|
+	lcaseletter
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+//ucaseletter ::=
+//	A|
+//	B|
+//	C|
+//	D|
+//	E|
+//	F|
+//	G|
+//	H|
+//	I|
+//	J|
+//	K|
+//	L|
+//	M|
+//	N|
+//	O|
+//	P|
+//	Q|
+//	R|
+//	S|
+//	T|
+//	U|
+//	V|
+//	W|
+//	X|
+//	Y|
+//	Z
+//lcaseletter ::=
+//a|
+//	b|
+//	c|
+//	d|
+//	e|
+//	f|
+//	g|
+//	h|
+//	i|
+//	j|
+//	k|
+//	l|
+//	m|
+//	n|
+//	o|
+//	p|
+//	q|
+//	r|
+//	s|
+//	t|
+//	u|
+//	v|
+//	w|
+//	x|
+//	y|
+//	z
+symbol ::=
+	html-unsafe-symbol|
+	underscore|
+	"."|
+	","
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+html-unsafe-symbol ::=
+	unescapedampersand|
+	unescapedlessthan|
+	unescapedgreaterthan
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+html-entity ::=
+	"&#" decimal-number ";"|
+	"&#x" hex-number ";"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+decimal-number ::=
+	decimaldigit+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+hex-number ::=
+	hex-digit+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+hex-digit ::=
+	decimaldigit|
+	"A"|
+	"B"|
+	"C"|
+	"D"|
+	"E"|
+	"F"|
+	"a"|
+	"b"|
+	"c"|
+	"d"|
+	"e"|
+	"f"
+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-url ::= content
+internal-link-start ::=
+	"[["
+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+article-link ::=
+	(interwiki-prefix | ":")? namespace-prefix? article-title
+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+interwiki-prefix ::=
+	interwiki ":"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+interwiki ::=
+	"Wikipedia"
+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+namespace-prefix ::=
+	namespace? ":"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+namespace ::=
+	letter+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+article-title ::=
+	page sub-page*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+page ::=
+	page-first-char page-char*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+page-first-char ::=
+	canonical-page-first-char|
+	lcaseletter
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+canonical-page-first-char ::=
+	ucaseletter|
+	decimaldigit|
+	underscore
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+page-char ::=
+	canonical-page-char|
+	space
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+canonical-page-char ::=
+	letter|
+	decimaldigit|
+	underscore
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+sub-page ::=
+	sub-page-separator page-char+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+sub-page-separator ::=
+	"/"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+title-legal-char ::= lcaseletter
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+
+internal-link-end ::=
+	"]]"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+pipe ::=
+	"|"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+article ::=
+	(special-block-and-more| paragraph-and-more)+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+special-block-and-more ::=
+	special-block (EOF | newline special-block-and-more | newline? paragraph-and-more)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+special-block ::=
+	horizontal-rule |
+	section |
+	list-item |
+	table |
+	space-block
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+horizontal-rule ::=
+	"----" dashes? inline-text? newline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+dashes ::=
+	"-"+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+inline-text ::=
+	inline-element*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+inline-element ::=
+	category-link |
+	link |
+	magic-link |
+	image-inline |
+	gallery-block |
+	media-inline |
+	text-with-formatting
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+category-link ::=
+	internal-link-start category-namespace ":" article-title (pipe sort-key)? internal-link-end
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+category-namespace ::=
+	"Category"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+sort-key ::=
+	any-text
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+any-text ::=
+	letter*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+unicode-character ::=
+	any-supported-unicode-character Whitespaces?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+any-supported-unicode-character ::=
+	letter
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+Whitespaces ::=
+	newline|
+	TAB|
+	space
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+link ::=
+	internal-link|
+	external-link
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+internal-link ::=
+	internal-link-start article-link ("#" section-id)? (pipe link-description?)? internal-link-end extra-description?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+section-id ::=
+	(title-legal-char | "%" | "#")*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+link-description ::=
+	article-title
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+extra-description ::=
+	letter+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+external-link ::=
+	openbracket url closebracket
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+url ::=
+	protocol url-path
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+protocol ::=
+	"http://"|
+	"https://"|
+	"ftp://"|
+	"ftps://"|
+	"mailto:"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+url-path ::=
+	url-char
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+url-char ::=
+	LEGAL_URL_ENTITY
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+whitespace ::=
+	whitespace-char whitespace?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+
+magic-link ::=
+	isbn|
+	rfc-number|
+	pmid-number
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+isbn ::=
+	"ISBN" spaces isbn-number
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+spaces ::=
+	space+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+isbn-number ::=
+	"97" ("8" | "9") (space | "-")? decimaldigit (space | "-")? "9"* (decimaldigit | "X" | "x")
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+rfc-number ::=
+	"RFC" spaces digits
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+digits ::=
+	decimaldigit+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+pmid-number ::=
+	"PMID" spaces digits
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-inline ::=
+	"[[" "Image:" page-name "." image-extension (pipe image-option)* "]]"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+page-name ::=
+	title-character (space? title-character)*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+title-character ::=
+	unicode-character bad-title-characters
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+bad-title-characters ::=
+	"["|
+	"]"|
+	"{"|
+	"}"|
+	"<"|
+	">"|
+	"_"|
+	"|"|
+	"#"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-extension ::=
+	"jpg"|
+	"jpeg"|
+	"png"|
+	"svg"|
+	"gif"|
+	"bmp"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-option ::=
+	image-mode-parameter|
+	image-size-parameter|
+	image-align-parameter|
+	image-valign-parameter|
+	caption|
+	image-other-parameter
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-mode-parameter ::=
+	image-mode-manual-thumb|
+	image-mode-auto-thumb|
+	image-mode-frame|
+	image-mode-frameless
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-mode-manual-thumb ::=
+	"thumbnail=" image-name
+	"thumb=" image-name
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-name ::=
+	page-name "." image-extension
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-mode-auto-thumb ::=
+	"thumbnail"|
+	"thumb"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-mode-frame ::=
+	"framed"|
+	"enframed"|
+	"frame"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-mode-frameless ::=
+	"frameless"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-size-parameter ::=
+	digits "px"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-align-parameter ::=
+	image-align-left|
+	image-align-center|
+	image-align-right|
+	image-align-none
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-align-left ::=
+	"left"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-align-center ::=
+	"center"|
+	"centre"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-align-right ::=
+	"right"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-align-none ::=
+	"none"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-parameter ::=
+	image-valign-baseline|
+	image-valign-sub|
+	image-valign-super|
+	image-valign-top|
+	image-valign-text-top|
+	image-valign-middle|
+	image-valign-bottom|
+	image-valign-text-bottom
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-baseline ::=
+	"baseline"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-sub ::=
+	"sub"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-super ::=
+	"super"|
+	"sup"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-top ::=
+	"top"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-text-top ::=
+	"text-top"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-middle ::=
+	"middle"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-bottom ::=
+	"bottom"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-valign-text-bottom ::=
+	"text-bottom"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+caption ::=
+	inline-text
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-other-parameter ::=
+	image-param-page|
+	image-param-upright|
+	image-param-border
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-param-page ::=
+	"page=$1"|
+	"page $1"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-param-upright ::=
+	"upright" ("="? digits)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+image-param-border ::=
+	"border"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+gallery-block ::=
+	"<gallery>" newline? gallery-image (newline? gallery-image)* newline? "</gallery>"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+gallery-image ::=
+	image-name ("|" caption)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+media-inline ::=
+	"[[" "Media:" page-name "." media-extension "]]"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+media-extension ::=
+	"ogg"|
+	"wav"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+text-with-formatting ::=
+	formatting |
+	noparse-block|
+	behaviour-switch|
+	html-entity|
+	html-unsafe-symbol|
+	text-content|
+	letter|
+	space-tab
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+formatting ::=
+	bold-italic-toggle|
+	bold-toggle|
+	italic-toggle
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+bold-italic-toggle ::=
+	"'''''"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+bold-toggle ::=
+	"'''"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+italic-toggle ::=
+	"''"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+noparse-block ::=
+	nowiki-block|
+	html-block|
+	reference-block|
+//	math-block|
+	pre-block|
+	html-comment
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+nowiki-block ::=
+	nowiki-opening-tag whitespace? nowiki-body whitespace? nowiki-closing-tag?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+nowiki-opening-tag ::=
+	"<nowiki" (whitespace characters?)? ">"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+nowiki-body ::=
+	characters
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+nowiki-closing-tag ::=
+	"</nowiki" whitespace? ">"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+reference-block ::=
+    url-reference-block |
+    named-reference-block |
+    named-reference-block-self-closing
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+url-reference-block ::=
+	reference-opening-tag whitespace? unescapedgreaterthan whitespace? url? whitespace? reference-closing-tag
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+named-reference-block ::=
+    named-reference-block-url|
+    named-reference-block-self-closing
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getReferenceName getURL]
+}
+named-reference-block-url ::=
+	reference-opening-tag whitespace? "name" whitespace? "=" whitespace? doublequote reference-name doublequote whitespace? unescapedgreaterthan url? whitespace? reference-closing-tag
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+named-reference-block-self-closing ::=
+	reference-opening-tag whitespace? "name" whitespace? "=" whitespace? doublequote reference-name doublequote whitespace? "/" unescapedgreaterthan
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+reference-name ::=
+    unicode-character+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+html-block ::=
+	html-opening-tag whitespace? html-body whitespace? html-closing-tag?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+html-opening-tag ::=
+	"<html" (whitespace characters?)? ">"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+reference-opening-tag ::=
+	refopen
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+reference-closing-tag ::=
+	refclose
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+html-body ::=
+	characters
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+html-closing-tag ::=
+	"</html" whitespace? ">"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+pre-block ::=
+	pre-opening-tag whitespace? pre-body whitespace? pre-closing-tag?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+pre-opening-tag ::=
+	"<pre" (whitespace characters?)? ">"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+pre-body ::=
+	characters
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+pre-closing-tag ::=
+	"</pre" whitespace? ">"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+html-comment ::=
+	"<!--" characters? "-->"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+behaviour-switch ::=
+	behaviourswitch-toc|
+	behaviourswitch-forcetoc|
+	behaviourswitch-notoc|
+	behaviourswitch-noeditsection|
+	behaviourswitch-nogallery
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+behaviourswitch-toc ::=
+	"__TOC__"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+behaviourswitch-forcetoc ::=
+	"__FORCETOC__"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+behaviourswitch-notoc ::=
+	"__NOTOC__"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+behaviourswitch-noeditsection ::=
+	"__NOEDITSECTION__"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+behaviourswitch-nogallery ::=
+	"__NOGALLERY__"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+text-content ::=
+	line+ (newline+ line+)*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+line ::=
+	(plain-text+) (spaces plain-text+)*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+plain-text ::=
+	unicode-wiki |
+	"<nowiki>" ("|" | "[" | "]" | "<" | ">" | "{" | "}")* "</nowiki>" |
+	unicode-wiki space* ("*" | "#" | ":" | ";")? |
+	unicode-wiki space? "=" space? unicode-wiki |
+	unicode-wiki "'" |
+	"'" unicode-wiki
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+unicode-wiki ::=
+	letter //| wiki-markup-characters
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+wiki-markup-characters ::=
+	"|"|
+//	"["|
+//	"]"|
+	"*"|
+	"#"|
+	":"|
+	";"|
+	"<"|
+	">"|
+	"="|
+	"'"|
+	"{"|
+	"}"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+//random-character ::=
+//	letter
+//{
+//    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+//    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+//}
+
+section ::=
+	level-6-heading|
+	level-5-heading|
+	level-4-section|
+	level-3-section|
+	level-2-section|
+	level-1-heading
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+level-6-heading ::=
+	"======" inline-text "======" space-tabs newline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+space-tabs ::=
+	space-tab+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+level-5-heading ::=
+	"=====" inline-text "=====" newline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+level-4-heading ::= equals4 inline-text equals4 newline
+level-4-section ::=
+	level-4-heading paragraph level-3-section?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+level-3-heading ::= equals3 inline-text equals3 newline
+level-3-section ::=
+	level-3-heading  paragraph level-2-section?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+level-2-heading ::= equals2 inline-text equals2 newline
+level-2-section ::=
+	level-2-heading paragraph level-1-heading
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+level-1-heading ::=
+	equals1 inline-text equals1 space-tabs? newline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+list-item ::=
+	indent-item|
+	enumerated-item|
+	bullet-item
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+indent-item ::=
+	":" (list-item | item-body)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+item-body ::=
+	defined-term|
+	whitespace? inline-text
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+defined-term ::=
+	";" text-content definition?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+definition ::=
+	":" inline-text
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+enumerated-item ::=
+	"#" (list-item | item-body)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+bullet-item ::=
+	"*" (list-item | item-body)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table ::=
+	"{|" (space table-parameters)? newline table-first-row "|}"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-parameters ::=
+	CSS
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-first-row ::=
+	table-column-line newline|
+	table-column-multiline|
+	table-row
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-column-line ::=
+	"|" inline-text ("|" table-column-line)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-column-multiline ::=
+	"|" (table-cell-parameters "|")? any-text newline table-column-multiline?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-cell-parameters ::=
+	CSS
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-row ::=
+	"|-" CSS? newline table-column table-row?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+table-column ::=
+	table-column-line|
+	table-column-multiline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+space-block ::=
+	space inline-text newline space-block-2*
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+space-block-2 ::=
+	space inline-text? newline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+paragraph-and-more ::=
+	paragraph (EOF | newline? special-block-and-more | newline paragraph-and-more)?
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+paragraph ::=
+	lines-of-text
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+lines-of-text ::=
+	inline-text newline
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+//line-of-text ::=
+//
+//{
+//    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+//    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+//}
+
+EOF ::= "EOF"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+CSS ::= "CSS"
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+LEGAL_URL_ENTITY ::= (letter|"."|"/")+
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
+
+
