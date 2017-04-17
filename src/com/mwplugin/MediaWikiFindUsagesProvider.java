@@ -4,6 +4,9 @@ package com.mwplugin;
 		import com.intellij.lang.findUsages.FindUsagesProvider;
 		import com.intellij.psi.*;
 		import com.intellij.psi.tree.TokenSet;
+		import com.mwplugin.psi.IMediaWikiNamedElement;
+		import com.mwplugin.psi.MediaWikiNamedReferenceBlockUrl;
+		import com.mwplugin.psi.MediaWikiReferenceBlock;
 		import com.mwplugin.psi.MediaWikiTypes;
 		import org.jetbrains.annotations.*;
 
@@ -12,14 +15,14 @@ public class MediaWikiFindUsagesProvider implements FindUsagesProvider {
 	@Override
 	public WordsScanner getWordsScanner() {
 		return new DefaultWordsScanner(new MediaWikiLexerAdapter(),
-				TokenSet.create(MediaWikiTypes.KEY),
-				TokenSet.create(MediaWikiTypes.COMMENT),
+				TokenSet.create(MediaWikiTypes.REFERENCE_BLOCK),
+				TokenSet.create(MediaWikiTypes.REFERENCE_NAME),
 				TokenSet.EMPTY);
 	}
 
 	@Override
 	public boolean canFindUsagesFor(@NotNull PsiElement psiElement) {
-		return psiElement instanceof PsiNamedElement;
+		return psiElement instanceof IMediaWikiNamedElement;
 	}
 
 	@Nullable
@@ -31,8 +34,8 @@ public class MediaWikiFindUsagesProvider implements FindUsagesProvider {
 	@NotNull
 	@Override
 	public String getType(@NotNull PsiElement element) {
-		if (element instanceof MediaWikiProperty) {
-			return "MediaWiki property";
+		if (element instanceof MediaWikiReferenceBlock) {
+			return "MediaWiki reference";
 		} else {
 			return "";
 		}
@@ -41,8 +44,8 @@ public class MediaWikiFindUsagesProvider implements FindUsagesProvider {
 	@NotNull
 	@Override
 	public String getDescriptiveName(@NotNull PsiElement element) {
-		if (element instanceof MediaWikiProperty) {
-			return ((MediaWikiProperty) element).getKey();
+		if (element instanceof MediaWikiNamedReferenceBlockUrl) {
+			return ((MediaWikiNamedReferenceBlockUrl) element).getURL();
 		} else {
 			return "";
 		}
@@ -51,8 +54,8 @@ public class MediaWikiFindUsagesProvider implements FindUsagesProvider {
 	@NotNull
 	@Override
 	public String getNodeText(@NotNull PsiElement element, boolean useFullName) {
-		if (element instanceof MediaWikiProperty) {
-			return ((MediaWikiProperty) element).getKey() + ":" + ((MediaWikiProperty) element).getValue();
+		if (element instanceof MediaWikiNamedReferenceBlockUrl) {
+			return ((MediaWikiNamedReferenceBlockUrl) element).getReferenceName()+ ":" + ((MediaWikiNamedReferenceBlockUrl) element).getURL();
 		} else {
 			return "";
 		}

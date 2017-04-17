@@ -1,0 +1,2 @@
+org.xwiki.diff.script.DiffScriptService
+org.xwiki.diff.script.DiffDisplayerScriptService

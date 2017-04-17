@@ -1148,6 +1148,7 @@ url-reference-block ::=
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getURL]
 }
 
 named-reference-block ::=
@@ -1163,6 +1164,7 @@ named-reference-block-url ::=
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getURL]
 }
 
 named-reference-block-self-closing ::=

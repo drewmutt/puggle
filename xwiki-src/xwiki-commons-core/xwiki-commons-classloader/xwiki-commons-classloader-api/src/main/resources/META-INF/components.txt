@@ -1,0 +1,2 @@
+org.xwiki.classloader.internal.DefaultClassLoaderManager
+org.xwiki.classloader.internal.ExtendedURLStreamHandlerFactory
