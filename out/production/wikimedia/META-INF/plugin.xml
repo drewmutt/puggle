@@ -1,17 +1,14 @@
 <idea-plugin version="2">
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
-  <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <id>org.wikipedia.tools.puggle</id>
+  <name>Puggle</name>
+  <version>0.2b</version>
+  <vendor email="someone@somewhere.com" url="http://www.wikipedia.org">YourCompany</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      A smart editor for editting MediaWiki
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
     ]]>
   </change-notes>
 
@@ -34,7 +31,7 @@
     <colorSettingsPage implementation="com.mwplugin.MediaWikiColorSettingsPage"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/MediaWikiDefault.xml"/>
     <!--<lang.psiStructureViewFactory language="MediaWiki" implementationClass="com.mwplugin.MediaWikiStructureViewFactory"/>-->
-    <fileEditorProvider implementation="com.mwplugin.preview.MarkdownSplitEditorProvider"/>
+    <!--<fileEditorProvider implementation="com.mwplugin.preview.MarkdownSplitEditorProvider"/>-->
     <moduleConfigurationEditorProvider implementation="com.mwplugin.module.ModuleConfigurationProvider"/>
     <annotator language="MediaWiki" implementationClass="com.mwplugin.MediaWikiAnnotator"/>
   </extensions>

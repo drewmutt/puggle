@@ -22,19 +22,30 @@ import static com.mwplugin.psi.MediaWikiTypes.*;
 EOL=\R
 
 newline=[\r\n]
+otherletter=[\p{L}]
 lcaseletter=[a-z]
 ucaseletter=[A-Z]
 decimaldigit=[0-9]
 tab=\t
+//okaysymbols = "regexp:[\(|\)|_|\.|\!|\/|\\|\-|\:|#]"
+
 %%
 <YYINITIAL> {
+  "'''''"                 { return quote5; }
+  "'''"                 { return quote3; }
+  "''"                 { return quote2; }
+  "<!--"                 { return htmlcommentopen; }
+    "-->"                 { return htmlcommentclose; }
     "<ref"             { return refopen; }
     "</ref>"             { return refclose; }
   "====="              { return equals5; }
   "===="              { return equals4; }
   "==="              { return equals3; }
   "=="              { return equals2; }
-  "="              { return equals1; }
+  "="              { return equals; }
+  "{{"              { return curlyopen2; }
+  "}}"              { return curlyclose2; }
+  "|"              { return pipe; }
   "&"                 { return unescapedampersand; }
   "<"                 { return unescapedlessthan; }
   ">"                 { return unescapedgreaterthan; }
@@ -42,10 +53,13 @@ tab=\t
   " "                 { return space; }
   "\""                 { return doublequote; }
 
+
+//  {okaysymbols}              { return okaysymbols; }
   {newline}           { return newline; }
   {lcaseletter}       { return lcaseletter; }
   {ucaseletter}       { return ucaseletter; }
   {decimaldigit}      { return decimaldigit; }
+  {otherletter}      { return otherletter; }
   {tab}               { return tab; }
 
 }

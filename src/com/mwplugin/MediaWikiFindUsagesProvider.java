@@ -54,10 +54,11 @@ public class MediaWikiFindUsagesProvider implements FindUsagesProvider {
 	@NotNull
 	@Override
 	public String getNodeText(@NotNull PsiElement element, boolean useFullName) {
-		if (element instanceof MediaWikiNamedReferenceBlockUrl) {
-			return ((MediaWikiNamedReferenceBlockUrl) element).getReferenceName()+ ":" + ((MediaWikiNamedReferenceBlockUrl) element).getURL();
-		} else {
-			return "";
-		}
+//		if (element instanceof MediaWikiNamedReferenceBlockUrl) {
+//			return ((MediaWikiNamedReferenceBlockUrl) element).getReferenceName()+ ":" + ((MediaWikiNamedReferenceBlockUrl) element).getURL();
+//		} else {
+//			return "";
+//		}
+		return "gey";
 	}
 }

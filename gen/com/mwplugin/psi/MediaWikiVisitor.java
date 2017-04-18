@@ -71,11 +71,11 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitBoldItalicToggle(@NotNull MediaWikiBoldItalicToggle o) {
+  public void visitBoldItalicText(@NotNull MediaWikiBoldItalicText o) {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitBoldToggle(@NotNull MediaWikiBoldToggle o) {
+  public void visitBoldText(@NotNull MediaWikiBoldText o) {
     visitIMediaWikiNamedElement(o);
   }
 
@@ -143,8 +143,12 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitFormatting(@NotNull MediaWikiFormatting o) {
+  public void visitFormattedText(@NotNull MediaWikiFormattedText o) {
     visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitFriendlyRefLinkChar(@NotNull MediaWikiFriendlyRefLinkChar o) {
+    visitPsiElement(o);
   }
 
   public void visitGalleryBlock(@NotNull MediaWikiGalleryBlock o) {
@@ -343,11 +347,7 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitIsbnNumber(@NotNull MediaWikiIsbnNumber o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitItalicToggle(@NotNull MediaWikiItalicToggle o) {
+  public void visitItalicText(@NotNull MediaWikiItalicText o) {
     visitIMediaWikiNamedElement(o);
   }
 
@@ -356,10 +356,6 @@ public class MediaWikiVisitor extends PsiElementVisitor {
   }
 
   public void visitLetter(@NotNull MediaWikiLetter o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitLevel1Heading(@NotNull MediaWikiLevel1Heading o) {
     visitIMediaWikiNamedElement(o);
   }
 
@@ -388,10 +384,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
   }
 
   public void visitLevel5Heading(@NotNull MediaWikiLevel5Heading o) {
-    visitIMediaWikiNamedElement(o);
+    visitPsiElement(o);
   }
 
-  public void visitLevel6Heading(@NotNull MediaWikiLevel6Heading o) {
+  public void visitLevel5Section(@NotNull MediaWikiLevel5Section o) {
     visitIMediaWikiNamedElement(o);
   }
 
@@ -495,10 +491,6 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitPipe(@NotNull MediaWikiPipe o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
   public void visitPlainText(@NotNull MediaWikiPlainText o) {
     visitIMediaWikiNamedElement(o);
   }
@@ -537,6 +529,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
 
   public void visitReferenceName(@NotNull MediaWikiReferenceName o) {
     visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitReferenceNameAssignment(@NotNull MediaWikiReferenceNameAssignment o) {
+    visitPsiElement(o);
   }
 
   public void visitReferenceOpeningTag(@NotNull MediaWikiReferenceOpeningTag o) {
@@ -629,6 +625,30 @@ public class MediaWikiVisitor extends PsiElementVisitor {
 
   public void visitTableRow(@NotNull MediaWikiTableRow o) {
     visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitTemplateBlock(@NotNull MediaWikiTemplateBlock o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateName(@NotNull MediaWikiTemplateName o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplatePropertyName(@NotNull MediaWikiTemplatePropertyName o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplatePropertyNamed(@NotNull MediaWikiTemplatePropertyNamed o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplatePropertyUnnamed(@NotNull MediaWikiTemplatePropertyUnnamed o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplatePropertyValue(@NotNull MediaWikiTemplatePropertyValue o) {
+    visitPsiElement(o);
   }
 
   public void visitTextContent(@NotNull MediaWikiTextContent o) {
