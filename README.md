@@ -3,7 +3,9 @@
 ## How to use Puggle
 1. Download wikimedia.zip.
 2. In IntelliJ, go to Settings > Plugins > Install plugin from disk.
-3. Find where you saved the plugin (.zip fie) and restart IntelliJ when prompted.
+3. Find where you saved the plugin (.zip file) and restart IntelliJ when prompted.
 4. Create a new IntelliJ project under IntelliJ Platform Plugin SDK.
 5. Create a new file, with naming it whatever you want, but ending with .mediawiki.
 6. Type some text!
+
+If you have any questions, you can join us on IRC at ##puggle on Freenode!
