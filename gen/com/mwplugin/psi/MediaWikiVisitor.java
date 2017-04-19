@@ -87,10 +87,6 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitCanonicalPageFirstChar(@NotNull MediaWikiCanonicalPageFirstChar o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
   public void visitCaption(@NotNull MediaWikiCaption o) {
     visitIMediaWikiNamedElement(o);
   }
@@ -515,6 +511,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
+  public void visitPropertyAssignment(@NotNull MediaWikiPropertyAssignment o) {
+    visitPsiElement(o);
+  }
+
   public void visitProtocol(@NotNull MediaWikiProtocol o) {
     visitIMediaWikiNamedElement(o);
   }
@@ -527,12 +527,12 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitReferenceName(@NotNull MediaWikiReferenceName o) {
-    visitIMediaWikiNamedElement(o);
+  public void visitReferenceContent(@NotNull MediaWikiReferenceContent o) {
+    visitPsiElement(o);
   }
 
-  public void visitReferenceNameAssignment(@NotNull MediaWikiReferenceNameAssignment o) {
-    visitPsiElement(o);
+  public void visitReferenceName(@NotNull MediaWikiReferenceName o) {
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitReferenceOpeningTag(@NotNull MediaWikiReferenceOpeningTag o) {
@@ -552,14 +552,6 @@ public class MediaWikiVisitor extends PsiElementVisitor {
   }
 
   public void visitSortKey(@NotNull MediaWikiSortKey o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitSpaceBlock(@NotNull MediaWikiSpaceBlock o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitSpaceBlock2(@NotNull MediaWikiSpaceBlock2 o) {
     visitIMediaWikiNamedElement(o);
   }
 
@@ -599,24 +591,16 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitTableCellParameters(@NotNull MediaWikiTableCellParameters o) {
-    visitIMediaWikiNamedElement(o);
+  public void visitTableCell(@NotNull MediaWikiTableCell o) {
+    visitPsiElement(o);
   }
 
-  public void visitTableColumn(@NotNull MediaWikiTableColumn o) {
-    visitIMediaWikiNamedElement(o);
+  public void visitTableHeader(@NotNull MediaWikiTableHeader o) {
+    visitPsiElement(o);
   }
 
-  public void visitTableColumnLine(@NotNull MediaWikiTableColumnLine o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitTableColumnMultiline(@NotNull MediaWikiTableColumnMultiline o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitTableFirstRow(@NotNull MediaWikiTableFirstRow o) {
-    visitIMediaWikiNamedElement(o);
+  public void visitTableNewRow(@NotNull MediaWikiTableNewRow o) {
+    visitPsiElement(o);
   }
 
   public void visitTableParameters(@NotNull MediaWikiTableParameters o) {
@@ -628,27 +612,27 @@ public class MediaWikiVisitor extends PsiElementVisitor {
   }
 
   public void visitTemplateBlock(@NotNull MediaWikiTemplateBlock o) {
-    visitPsiElement(o);
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitTemplateName(@NotNull MediaWikiTemplateName o) {
-    visitPsiElement(o);
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitTemplatePropertyName(@NotNull MediaWikiTemplatePropertyName o) {
-    visitPsiElement(o);
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitTemplatePropertyNamed(@NotNull MediaWikiTemplatePropertyNamed o) {
-    visitPsiElement(o);
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitTemplatePropertyUnnamed(@NotNull MediaWikiTemplatePropertyUnnamed o) {
-    visitPsiElement(o);
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitTemplatePropertyValue(@NotNull MediaWikiTemplatePropertyValue o) {
-    visitPsiElement(o);
+    visitIMediaWikiNamedElement(o);
   }
 
   public void visitTextContent(@NotNull MediaWikiTextContent o) {
@@ -689,6 +673,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
 
   public void visitUrlReferenceBlock(@NotNull MediaWikiUrlReferenceBlock o) {
     visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitVariableName(@NotNull MediaWikiVariableName o) {
+    visitPsiElement(o);
   }
 
   public void visitWhitespace(@NotNull MediaWikiWhitespace o) {

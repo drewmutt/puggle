@@ -52,7 +52,8 @@ tab=\t
   "_"                 { return underscore; }
   " "                 { return space; }
   "\""                 { return doublequote; }
-
+"["                 { return openbracket; }
+"]"                 { return closebracket; }
 
 //  {okaysymbols}              { return okaysymbols; }
   {newline}           { return newline; }
