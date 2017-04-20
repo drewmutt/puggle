@@ -9,7 +9,6 @@ import com.mwplugin.psi.impl.*;
 public interface MediaWikiTypes {
 
   IElementType ANY_SUPPORTED_UNICODE_CHARACTER = new MediaWikiElementType("ANY_SUPPORTED_UNICODE_CHARACTER");
-  IElementType ANY_TEXT = new MediaWikiElementType("ANY_TEXT");
   IElementType ARTICLE = new MediaWikiElementType("ARTICLE");
   IElementType ARTICLE_LINK = new MediaWikiElementType("ARTICLE_LINK");
   IElementType ARTICLE_TITLE = new MediaWikiElementType("ARTICLE_TITLE");
@@ -27,6 +26,8 @@ public interface MediaWikiTypes {
   IElementType CAPTION = new MediaWikiElementType("CAPTION");
   IElementType CATEGORY_LINK = new MediaWikiElementType("CATEGORY_LINK");
   IElementType CATEGORY_NAMESPACE = new MediaWikiElementType("CATEGORY_NAMESPACE");
+  IElementType CELL_CONTENT = new MediaWikiElementType("CELL_CONTENT");
+  IElementType CELL_FORMATTING = new MediaWikiElementType("CELL_FORMATTING");
   IElementType CHARACTER = new MediaWikiElementType("CHARACTER");
   IElementType CHARACTERS = new MediaWikiElementType("CHARACTERS");
   IElementType CSS = new MediaWikiElementType("CSS");
@@ -143,6 +144,7 @@ public interface MediaWikiTypes {
   IElementType RFC_NUMBER = new MediaWikiElementType("RFC_NUMBER");
   IElementType SECTION = new MediaWikiElementType("SECTION");
   IElementType SECTION_ID = new MediaWikiElementType("SECTION_ID");
+  IElementType SINGLE_LINE_ANY_CONTENT = new MediaWikiElementType("SINGLE_LINE_ANY_CONTENT");
   IElementType SORT_KEY = new MediaWikiElementType("SORT_KEY");
   IElementType SPACES = new MediaWikiElementType("SPACES");
   IElementType SPACE_TAB = new MediaWikiElementType("SPACE_TAB");
@@ -153,11 +155,10 @@ public interface MediaWikiTypes {
   IElementType SUB_PAGE_SEPARATOR = new MediaWikiElementType("SUB_PAGE_SEPARATOR");
   IElementType SYMBOL = new MediaWikiElementType("SYMBOL");
   IElementType TABLE = new MediaWikiElementType("TABLE");
+  IElementType TABLE_BLOCK = new MediaWikiElementType("TABLE_BLOCK");
   IElementType TABLE_CELL = new MediaWikiElementType("TABLE_CELL");
   IElementType TABLE_HEADER = new MediaWikiElementType("TABLE_HEADER");
-  IElementType TABLE_NEW_ROW = new MediaWikiElementType("TABLE_NEW_ROW");
   IElementType TABLE_PARAMETERS = new MediaWikiElementType("TABLE_PARAMETERS");
-  IElementType TABLE_ROW = new MediaWikiElementType("TABLE_ROW");
   IElementType TEMPLATE_BLOCK = new MediaWikiElementType("TEMPLATE_BLOCK");
   IElementType TEMPLATE_NAME = new MediaWikiElementType("TEMPLATE_NAME");
   IElementType TEMPLATE_PROPERTY_NAME = new MediaWikiElementType("TEMPLATE_PROPERTY_NAME");
@@ -181,7 +182,6 @@ public interface MediaWikiTypes {
   IElementType WIKI_MARKUP_CHARACTERS = new MediaWikiElementType("WIKI_MARKUP_CHARACTERS");
 
   IElementType any_supported_unicode_character = new MediaWikiTokenType("any_supported_unicode_character");
-  IElementType any_text = new MediaWikiTokenType("any_text");
   IElementType article_link = new MediaWikiTokenType("article_link");
   IElementType article_title = new MediaWikiTokenType("article_title");
   IElementType bad_title_characters = new MediaWikiTokenType("bad_title_characters");
@@ -197,6 +197,8 @@ public interface MediaWikiTypes {
   IElementType canonical_page_char = new MediaWikiTokenType("canonical_page_char");
   IElementType category_link = new MediaWikiTokenType("category_link");
   IElementType category_namespace = new MediaWikiTokenType("category_namespace");
+  IElementType cell_content = new MediaWikiTokenType("cell_content");
+  IElementType cell_formatting = new MediaWikiTokenType("cell_formatting");
   IElementType closebracket = new MediaWikiTokenType("]");
   IElementType curlyclose2 = new MediaWikiTokenType("}}");
   IElementType curlyopen2 = new MediaWikiTokenType("{{");
@@ -318,6 +320,7 @@ public interface MediaWikiTypes {
   IElementType refopen = new MediaWikiTokenType("<ref");
   IElementType rfc_number = new MediaWikiTokenType("rfc_number");
   IElementType section_id = new MediaWikiTokenType("section_id");
+  IElementType single_line_any_content = new MediaWikiTokenType("single_line_any_content");
   IElementType sort_key = new MediaWikiTokenType("sort_key");
   IElementType space = new MediaWikiTokenType(" ");
   IElementType space_tab = new MediaWikiTokenType("space_tab");
@@ -327,11 +330,10 @@ public interface MediaWikiTypes {
   IElementType sub_page = new MediaWikiTokenType("sub_page");
   IElementType sub_page_separator = new MediaWikiTokenType("sub_page_separator");
   IElementType tab = new MediaWikiTokenType("TAB");
+  IElementType table_block = new MediaWikiTokenType("table_block");
   IElementType table_cell = new MediaWikiTokenType("table_cell");
   IElementType table_header = new MediaWikiTokenType("table_header");
-  IElementType table_new_row = new MediaWikiTokenType("table_new_row");
   IElementType table_parameters = new MediaWikiTokenType("table_parameters");
-  IElementType table_row = new MediaWikiTokenType("table_row");
   IElementType template_block = new MediaWikiTokenType("template_block");
   IElementType template_name = new MediaWikiTokenType("template_name");
   IElementType template_property_name = new MediaWikiTokenType("template_property_name");
@@ -362,9 +364,6 @@ public interface MediaWikiTypes {
       IElementType type = node.getElementType();
        if (type == ANY_SUPPORTED_UNICODE_CHARACTER) {
         return new MediaWikiAnySupportedUnicodeCharacterImpl(node);
-      }
-      else if (type == ANY_TEXT) {
-        return new MediaWikiAnyTextImpl(node);
       }
       else if (type == ARTICLE) {
         return new MediaWikiArticleImpl(node);
@@ -416,6 +415,12 @@ public interface MediaWikiTypes {
       }
       else if (type == CATEGORY_NAMESPACE) {
         return new MediaWikiCategoryNamespaceImpl(node);
+      }
+      else if (type == CELL_CONTENT) {
+        return new MediaWikiCellContentImpl(node);
+      }
+      else if (type == CELL_FORMATTING) {
+        return new MediaWikiCellFormattingImpl(node);
       }
       else if (type == CHARACTER) {
         return new MediaWikiCharacterImpl(node);
@@ -765,6 +770,9 @@ public interface MediaWikiTypes {
       else if (type == SECTION_ID) {
         return new MediaWikiSectionIdImpl(node);
       }
+      else if (type == SINGLE_LINE_ANY_CONTENT) {
+        return new MediaWikiSingleLineAnyContentImpl(node);
+      }
       else if (type == SORT_KEY) {
         return new MediaWikiSortKeyImpl(node);
       }
@@ -795,20 +803,17 @@ public interface MediaWikiTypes {
       else if (type == TABLE) {
         return new MediaWikiTableImpl(node);
       }
+      else if (type == TABLE_BLOCK) {
+        return new MediaWikiTableBlockImpl(node);
+      }
       else if (type == TABLE_CELL) {
         return new MediaWikiTableCellImpl(node);
       }
       else if (type == TABLE_HEADER) {
         return new MediaWikiTableHeaderImpl(node);
       }
-      else if (type == TABLE_NEW_ROW) {
-        return new MediaWikiTableNewRowImpl(node);
-      }
       else if (type == TABLE_PARAMETERS) {
         return new MediaWikiTableParametersImpl(node);
-      }
-      else if (type == TABLE_ROW) {
-        return new MediaWikiTableRowImpl(node);
       }
       else if (type == TEMPLATE_BLOCK) {
         return new MediaWikiTemplateBlockImpl(node);

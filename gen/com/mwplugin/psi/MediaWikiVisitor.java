@@ -27,10 +27,6 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
-  public void visitAnyText(@NotNull MediaWikiAnyText o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
   public void visitArticle(@NotNull MediaWikiArticle o) {
     visitIMediaWikiNamedElement(o);
   }
@@ -96,6 +92,14 @@ public class MediaWikiVisitor extends PsiElementVisitor {
   }
 
   public void visitCategoryNamespace(@NotNull MediaWikiCategoryNamespace o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitCellContent(@NotNull MediaWikiCellContent o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitCellFormatting(@NotNull MediaWikiCellFormatting o) {
     visitIMediaWikiNamedElement(o);
   }
 
@@ -551,6 +555,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
+  public void visitSingleLineAnyContent(@NotNull MediaWikiSingleLineAnyContent o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
   public void visitSortKey(@NotNull MediaWikiSortKey o) {
     visitIMediaWikiNamedElement(o);
   }
@@ -591,6 +599,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
+  public void visitTableBlock(@NotNull MediaWikiTableBlock o) {
+    visitPsiElement(o);
+  }
+
   public void visitTableCell(@NotNull MediaWikiTableCell o) {
     visitPsiElement(o);
   }
@@ -599,15 +611,7 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitTableNewRow(@NotNull MediaWikiTableNewRow o) {
-    visitPsiElement(o);
-  }
-
   public void visitTableParameters(@NotNull MediaWikiTableParameters o) {
-    visitIMediaWikiNamedElement(o);
-  }
-
-  public void visitTableRow(@NotNull MediaWikiTableRow o) {
     visitIMediaWikiNamedElement(o);
   }
 

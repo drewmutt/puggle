@@ -7,6 +7,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="706" />
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="536" />
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1185" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1537" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="">
@@ -14,17 +15,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/mwplugin/parser/MediaWikiParser.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiTypes.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiVisitor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes$Factory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiVisitor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wikimedia.zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiLexer.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiLexer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/out/production/wikimedia/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/_MediaWikiLexer.flex" afterPath="$PROJECT_DIR$/src/com/mwplugin/_MediaWikiLexer.flex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
     </list>
     <ignored path="wikimedia.iws" />
@@ -47,14 +38,14 @@
     <favorites_list name="wikimedia" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.7755102">
+    <splitter split-orientation="vertical" split-proportion="0.7210884">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="mediawiki.bnf" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
-                  <caret line="355" column="8" selection-start-line="355" selection-start-column="8" selection-end-line="355" selection-end-column="8" />
+                <state relative-caret-position="277">
+                  <caret line="636" column="0" selection-start-line="636" selection-start-column="0" selection-end-line="636" selection-end-column="0" />
                   <folding>
                     <element signature="e#989#2484#0" expanded="true" />
                   </folding>
@@ -90,6 +81,7 @@
                 <state relative-caret-position="75">
                   <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
                   <folding>
+                    <element signature="imports" expanded="false" />
                     <marker date="1492229718000" expanded="false" signature="1419:1424" ph=" { " />
                     <marker date="1492229718000" expanded="false" signature="1438:1441" ph=" }" />
                     <marker date="1492229718000" expanded="false" signature="2299:2306" ph=" { " />
@@ -165,8 +157,8 @@
           <file leaf-file-name="mediawiki.bnf.preview" pinned="false" current-in-tab="true">
             <entry file="mock:///mediawiki.bnf.preview">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -269,7 +261,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="181" />
     <option name="y" value="23" />
-    <option name="width" value="2338" />
+    <option name="width" value="2136" />
     <option name="height" value="1332" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -440,10 +432,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mwplugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -830,14 +818,21 @@
       <option name="project" value="LOCAL" />
       <updated>1492491039268</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="More fun!">
+      <created>1492578285642</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1492578285644</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="9315000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="181" y="23" width="2338" height="1332" extended-state="0" />
+    <frame x="181" y="23" width="2136" height="1332" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -845,20 +840,20 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20823437" sideWeight="0.43627033" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3016627" sideWeight="0.56287426" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3374679" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3016627" sideWeight="0.5646067" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33707866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.49315655" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32779098" sideWeight="0.43455946" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32779098" sideWeight="0.43305242" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.4948674" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19803251" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2167603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3016627" sideWeight="0.43712574" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3016627" sideWeight="0.43539324" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -930,7 +925,8 @@
     <MESSAGE value="Implemented smart lexing / annotations / ref collapsing." />
     <MESSAGE value="Made inital release" />
     <MESSAGE value="Added more tags / templates / refs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more tags / templates / refs" />
+    <MESSAGE value="More fun!" />
+    <option name="LAST_COMMIT_MESSAGE" value="More fun!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1302,6 +1298,7 @@
         <state relative-caret-position="75">
           <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
+            <element signature="imports" expanded="false" />
             <marker date="1492229718000" expanded="false" signature="1419:1424" ph=" { " />
             <marker date="1492229718000" expanded="false" signature="1438:1441" ph=" }" />
             <marker date="1492229718000" expanded="false" signature="2299:2306" ph=" { " />
@@ -1339,17 +1336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWiki.flex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-          <folding>
-            <marker date="1490845501000" expanded="true" signature="30:143" ph="..." />
-            <marker date="1490845501000" expanded="true" signature="1100:1150" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1374,10 +1360,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWiki.flex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
-          <caret line="355" column="8" selection-start-line="355" selection-start-column="8" selection-end-line="355" selection-end-column="8" />
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <marker date="1490845501000" expanded="true" signature="30:143" ph="..." />
+            <marker date="1490845501000" expanded="true" signature="1100:1150" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="636" column="0" selection-start-line="636" selection-start-column="0" selection-end-line="636" selection-end-column="0" />
           <folding>
             <element signature="e#989#2484#0" expanded="true" />
           </folding>

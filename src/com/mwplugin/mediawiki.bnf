@@ -525,7 +525,7 @@ article ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 special-block-and-more ::=
-	special-block (EOF | newline special-block-and-more | newline? paragraph-and-more)?
+	special-block (newline special-block-and-more | newline? paragraph-and-more)?
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -629,14 +629,14 @@ category-namespace ::=
 }
 
 sort-key ::=
-	any-text
+	single-line-any-content
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-any-text ::=
-	(letter | decimaldigit | whitespace | symbol)*
+single-line-any-content ::=
+    ( inline-element | special-block | decimaldigit | letter | symbol | space-tab | equals)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1522,32 +1522,35 @@ bullet-item ::=
 }
 
 table ::=
-	"{|" (space table-parameters)? newline (table-row)+ "|}"
+	"{|" (space table-parameters)? newline (table-block)+ "|}"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
 table-parameters ::=
-	CSS
+	single-line-any-content
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-table-header ::= "!" any-text newline
-table-cell ::= "|" any-text newline
-table-new-row ::= "|-" newline
+table-header ::= "!" whitespace? (cell-formatting "|")? cell-content newline
+table-cell ::= "|" (cell-formatting "|")? cell-content newline
+table-block ::= "|-" newline (cell-formatting)? (table-header | table-cell)
 
-table-row ::=
-	table-new-row |
-	table-header |
-	table-cell
+cell-formatting ::= single-line-any-content
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
+
+cell-content ::= single-line-any-content
+{
+    mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
+    implements="com.mwplugin.psi.IMediaWikiNamedElement"
+}
 
 paragraph-and-more ::=
 	paragraph (EOF | newline? special-block-and-more | newline paragraph-and-more)?
