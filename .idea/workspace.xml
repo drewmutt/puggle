@@ -10,14 +10,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1537" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="Attempting to get tables to work">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes$Factory.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes$Factory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiVisitor.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiVisitor.class" />
+    <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
     </list>
     <ignored path="wikimedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +38,19 @@
           <file leaf-file-name="mediawiki.bnf" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="316">
-                  <caret line="1537" column="25" lean-forward="false" selection-start-line="1537" selection-start-column="25" selection-end-line="1537" selection-end-column="25" />
+                <state relative-caret-position="301">
+                  <caret line="1536" column="0" lean-forward="true" selection-start-line="1536" selection-start-column="0" selection-end-line="1536" selection-end-column="0" />
                   <folding>
-                    <element signature="e#989#2551#0" expanded="true" />
-                    <element signature="e#1525#2549#0" expanded="true" />
+                    <marker date="1492750230000" expanded="true" signature="989:2236" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="1525:2236" ph="[..]" />
+                    <marker date="1492750230000" expanded="true" signature="32649:32769" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="32813:32933" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="33039:33159" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="33190:33310" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="33352:33472" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="33640:33760" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="33776:33896" ph="{..}" />
+                    <marker date="1492750230000" expanded="true" signature="34008:34128" ph="{..}" />
                   </folding>
                 </state>
               </provider>
@@ -61,8 +63,8 @@
           <file leaf-file-name="mediawiki.bnf.preview" pinned="false" current-in-tab="true">
             <entry file="mock:///mediawiki.bnf.preview">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+                <state relative-caret-position="45">
+                  <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
                   <folding />
                 </state>
               </provider>
@@ -150,8 +152,8 @@
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWiki.flex" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.txt" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
         <option value="/mediawiki.bnf.preview" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
       </list>
     </option>
   </component>
@@ -388,6 +390,116 @@
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -711,7 +823,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492664451084</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="More table hilarity">
+      <created>1492750195813</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1492750195813</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -727,13 +846,13 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14489311" sideWeight="0.5121019" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858273" sideWeight="0.5087049" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37494692" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32779098" sideWeight="0.43305242" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.49315655" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858273" sideWeight="0.49129513" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14489311" sideWeight="0.48789808" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14489311" sideWeight="0.48789808" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26199576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -813,7 +932,8 @@
     <MESSAGE value="Added more tags / templates / refs" />
     <MESSAGE value="More fun!" />
     <MESSAGE value="Attempting to get tables to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempting to get tables to work" />
+    <MESSAGE value="More table hilarity" />
+    <option name="LAST_COMMIT_MESSAGE" value="More table hilarity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1239,11 +1359,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="1537" column="25" lean-forward="false" selection-start-line="1537" selection-start-column="25" selection-end-line="1537" selection-end-column="25" />
+        <state relative-caret-position="301">
+          <caret line="1536" column="0" lean-forward="true" selection-start-line="1536" selection-start-column="0" selection-end-line="1536" selection-end-column="0" />
           <folding>
-            <element signature="e#989#2551#0" expanded="true" />
-            <element signature="e#1525#2549#0" expanded="true" />
+            <marker date="1492750230000" expanded="true" signature="989:2236" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="1525:2236" ph="[..]" />
+            <marker date="1492750230000" expanded="true" signature="32649:32769" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="32813:32933" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="33039:33159" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="33190:33310" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="33352:33472" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="33640:33760" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="33776:33896" ph="{..}" />
+            <marker date="1492750230000" expanded="true" signature="34008:34128" ph="{..}" />
           </folding>
         </state>
       </provider>
