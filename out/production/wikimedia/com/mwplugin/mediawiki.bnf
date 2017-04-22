@@ -228,8 +228,9 @@
         unescapedgreaterthan = ">"
         underscore = "_"
         space = " "
-        doublequote = "\""
+        doublequote = "regexp:\x22"
         TAB = "regexp:\t"
+        tablecellstart = "regexp:(?!\n)\p{Blank}*[\||\!]"
         equals = "="
         curlyopen2 = "{{"
         curlyclose2 = "}}"
@@ -355,7 +356,7 @@ symbol ::=
 	underscore|
 	"."|
 	","|
-	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"–"|"\""|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|"="|"†"
+	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -723,7 +724,6 @@ protocol ::=
 	"https://"|
 	"ftp://"|
 	"ftps://"|
-	"www."|
 	"mailto:"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
@@ -1522,7 +1522,7 @@ bullet-item ::=
 }
 
 table ::=
-	"{|" (space table-parameters)? newline (table-block)+ "|}"
+	"{|" (space table-parameters)? newline? (table-block)* tablecellstart "}"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1535,9 +1535,9 @@ table-parameters ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-table-header ::= "!" whitespace? (cell-formatting "|")? cell-content newline
-table-cell ::= "|" (cell-formatting "|")? cell-content newline
-table-block ::= "|-" newline (cell-formatting)? (table-header | table-cell)
+table-header ::=  tablecellstart whitespace? (!"|" cell-formatting "|")? cell-content newline
+table-cell ::= "|" (!"|" cell-formatting "|")? cell-content
+table-block ::= tablecellstart "-" newline  (table-header)*
 
 cell-formatting ::= single-line-any-content
 {

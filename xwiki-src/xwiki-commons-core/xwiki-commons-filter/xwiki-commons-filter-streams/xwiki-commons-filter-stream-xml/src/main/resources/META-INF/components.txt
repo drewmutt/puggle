@@ -1,2 +1,0 @@
-org.xwiki.filter.filterxml.internal.input.XMLInputFilterFactory
-org.xwiki.filter.filterxml.internal.output.XMLOutputFilterFactory

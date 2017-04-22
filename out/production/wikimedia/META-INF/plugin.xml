@@ -39,8 +39,9 @@
   <actions>
       <group id="MediaWiki.Actions" text="_MediaWiki" description="MediaWiki">
         <add-to-group group-id="MainMenu" anchor="last"  />
-        <!--<action id="Myplugin.Textboxes" class="com.mwplugin.preview.PreviewAction" text="Preview _Markup" description="View preview of rendered MediaWiki code" />-->
+        <action id="com.whatever" class="com.mwplugin.actions.DoSomething" text="Do Something" description="Do Something"/>
       </group>
+
   </actions>
 
 

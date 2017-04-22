@@ -1,2 +1,0 @@
-org.xwiki.component.internal.multi.DefaultComponentManagerManager
-org.xwiki.component.internal.namespace.DefaultNamespaceValidator

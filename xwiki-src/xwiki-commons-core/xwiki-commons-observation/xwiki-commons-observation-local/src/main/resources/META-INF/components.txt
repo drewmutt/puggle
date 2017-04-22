@@ -1,3 +1,0 @@
-org.xwiki.observation.internal.DefaultObservationManager
-org.xwiki.observation.internal.DefaultObservationContext
-org.xwiki.observation.internal.ObservationContextListener

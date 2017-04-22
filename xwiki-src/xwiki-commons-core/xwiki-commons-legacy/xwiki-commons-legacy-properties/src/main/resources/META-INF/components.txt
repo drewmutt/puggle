@@ -1,5 +1,0 @@
-org.xwiki.properties.internal.converter.DeprecatedColorConverter
-org.xwiki.properties.internal.converter.DeprecatedEnumConverter
-org.xwiki.properties.internal.converter.DeprecatedListConverter
-org.xwiki.properties.internal.converter.DeprecatedLocaleConverter
-org.xwiki.properties.internal.converter.DeprecatedSetConverter
