@@ -6,14 +6,14 @@ import com.mwplugin.MediaWikiFileType;
 
 public class MediaWikiElementFactory
 {
-	/*
-	public static MediaWikiReference createReference(Project project, String name, String value)
+
+	public static MediaWikiTemplateBlock createTemplate(Project project, String name)
 	{
-		final MediaWikiFile file = createFile(project, name + " = " + value);
-		return (MediaWikiReference) file.getFirstChild();
+		final MediaWikiFile file = createFile(project, "{{" + name + "}}");
+		return (MediaWikiTemplateBlock) file.getFirstChild();
 	}
 
-	public static MediaWikiReference createReference(Project project, String name)
+	/*public static MediaWikiReference createReference(Project project, String name)
 	{
 		final MediaWikiFile file = createFile(project, name);
 		return (MediaWikiReference) file.getFirstChild();

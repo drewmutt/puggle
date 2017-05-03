@@ -24,6 +24,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <lang.findUsagesProvider language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFindUsagesProvider"/>
+    <lang.findUsagesProvider language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFindUsagesProvider"/>
     <lang.foldingBuilder language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFoldingBuilder"/>
     <fileTypeFactory implementation="com.mwplugin.MediaWikiFileFactory"/>
     <lang.parserDefinition language="MediaWiki" implementationClass="com.mwplugin.MediaWikiParserDefinition"/>
@@ -34,6 +35,8 @@
     <!--<fileEditorProvider implementation="com.mwplugin.preview.MarkdownSplitEditorProvider"/>-->
     <moduleConfigurationEditorProvider implementation="com.mwplugin.module.ModuleConfigurationProvider"/>
     <annotator language="MediaWiki" implementationClass="com.mwplugin.MediaWikiAnnotator"/>
+    <completion.contributor language="MediaWiki" implementationClass="com.mwplugin.MediaWikiCompletionContributor"/>
+    <lang.braceMatcher language="MediaWiki" implementationClass="com.mwplugin.MediaWikiPairedBraceMatcher"/>
   </extensions>
 
   <actions>

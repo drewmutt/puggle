@@ -2,20 +2,13 @@ package com.mwplugin.actions;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.ui.DialogWrapper;
-import com.mwplugin.InsertTemplate;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-
-import static org.apache.commons.httpclient.params.HttpMethodParams.USER_AGENT;
+import com.intellij.openapi.application.Result;
+import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.mwplugin.dialogs.InsertTemplate;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by andrewsimmons on 4/21/17.
@@ -53,7 +46,24 @@ Implement the createCenterPanel() method to return the component comprising the 
 		templateDialog.setTitle("Sup!");
 		templateDialog.show();
 		// TODO: insert action logic here
+System.out.println("GEY");
+		if(templateDialog.selectedTemplate != null)
+		{
+			FileEditorManager manager = FileEditorManager.getInstance(e.getProject());
+			final Editor editor = manager.getSelectedTextEditor();
+			assert editor != null;
+			final int cursorOffset = editor.getCaretModel().getOffset();
+			final Document document = editor.getDocument();
 
+			new WriteCommandAction(e.getProject())
+			{
+				@Override
+				protected void run(@NotNull Result result) throws Throwable
+				{
+					document.insertString(cursorOffset, templateDialog.selectedTemplate.content);
+				}
+			}.execute();
+		}
 
 	}
 }

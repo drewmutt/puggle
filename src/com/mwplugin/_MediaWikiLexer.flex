@@ -31,6 +31,9 @@ tab=\t
 
 %%
 <YYINITIAL> {
+  "|-"                 { return tablesectionstart; }
+  "|}"                 { return tableend; }
+  "{|"                 { return tablestart; }
   "'''''"                 { return quote5; }
   "'''"                 { return quote3; }
   "''"                 { return quote2; }
