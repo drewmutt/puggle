@@ -44,4 +44,7 @@ public class MediaWikiFileType extends LanguageFileType
 	{
 		return MediaWikiIcons.FILE;
 	}
+
+
+
 }

@@ -1,0 +1,66 @@
+[[File:Puggle MediaWiki editor screenshot - Template parameter name auto-complete.png|thumb|Using in-development Puggle MediaWiki editor. Screenshot of  using the template parameter name auto-complete feature.]]
+
+{{Infobox software
+| name = Puggle
+| screenshot = Puggle_MediaWiki_Editor_Application_Screenshot.png
+| developer = [[User:Drewmutt|Drewmutt]] [[User:Sn1per|Sn1per]] <br/>[[User:Yoshi24517|Yoshi24517]] (Bug tester)
+| latest preview version = 0.4a
+| latest preview date = {{Start date and age|2017|04|17|df=yes}}
+| status = In development (alpha)
+| programming language = Java
+| operating system = OS X/Windows/Linux
+| license = Apache
+| repo = https://github.com/drewmutt/puggle
+}}
+
+{|
+|-
+! Header 1
+! Header 2
+|-
+| Cell 1 content
+| Cell 2 content
+|}
+
+
+
+'''Puggle''' is an in-development external editor/parser for MediaWiki content. The motivation for this editor is to have an editor that "deeply" understands MediaWiki and can suggest fixes, and offer refactoring. It's a plugin for [[JetBrains|JetBrains']] [[IntelliJ]], there's a free "community edition" online, although any version of IntelliJ will work.
+
+===Current Features===
+* Syntax Highlighting
+* Collapsing for references and templates
+* Autocomplete Template names and parameters
+* Autocomplete the insert of templates and possibly list optional fields (Suggested by [[User:CycloneIsaac|CycloneIsaac]])
+
+===Current Issues===
+* Some special characters will cease lexing
+
+===In-Development Features===
+* Enhanced table editing
+
+===Desired Features===
+* Template inspector (a bit like "Inspect element" in Google Chrome) where the tool would identify which template(s), LUA script(s) or css is responsible for a specific part of the template. (Suggested by [[User:とある白い猫|とある白い猫]])
+
+{{Gallery
+|title=Cultural depictions of George Washington
+|width=160 | height=170
+|align=center
+|footer=Example 1
+|File:Federal Hall NYC 27.JPG
+ |alt1=Statue facing a city building with Greek columns and huge U.S. flag
+ |Using the autocomplete template parameter feature
+|File:Mount Rushmore2.jpg
+ |alt2=Profile of stone face on mountainside, with 3 workers.
+ |Construction of Washington portrait at [[Mount Rushmore]], c. 1932
+|File:2006 Quarter Proof.png
+ |alt3=Shiny silver coin with profile of Washington bust.
+ |Washington is commemorated on a [[Quarter (United States coin)|quarter]].
+|File:George Washington Presidential $1 Coin obverse.png
+ |alt4=Gold coin with bust of Washington facing slightly left
+ |Washington on a [[dollar coin (United States)|dollar coin]]
+}}
+
+==External Links==
+[https://github.com/drewmutt/puggle Github Repository]
+
+

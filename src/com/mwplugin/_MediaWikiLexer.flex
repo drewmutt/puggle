@@ -39,6 +39,7 @@ tab=\t
   "''"                 { return quote2; }
   "<!--"                 { return htmlcommentopen; }
     "-->"                 { return htmlcommentclose; }
+    "<ref>"             { return refopencomplete; }
     "<ref"             { return refopen; }
     "</ref>"             { return refclose; }
   "====="              { return equals5; }
@@ -47,6 +48,8 @@ tab=\t
   "=="              { return equals2; }
   "="              { return equals; }
   "{{"              { return curlyopen2; }
+  "[["              { return openbracket2; }
+    "]]"              { return closebracket2; }
   "}}"              { return curlyclose2; }
   "|"              { return pipe; }
   "&"                 { return unescapedampersand; }

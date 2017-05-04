@@ -33,9 +33,11 @@ public class MediaWikiAnnotator implements Annotator
 		keysMap.put(MediaWikiLink.class, DefaultLanguageHighlighterColors.STRING);
 		keysMap.put(MediaWikiBoldText.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_BOLD"));
 		keysMap.put(MediaWikiItalicText.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_ITALIC"));
+		keysMap.put(MediaWikiBoldItalicText.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_BOLD_ITALIC"));
 		keysMap.put(MediaWikiHtmlComment.class, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
 		keysMap.put(MediaWikiReferenceBlock.class, DefaultLanguageHighlighterColors.CONSTANT);
 		keysMap.put(MediaWikiTemplateBlock.class, DefaultLanguageHighlighterColors.NUMBER);
+		keysMap.put(MediaWikiCategoryLink.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_CATEGORY"));
 
 		keysMap.put(MediaWikiTableEnd.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 		keysMap.put(MediaWikiTableStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
@@ -43,7 +45,8 @@ public class MediaWikiAnnotator implements Annotator
 		keysMap.put(MediaWikiTableHeaderRowStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 		keysMap.put(MediaWikiTableSectionStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 
-		keysMap.put(MediaWikiCategoryLink.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_CATEGORY"));
+		keysMap.put(MediaWikiTableSectionStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
+
 
 //				/		addNewKey(MediaWikiTypes.CONTENT, HighlighterColors.TEXT);
 //		addNewKey(MediaWikiTypes.LINK, DefaultLanguageHighlighterColors.STRING);

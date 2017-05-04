@@ -583,6 +583,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
+  public void visitReferenceOpeningTagComplete(@NotNull MediaWikiReferenceOpeningTagComplete o) {
+    visitPsiElement(o);
+  }
+
   public void visitRfcNumber(@NotNull MediaWikiRfcNumber o) {
     visitIMediaWikiNamedElement(o);
   }

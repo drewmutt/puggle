@@ -1,5 +1,6 @@
 package com.mwplugin.psi.impl;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.psi.*;
@@ -65,13 +66,13 @@ public class MediaWikiPsiImplUtil {
 		}
 	}
 
-
-	public static ItemPresentation getPresentation(final MediaWikiReference element) {
+*/
+	public static ItemPresentation getPresentation(final MediaWikiTemplateBlock element) {
 		return new ItemPresentation() {
 			@Nullable
 			@Override
 			public String getPresentableText() {
-				return element.getUrl().getText();
+				return element.getTemplateName().getText();
 			}
 
 			@Nullable
@@ -84,9 +85,32 @@ public class MediaWikiPsiImplUtil {
 			@Nullable
 			@Override
 			public Icon getIcon(boolean unused) {
-				return MediaWikiIcons.FILE;
+				return AllIcons.Nodes.ExceptionClass;
 			}
 		};
 	}
-*/
+
+	public static ItemPresentation getPresentation(final MediaWikiLevel2Heading element) {
+		return new ItemPresentation() {
+			@Nullable
+			@Override
+			public String getPresentableText() {
+				return element.getInlineText().getText();
+			}
+
+			@Nullable
+			@Override
+			public String getLocationString() {
+				PsiFile containingFile = element.getContainingFile();
+				return containingFile == null ? null : containingFile.getName();
+			}
+
+			@Nullable
+			@Override
+			public Icon getIcon(boolean unused) {
+				return AllIcons.Nodes.NewFolder;
+			}
+		};
+	}
+
 }

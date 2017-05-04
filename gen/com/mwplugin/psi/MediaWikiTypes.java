@@ -151,6 +151,7 @@ public interface MediaWikiTypes {
   IElementType REFERENCE_CONTENT = new MediaWikiElementType("REFERENCE_CONTENT");
   IElementType REFERENCE_NAME = new MediaWikiElementType("REFERENCE_NAME");
   IElementType REFERENCE_OPENING_TAG = new MediaWikiElementType("REFERENCE_OPENING_TAG");
+  IElementType REFERENCE_OPENING_TAG_COMPLETE = new MediaWikiElementType("REFERENCE_OPENING_TAG_COMPLETE");
   IElementType RFC_NUMBER = new MediaWikiElementType("RFC_NUMBER");
   IElementType SECTION = new MediaWikiElementType("SECTION");
   IElementType SECTION_ID = new MediaWikiElementType("SECTION_ID");
@@ -219,6 +220,7 @@ public interface MediaWikiTypes {
   IElementType cell_content = new MediaWikiTokenType("cell_content");
   IElementType cell_formatting = new MediaWikiTokenType("cell_formatting");
   IElementType closebracket = new MediaWikiTokenType("]");
+  IElementType closebracket2 = new MediaWikiTokenType("]]");
   IElementType content_non_pipe = new MediaWikiTokenType("content_non_pipe");
   IElementType curlyclose2 = new MediaWikiTokenType("}}");
   IElementType curlyopen2 = new MediaWikiTokenType("{{");
@@ -323,6 +325,7 @@ public interface MediaWikiTypes {
   IElementType nowiki_closing_tag = new MediaWikiTokenType("nowiki_closing_tag");
   IElementType nowiki_opening_tag = new MediaWikiTokenType("nowiki_opening_tag");
   IElementType openbracket = new MediaWikiTokenType("[");
+  IElementType openbracket2 = new MediaWikiTokenType("[[");
   IElementType otherletter = new MediaWikiTokenType("otherletter");
   IElementType page_char = new MediaWikiTokenType("page_char");
   IElementType page_first_char = new MediaWikiTokenType("page_first_char");
@@ -345,7 +348,9 @@ public interface MediaWikiTypes {
   IElementType reference_content = new MediaWikiTokenType("reference_content");
   IElementType reference_name = new MediaWikiTokenType("reference_name");
   IElementType reference_opening_tag = new MediaWikiTokenType("reference_opening_tag");
+  IElementType reference_opening_tag_complete = new MediaWikiTokenType("reference_opening_tag_complete");
   IElementType refopen = new MediaWikiTokenType("<ref");
+  IElementType refopencomplete = new MediaWikiTokenType("<ref>");
   IElementType rfc_number = new MediaWikiTokenType("rfc_number");
   IElementType section_id = new MediaWikiTokenType("section_id");
   IElementType single_line_any_content = new MediaWikiTokenType("single_line_any_content");
@@ -829,6 +834,9 @@ public interface MediaWikiTypes {
       }
       else if (type == REFERENCE_OPENING_TAG) {
         return new MediaWikiReferenceOpeningTagImpl(node);
+      }
+      else if (type == REFERENCE_OPENING_TAG_COMPLETE) {
+        return new MediaWikiReferenceOpeningTagCompleteImpl(node);
       }
       else if (type == RFC_NUMBER) {
         return new MediaWikiRfcNumberImpl(node);

@@ -9,59 +9,74 @@ import com.mwplugin.psi.*;
 
 import java.util.*;
 
-public class MediaWikiStructureViewElement implements StructureViewTreeElement, SortableTreeElement {
+public class MediaWikiStructureViewElement implements StructureViewTreeElement, SortableTreeElement
+{
 	private PsiElement element;
 
-	public MediaWikiStructureViewElement(PsiElement element) {
+	public MediaWikiStructureViewElement(PsiElement element)
+	{
 		this.element = element;
 	}
 
 	@Override
-	public Object getValue() {
+	public Object getValue()
+	{
 		return element;
 	}
 
 	@Override
-	public void navigate(boolean requestFocus) {
-		if (element instanceof NavigationItem) {
+	public void navigate(boolean requestFocus)
+	{
+		if (element instanceof NavigationItem)
+		{
 			((NavigationItem) element).navigate(requestFocus);
 		}
 	}
 
 	@Override
-	public boolean canNavigate() {
-		return element instanceof NavigationItem &&
-				((NavigationItem) element).canNavigate();
+	public boolean canNavigate()
+	{
+		return element instanceof NavigationItem && ((NavigationItem) element).canNavigate();
 	}
 
 	@Override
-	public boolean canNavigateToSource() {
-		return element instanceof NavigationItem &&
-				((NavigationItem) element).canNavigateToSource();
+	public boolean canNavigateToSource()
+	{
+		return element instanceof NavigationItem && ((NavigationItem) element).canNavigateToSource();
 	}
 
 	@Override
-	public String getAlphaSortKey() {
+	public String getAlphaSortKey()
+	{
 		return element instanceof PsiNamedElement ? ((PsiNamedElement) element).getName() : null;
 	}
 
 	@Override
-	public ItemPresentation getPresentation() {
-		return element instanceof NavigationItem ?
-				((NavigationItem) element).getPresentation() : null;
+	public ItemPresentation getPresentation()
+	{
+		if (element instanceof NavigationItem)
+			return ((NavigationItem) element).getPresentation();
+		else
+			return null;
 	}
 
 	@Override
-	public TreeElement[] getChildren() {
-//		if (element instanceof MediaWikiFile) {
-//			MediaWikiProperty[] properties = PsiTreeUtil.getChildrenOfType(element, MediaWikiProperty.class);
-//			List<TreeElement> treeElements = new ArrayList<TreeElement>(properties.length);
-//			for (MediaWikiProperty property : properties) {
-//				treeElements.add(new MediaWikiStructureViewElement(property));
-//			}
-//			return treeElements.toArray(new TreeElement[treeElements.size()]);
-//		} else {
+	public TreeElement[] getChildren()
+	{
+		if (element instanceof MediaWikiFile)
+		{
+			Collection<MediaWikiTemplateBlock> templates = PsiTreeUtil.findChildrenOfType(element, MediaWikiTemplateBlock.class);
+			List<TreeElement> treeElements = new ArrayList<TreeElement>(templates.size());
+			for (MediaWikiTemplateBlock property : templates)
+			{
+				MediaWikiStructureViewElement e = new MediaWikiStructureViewElement(property);
+				treeElements.add(e);
+			}
+			return treeElements.toArray(new TreeElement[treeElements.size()]);
+		}
+		else
+		{
 			return EMPTY_ARRAY;
-//		}
+		}
 	}
 }

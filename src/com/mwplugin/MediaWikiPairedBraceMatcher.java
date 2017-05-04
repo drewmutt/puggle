@@ -16,17 +16,18 @@ public class MediaWikiPairedBraceMatcher implements PairedBraceMatcher
 	@Override
 	public BracePair[] getPairs()
 	{
-		BracePair[] pairs = new BracePair[3];
+		BracePair[] pairs = new BracePair[4];
 		pairs[0] = new BracePair(MediaWikiTypes.curlyopen2, MediaWikiTypes.curlyclose2, true);
 		pairs[1] = new BracePair(MediaWikiTypes.tablestart, MediaWikiTypes.tableend, true);
-		pairs[2] = new BracePair(MediaWikiTypes.refopen, MediaWikiTypes.refclose, true);
+		pairs[2] = new BracePair(MediaWikiTypes.refopencomplete, MediaWikiTypes.refclose, true);
+		pairs[3] = new BracePair(MediaWikiTypes.openbracket2, MediaWikiTypes.closebracket2, true);
 		return pairs;
 	}
 
 	@Override
 	public boolean isPairedBracesAllowedBeforeType(@NotNull IElementType lbraceType, @Nullable IElementType contextType)
 	{
-		return true;
+		return false;
 	}
 
 	@Override

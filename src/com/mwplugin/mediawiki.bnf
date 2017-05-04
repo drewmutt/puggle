@@ -33,8 +33,11 @@
         htmlcomentclose = "-->"
         openbracket = "["
         closebracket = "]"
+        refopencomplete = "<ref>"
         refopen = "<ref"
         refclose = "</ref>"
+        openbracket2 = "[["
+        closebracket2 = "]]"
         newline='regexp:[\r\n]'
         lcaseletter='regexp:[a-z]'
         ucaseletter='regexp:[A-Z]'
@@ -177,7 +180,7 @@ symbol ::=
 	underscore|
 	"."|
 	","|
-	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"
+	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -230,7 +233,7 @@ hex-digit ::=
 }
 
 internal-link-start ::=
-	"[["
+	openbracket2
 
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
@@ -337,7 +340,7 @@ title-legal-char ::= lcaseletter
 
 
 internal-link-end ::=
-	"]]"
+	closebracket2
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -379,11 +382,16 @@ template-block-end ::= "}}"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
+
 template-block ::=  template-block-start template-name whitespace? newline*  ("|" whitespace? (template-property-named|template-property-unassigned)? whitespace? newline* noparse-block?)* template-block-end
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+//    pin=1
+//    recoverWhile=template-block-recover
+    methods=[getPresentation]
 }
+//private template-block-recover ::= !template-block-end
 
 template-property-named ::= template-property-name whitespace? equals whitespace? template-property-value
 {
@@ -391,7 +399,7 @@ template-property-named ::= template-property-name whitespace? equals whitespace
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-template-property-unassigned ::= template-property-name
+template-property-unassigned ::= inline-element-sans-pipe
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -563,7 +571,7 @@ external-link ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-url ::= protocol url-path
+url ::= LEGAL_URL_ENTITY+//protocol url-path
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1050,7 +1058,7 @@ reference-block ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 url-reference-block ::=
-	reference-opening-tag whitespace? unescapedgreaterthan whitespace? reference-content whitespace? reference-closing-tag
+	((reference-opening-tag whitespace? unescapedgreaterthan)|(reference-opening-tag-complete)) whitespace? reference-content whitespace? reference-closing-tag
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1106,6 +1114,9 @@ html-opening-tag ::=
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
+
+reference-opening-tag-complete ::=
+	refopencomplete
 
 reference-opening-tag ::=
 	refopen

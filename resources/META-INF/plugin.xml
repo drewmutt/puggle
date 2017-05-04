@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>org.wikipedia.tools.puggle</id>
   <name>Puggle</name>
-  <version>0.3a</version>
+  <version>0.4a</version>
   <vendor email="someone@somewhere.com" url="http://www.wikipedia.org">YourCompany</vendor>
 
   <description><![CDATA[
@@ -31,13 +31,15 @@
     <lang.syntaxHighlighterFactory language="MediaWiki" implementationClass="com.mwplugin.MediaWikiSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="com.mwplugin.MediaWikiColorSettingsPage"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/MediaWikiDefault.xml"/>
-    <!--<lang.psiStructureViewFactory language="MediaWiki" implementationClass="com.mwplugin.MediaWikiStructureViewFactory"/>-->
+    <lang.psiStructureViewFactory language="MediaWiki" implementationClass="com.mwplugin.MediaWikiStructureViewFactory"/>
     <!--<fileEditorProvider implementation="com.mwplugin.preview.MarkdownSplitEditorProvider"/>-->
     <moduleConfigurationEditorProvider implementation="com.mwplugin.module.ModuleConfigurationProvider"/>
     <annotator language="MediaWiki" implementationClass="com.mwplugin.MediaWikiAnnotator"/>
     <completion.contributor language="MediaWiki" implementationClass="com.mwplugin.MediaWikiCompletionContributor"/>
     <lang.braceMatcher language="MediaWiki" implementationClass="com.mwplugin.MediaWikiPairedBraceMatcher"/>
+    <editorTypedHandler implementationClass="com.mwplugin.bracematching.TagMatchTypedActionHandler"/>
   </extensions>
+
 
   <actions>
       <group id="MediaWiki.Actions" text="_MediaWiki" description="MediaWiki">

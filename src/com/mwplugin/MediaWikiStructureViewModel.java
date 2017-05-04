@@ -6,8 +6,7 @@ import com.intellij.psi.PsiFile;
 import com.mwplugin.psi.MediaWikiFile;
 import org.jetbrains.annotations.NotNull;
 
-public class MediaWikiStructureViewModel extends StructureViewModelBase implements
-		StructureViewModel.ElementInfoProvider {
+public class MediaWikiStructureViewModel extends StructureViewModelBase implements StructureViewModel.ElementInfoProvider {
 	public MediaWikiStructureViewModel(PsiFile psiFile) {
 		super(psiFile, new MediaWikiStructureViewElement(psiFile));
 	}
