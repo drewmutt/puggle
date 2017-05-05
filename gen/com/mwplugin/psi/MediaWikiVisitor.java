@@ -599,6 +599,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
+  public void visitSectionName(@NotNull MediaWikiSectionName o) {
+    visitPsiElement(o);
+  }
+
   public void visitSingleLineAnyContent(@NotNull MediaWikiSingleLineAnyContent o) {
     visitIMediaWikiNamedElement(o);
   }

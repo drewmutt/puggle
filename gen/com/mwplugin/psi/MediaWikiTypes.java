@@ -155,6 +155,7 @@ public interface MediaWikiTypes {
   IElementType RFC_NUMBER = new MediaWikiElementType("RFC_NUMBER");
   IElementType SECTION = new MediaWikiElementType("SECTION");
   IElementType SECTION_ID = new MediaWikiElementType("SECTION_ID");
+  IElementType SECTION_NAME = new MediaWikiElementType("SECTION_NAME");
   IElementType SINGLE_LINE_ANY_CONTENT = new MediaWikiElementType("SINGLE_LINE_ANY_CONTENT");
   IElementType SORT_KEY = new MediaWikiElementType("SORT_KEY");
   IElementType SPACES = new MediaWikiElementType("SPACES");
@@ -353,6 +354,7 @@ public interface MediaWikiTypes {
   IElementType refopencomplete = new MediaWikiTokenType("<ref>");
   IElementType rfc_number = new MediaWikiTokenType("rfc_number");
   IElementType section_id = new MediaWikiTokenType("section_id");
+  IElementType section_name = new MediaWikiTokenType("section_name");
   IElementType single_line_any_content = new MediaWikiTokenType("single_line_any_content");
   IElementType sort_key = new MediaWikiTokenType("sort_key");
   IElementType space = new MediaWikiTokenType(" ");
@@ -846,6 +848,9 @@ public interface MediaWikiTypes {
       }
       else if (type == SECTION_ID) {
         return new MediaWikiSectionIdImpl(node);
+      }
+      else if (type == SECTION_NAME) {
+        return new MediaWikiSectionNameImpl(node);
       }
       else if (type == SINGLE_LINE_ANY_CONTENT) {
         return new MediaWikiSingleLineAnyContentImpl(node);

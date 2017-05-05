@@ -1,4 +1,4 @@
-package com.mwplugin;
+package com.mwplugin.structure;
 
 import com.intellij.ide.structureView.*;
 import com.intellij.lang.PsiStructureViewFactory;

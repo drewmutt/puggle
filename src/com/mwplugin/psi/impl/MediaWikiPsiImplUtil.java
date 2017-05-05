@@ -90,12 +90,13 @@ public class MediaWikiPsiImplUtil {
 		};
 	}
 
-	public static ItemPresentation getPresentation(final MediaWikiLevel2Heading element) {
+	public static ItemPresentation getPresentation(final MediaWikiSection element) {
 		return new ItemPresentation() {
 			@Nullable
 			@Override
 			public String getPresentableText() {
-				return element.getInlineText().getText();
+				MediaWikiSectionName childOfType = PsiTreeUtil.findChildOfType(element, MediaWikiSectionName.class);
+				return childOfType.getText();
 			}
 
 			@Nullable
@@ -109,6 +110,79 @@ public class MediaWikiPsiImplUtil {
 			@Override
 			public Icon getIcon(boolean unused) {
 				return AllIcons.Nodes.NewFolder;
+			}
+		};
+	}
+
+
+	public static ItemPresentation getPresentation(final MediaWikiTable element) {
+		return new ItemPresentation() {
+			@Nullable
+			@Override
+			public String getPresentableText() {
+				MediaWikiCellContent childOfType = PsiTreeUtil.findChildOfType(element, MediaWikiCellContent.class);
+				return childOfType.getText();
+			}
+
+			@Nullable
+			@Override
+			public String getLocationString() {
+				PsiFile containingFile = element.getContainingFile();
+				return containingFile == null ? null : containingFile.getName();
+			}
+
+			@Nullable
+			@Override
+			public Icon getIcon(boolean unused) {
+				return AllIcons.Nodes.DataTables;
+			}
+		};
+	}
+
+	public static ItemPresentation getPresentation(final MediaWikiInternalLink element) {
+		return new ItemPresentation() {
+			@Nullable
+			@Override
+			public String getPresentableText() {
+				MediaWikiArticleLink childOfType = PsiTreeUtil.findChildOfType(element, MediaWikiArticleLink.class);
+				return childOfType.getText();
+			}
+
+			@Nullable
+			@Override
+			public String getLocationString() {
+				PsiFile containingFile = element.getContainingFile();
+				return containingFile == null ? null : containingFile.getName();
+			}
+
+			@Nullable
+			@Override
+			public Icon getIcon(boolean unused) {
+				return AllIcons.Nodes.Annotationtype;
+			}
+		};
+	}
+
+	public static ItemPresentation getPresentation(final MediaWikiExternalLink element) {
+		return new ItemPresentation() {
+			@Nullable
+			@Override
+			public String getPresentableText() {
+				MediaWikiUrl childOfType = PsiTreeUtil.findChildOfType(element, MediaWikiUrl.class);
+				return childOfType.getText();
+			}
+
+			@Nullable
+			@Override
+			public String getLocationString() {
+				PsiFile containingFile = element.getContainingFile();
+				return containingFile == null ? null : containingFile.getName();
+			}
+
+			@Nullable
+			@Override
+			public Icon getIcon(boolean unused) {
+				return AllIcons.Nodes.Deploy;
 			}
 		};
 	}

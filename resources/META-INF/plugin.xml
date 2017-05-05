@@ -31,7 +31,7 @@
     <lang.syntaxHighlighterFactory language="MediaWiki" implementationClass="com.mwplugin.MediaWikiSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="com.mwplugin.MediaWikiColorSettingsPage"/>
     <additionalTextAttributes scheme="Darcula" file="colorSchemes/MediaWikiDefault.xml"/>
-    <lang.psiStructureViewFactory language="MediaWiki" implementationClass="com.mwplugin.MediaWikiStructureViewFactory"/>
+    <lang.psiStructureViewFactory language="MediaWiki" implementationClass="com.mwplugin.structure.MediaWikiStructureViewFactory"/>
     <!--<fileEditorProvider implementation="com.mwplugin.preview.MarkdownSplitEditorProvider"/>-->
     <moduleConfigurationEditorProvider implementation="com.mwplugin.module.ModuleConfigurationProvider"/>
     <annotator language="MediaWiki" implementationClass="com.mwplugin.MediaWikiAnnotator"/>

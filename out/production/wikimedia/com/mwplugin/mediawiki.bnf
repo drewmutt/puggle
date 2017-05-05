@@ -180,7 +180,7 @@ symbol ::=
 	underscore|
 	"."|
 	","|
-	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"
+	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -455,7 +455,7 @@ inline-text ::=
 
 inline-element-sans-pipe ::= ( !"|"  (all-inline-elements))*
 
-all-inline-elements ::= (letter|symbol|decimaldigit|whitespace-char|inline-element)
+all-inline-elements ::= (letter|symbol|decimaldigit|whitespace-char|inline-element|special-block)
 
 inline-element ::=
 	html-tag |
@@ -538,6 +538,7 @@ internal-link ::=
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getPresentation]
 }
 internal-link-property ::= (variable-name "=" (content-non-pipe))
 internal-link-unassigned-property ::= (whitespace? (content-non-pipe))
@@ -569,6 +570,7 @@ external-link ::=
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getPresentation]
 }
 
 url ::= LEGAL_URL_ENTITY+//protocol url-path
@@ -1297,6 +1299,7 @@ section ::=
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getPresentation]
 }
 
 space-tabs ::=
@@ -1306,33 +1309,34 @@ space-tabs ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-5-heading ::= equals5 inline-text equals5
+level-5-heading ::= equals5 section-name equals5 newline
 level-5-section ::=
-	level-5-heading paragraph
+	level-5-heading (!level-5-heading !level-4-heading !level-3-heading !level-2-heading all-inline-elements)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-4-heading ::= equals4 inline-text equals4
+level-4-heading ::= equals4 section-name equals4 newline
 level-4-section ::=
-	level-4-heading paragraph (level-5-heading)?
+	level-4-heading (!level-4-heading !level-3-heading !level-2-heading all-inline-elements)* (!level-4-heading !level-3-heading !level-2-heading section)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-3-heading ::= equals3 inline-text equals3
+level-3-heading ::= equals3 section-name equals3 newline
 level-3-section ::=
-	level-3-heading paragraph (level-4-heading|level-5-heading)?
+	level-3-heading (!level-3-heading !level-2-heading all-inline-elements)* (!level-3-heading !level-2-heading section)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-2-heading ::= equals2 inline-text equals2
+section-name ::= inline-text
+level-2-heading ::= equals2 section-name equals2 newline
 level-2-section ::=
-	level-2-heading paragraph (level-3-heading|level-4-heading|level-5-heading)?
+	level-2-heading (!level-2-heading all-inline-elements)* (!level-2-section section)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1395,6 +1399,7 @@ table ::=
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
+    methods=[getPresentation]
 }
 
 table-parameters ::=

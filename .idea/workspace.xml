@@ -3,39 +3,32 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiSyntaxHighlighter.java" line="53" />
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/preview/MarkdownPreviewFileEditor.java" line="221" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="584" />
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="582" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="580" />
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="360" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1051" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1406" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1053" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1411" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/bracematching/TagMatchTypedActionHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.mediawiki" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/psi/MediaWIkiNamedElement.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/psi/MediaWikiNamedElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiAnnotator.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiAnnotator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiLexer.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiLexer.class" />
+    <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="Added more autocomplete, working on structure view.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiFileStructureFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewElement.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewSorter.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewElement.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewFactory.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewModel.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes$Factory.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes$Factory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiTypes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiVisitor.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiVisitor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mwplugin/MediaWikiLexer.java" afterPath="$PROJECT_DIR$/gen/com/mwplugin/MediaWikiLexer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mwplugin/parser/MediaWikiParser.java" afterPath="$PROJECT_DIR$/gen/com/mwplugin/parser/MediaWikiParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiTypes.java" afterPath="$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiTypes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiVisitor.java" afterPath="$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/out/production/wikimedia/META-INF/plugin.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/colorSchemes/MediaWikiDefault.xml" afterPath="$PROJECT_DIR$/resources/colorSchemes/MediaWikiDefault.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiFileType.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiFileType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiPairedBraceMatcher.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiPairedBraceMatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewElement.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewModel.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/_MediaWikiLexer.flex" afterPath="$PROJECT_DIR$/src/com/mwplugin/_MediaWikiLexer.flex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java" />
     </list>
@@ -58,136 +51,164 @@
     <favorites_list name="wikimedia" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MediaWikiStructureViewElement.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewElement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
-              <folding>
-                <element signature="e#481#482#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#782#783#0" expanded="true" />
-                <element signature="e#873#874#0" expanded="true" />
-                <element signature="e#1616#1629#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavigationItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/idea/platform/core-api/src/com/intellij/navigation/NavigationItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaWikiTemplateBlock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiTemplateBlock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaWikiTemplateBlockImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/impl/MediaWikiTemplateBlockImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="71" column="38" lean-forward="false" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
-              <folding>
-                <element signature="e#595#596#0" expanded="true" />
-                <element signature="e#616#617#0" expanded="true" />
-                <element signature="e#675#676#0" expanded="true" />
-                <element signature="e#717#718#0" expanded="true" />
-                <element signature="e#1458#1459#0" expanded="true" />
-                <element signature="e#1527#1528#0" expanded="true" />
-                <element signature="e#2153#2154#0" expanded="true" />
-                <element signature="e#2212#2213#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaWikiNamedElementImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiNamedElementImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="9" column="96" lean-forward="false" selection-start-line="9" selection-start-column="96" selection-end-line="9" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeElementWrapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/idea/platform/structure-view-impl/src/com/intellij/ide/util/treeView/smartTree/TreeElementWrapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PresentableNodeDescriptor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/treeView/PresentableNodeDescriptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mediawiki.bnf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="30" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-              <folding>
-                <element signature="e#8322#8339#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaWikiPsiImplUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="68" column="2" lean-forward="true" selection-start-line="68" selection-start-column="2" selection-end-line="68" selection-end-column="2" />
-              <folding>
-                <element signature="e#2342#2343#0" expanded="true" />
-                <element signature="e#2395#2396#0" expanded="true" />
-                <element signature="e#2661#2662#0" expanded="true" />
-                <element signature="e#2708#2709#0" expanded="true" />
-                <element signature="e#2905#2906#0" expanded="true" />
-                <element signature="e#2956#2957#0" expanded="true" />
-                <element signature="e#3222#3223#0" expanded="true" />
-                <element signature="e#3264#3265#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaWikiIcons.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiIcons.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.7726708">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="MediaWikiStructureViewModel.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="482">
+                  <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#1156#1157#0" expanded="true" />
+                    <element signature="e#1218#1219#0" expanded="true" />
+                    <element signature="e#2246#2247#0" expanded="true" />
+                    <element signature="e#2292#2293#0" expanded="true" />
+                    <element signature="e#2339#2340#0" expanded="true" />
+                    <element signature="e#2358#2359#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiStructureViewElement.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewElement.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="542">
+                  <caret line="93" column="68" lean-forward="false" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
+                  <folding>
+                    <element signature="e#2928#2941#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiPsiImplUtil.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="467">
+                  <caret line="182" column="21" lean-forward="false" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiFileStructureFilter.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiFileStructureFilter.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="145">
+                  <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#887#888#0" expanded="true" />
+                    <element signature="e#905#906#0" expanded="true" />
+                    <element signature="e#963#964#0" expanded="true" />
+                    <element signature="e#992#993#0" expanded="true" />
+                    <element signature="e#1215#1216#0" expanded="true" />
+                    <element signature="e#1233#1234#0" expanded="true" />
+                    <element signature="e#1398#1399#0" expanded="true" />
+                    <element signature="e#1420#1421#0" expanded="true" />
+                    <element signature="e#1473#1474#0" expanded="true" />
+                    <element signature="e#1495#1496#0" expanded="true" />
+                    <element signature="e#1539#1540#0" expanded="true" />
+                    <element signature="e#1561#1562#0" expanded="true" />
+                    <element signature="e#1619#1620#0" expanded="true" />
+                    <element signature="e#1637#1638#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiImageParamPage.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiImageParamPage.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiImageOtherParameterImpl.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/impl/MediaWikiImageOtherParameterImpl.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+                  <folding>
+                    <element signature="e#1098#1099#0" expanded="true" />
+                    <element signature="e#1162#1163#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiInternalLinkImpl.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/impl/MediaWikiInternalLinkImpl.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="72" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AllIcons.java" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Downloads/idea/platform/util/src/com/intellij/icons/AllIcons.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="190">
+                  <caret line="841" column="29" lean-forward="false" selection-start-line="841" selection-start-column="29" selection-end-line="841" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Filter.java" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/treeView/smartTree/Filter.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MediaWikiStructureViewSorter.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewSorter.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="43">
+                  <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="41" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#664#665#0" expanded="true" />
+                    <element signature="e#683#684#0" expanded="true" />
+                    <element signature="e#753#754#0" expanded="true" />
+                    <element signature="e#771#772#0" expanded="true" />
+                    <element signature="e#821#822#0" expanded="true" />
+                    <element signature="e#845#846#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="mediawiki.bnf.preview" pinned="false" current-in-tab="true">
+            <entry file="mock:///mediawiki.bnf.preview">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -200,23 +221,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>curlyopen2</find>
-      <find>extern</find>
-      <find>symb</find>
-      <find>\}\}</find>
-      <find>{{</find>
-      <find>school</find>
-      <find>ref</find>
-      <find>&lt;re</find>
-      <find>&quot;Chri</find>
       <find>}}</find>
-      <find>!&quot;</find>
       <find>special</find>
       <find>inline</find>
       <find>Category</find>
       <find>tablecel</find>
       <find>{|</find>
-      <find>table</find>
       <find>high</find>
       <find>highlight</find>
       <find>pass</find>
@@ -230,6 +240,17 @@
       <find>pin</find>
       <find>recu</find>
       <find>template</find>
+      <find>level</find>
+      <find>collect</find>
+      <find>getPre</find>
+      <find>section</find>
+      <find>rec</find>
+      <find>context</find>
+      <find>!&quot;</find>
+      <find>table</find>
+      <find>interna</find>
+      <find>section</find>
+      <find>externa;</find>
     </findStrings>
     <replaceStrings>
       <replace>\n\}\}\n</replace>
@@ -247,12 +268,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWiki.flex" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.txt" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/actions/InsertTemplateAction.java" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/InsertTemplate.form" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/actions/SearchResultsItem.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.lua" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/actions/SearchResultsSection.java" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/actions/SearchResultsSearchSuggestion.java" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/api/WPApiUtil.java" />
@@ -287,17 +302,23 @@
         <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWikiPairedBraceMatcher.java" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/_MediaWikiLexer.flex" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java" />
-        <option value="/mediawiki.bnf.preview" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/bracematching/TagMatchTypedActionHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewModel.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/psi/MediaWIkiNamedElement.java" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/psi/MediaWikiNamedElement.java" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/psi/IMediaWikiNamedElement.java" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWikiIcons.java" />
-        <option value="$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java" />
         <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewElement.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiSortableTreeElement.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewModel.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewSorter.java" />
+        <option value="/mediawiki.bnf.preview" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewElement.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiFileStructureFilter.java" />
+        <option value="$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewModel.java" />
       </list>
     </option>
   </component>
@@ -315,7 +336,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="47" />
+    <option name="x" value="177" />
     <option name="y" value="23" />
     <option name="width" value="2192" />
     <option name="height" value="1332" />
@@ -467,7 +488,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="wikiconversion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwplugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwplugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="style" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwplugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="structure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,6 +817,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$3/Languages" value="TEXT&#10;HTML&#10;JSON&#10;XML" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="HTML&#10;JSON&#10;Lua&#10;TEXT" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="PsiViewer.ProjectComponent">
     <option name="HIGHLIGHT" value="true" />
@@ -1118,17 +1206,17 @@
     <option name="totallyTimeSpent" value="9315000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="47" y="23" width="2192" height="1332" extended-state="0" />
+    <frame x="177" y="23" width="2192" height="1332" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2074426" sideWeight="0.40328467" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2074426" sideWeight="0.40191606" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36262867" sideWeight="0.26505473" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36262867" sideWeight="0.26779196" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22034672" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32779098" sideWeight="0.4073905" order="2" side_tool="false" content_ui="tabs" />
@@ -1143,7 +1231,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36262867" sideWeight="0.73494524" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36262867" sideWeight="0.732208" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1217,7 +1305,8 @@
     <MESSAGE value="More table hilarity" />
     <MESSAGE value="Going nuts trying to parse XML :/" />
     <MESSAGE value="Added table support and template autocomplete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added table support and template autocomplete" />
+    <MESSAGE value="Added more autocomplete, working on structure view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more autocomplete, working on structure view." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1318,6 +1407,14 @@
           <properties />
           <option name="timeStamp" value="181" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/structureView/StructureViewModelBase.java</url>
+          <line>68</line>
+          <properties class="com.intellij.ide.structureView.StructureViewModelBase" method="getSuitableClasses">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="219" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1329,7 +1426,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="202" />
+      <option name="time" value="225" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1338,201 +1435,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/platform-impl/src/com/intellij/openapi/editor/impl/CaretModelImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="363" column="0" lean-forward="false" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/colorSchemes/MediaWikiDefault.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/resources.jar!/componentSets/Platform.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="48" column="61" lean-forward="false" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/openapi/editor/EditorFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/xdebugger-impl/src/com/intellij/xdebugger/impl/ui/TextViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="52" column="15" lean-forward="false" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/platform-impl/src/com/intellij/openapi/editor/impl/EditorFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="275" column="23" lean-forward="false" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/TypedAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/TypedActionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/resources.jar!/META-INF/LangExtensions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="753" column="115" lean-forward="true" selection-start-line="753" selection-start-column="4" selection-end-line="753" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/codeInsight/lookup/impl/LookupTypedHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="78" column="10" lean-forward="true" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/resources.jar!/META-INF/PlatformExtensionPoints.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="136" column="26" lean-forward="false" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/resources.jar!/META-INF/LangExtensionPoints.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="497" column="26" lean-forward="false" selection-start-line="497" selection-start-column="26" selection-end-line="497" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/bracematching/EditorIllustration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/platform-api/src/com/intellij/openapi/editor/actionSystem/TypedActionHandlerEx.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/codeInsight/template/impl/editorActions/TypedActionHandlerBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiLanguage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="42" lean-forward="false" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiFileType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="e#350#351#0" expanded="false" />
-            <element signature="e#390#391#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/codeInsight/editorActions/TypedHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="369" column="0" lean-forward="false" selection-start-line="369" selection-start-column="0" selection-end-line="369" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiLexer.flex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/codeInsight/highlighting/BraceMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/codeInsight/highlighting/BraceMatchingUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="461" column="19" lean-forward="false" selection-start-line="461" selection-start-column="19" selection-end-line="461" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/_testMediaWikiLexer.flex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiPairedBraceMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="55" lean-forward="false" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/openapi/editor/highlighter/HighlighterIterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1544,42 +1446,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/bracematching/TagMatchTypedActionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1081#1082#0" expanded="false" />
-            <element signature="e#1110#1111#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="34" column="51" lean-forward="true" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiCompletionContributor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/idea/platform/core-api/src/com/intellij/psi/util/PsiTreeUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="272" column="53" lean-forward="false" selection-start-line="272" selection-start-column="53" selection-end-line="272" selection-end-column="53" />
-          <folding>
-            <element signature="e#27001#27328#0" expanded="false" />
-            <element signature="e#27327#27328#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1606,22 +1477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="178" column="37" lean-forward="false" selection-start-line="178" selection-start-column="37" selection-end-line="178" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="83" lean-forward="false" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -1667,16 +1522,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#1564#0" expanded="true" />
+            <element signature="e#0#1564#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/IMediaWikiNamedElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1722,46 +1569,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="30" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-          <folding>
-            <element signature="e#8322#8339#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/idea/platform/core-api/src/com/intellij/navigation/NavigationItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="e#0#927#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiIcons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="68" column="2" lean-forward="true" selection-start-line="68" selection-start-column="2" selection-end-line="68" selection-end-column="2" />
-          <folding>
-            <element signature="e#2342#2343#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
-            <element signature="e#2708#2709#0" expanded="true" />
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2956#2957#0" expanded="true" />
-            <element signature="e#3222#3223#0" expanded="true" />
-            <element signature="e#3264#3265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1770,28 +1593,333 @@
         <state relative-caret-position="606">
           <caret line="71" column="38" lean-forward="false" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
           <folding>
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#1458#1459#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#2153#2154#0" expanded="true" />
-            <element signature="e#2212#2213#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="false" />
+            <element signature="e#616#617#0" expanded="false" />
+            <element signature="e#675#676#0" expanded="false" />
+            <element signature="e#717#718#0" expanded="false" />
+            <element signature="e#1458#1459#0" expanded="false" />
+            <element signature="e#1527#1528#0" expanded="false" />
+            <element signature="e#2153#2154#0" expanded="false" />
+            <element signature="e#2212#2213#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiStructureViewElement.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiCompletionContributor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        <state relative-caret-position="121">
+          <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/java/java-impl/src/com/intellij/codeInsight/daemon/JavaRainbowVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="39" column="93" lean-forward="false" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/IMediaWikiNamedElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiSection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/core-api/src/com/intellij/psi/PsiElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="513" column="12" lean-forward="false" selection-start-line="513" selection-start-column="12" selection-end-line="513" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/core-api/src/com/intellij/psi/util/PsiTreeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="318" column="94" lean-forward="false" selection-start-line="318" selection-start-column="73" selection-end-line="318" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/bracematching/TagMatchTypedActionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/core-impl/src/com/intellij/psi/impl/source/tree/TreeElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiSortableTreeElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/treeView/smartTree/SortableTreeElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding>
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="e#1616#1629#0" expanded="true" />
+            <element signature="e#0#911#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/treeView/smartTree/Sorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="53" column="8" lean-forward="false" selection-start-line="49" selection-start-column="6" selection-end-line="53" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="572" column="28" lean-forward="false" selection-start-line="572" selection-start-column="28" selection-end-line="572" selection-end-column="28" />
+          <folding>
+            <element signature="e#1#1739#0" expanded="true" />
+            <element signature="e#537#1737#0" expanded="true" />
+            <element signature="e#8330#8347#0" expanded="true" />
+            <element signature="e#12260#12277#0" expanded="true" />
+            <element signature="e#30547#30564#0" expanded="true" />
+            <element signature="e#33410#33427#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/structureView/TextEditorBasedStructureViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1607">
+          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding>
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5836#5837#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/structureView/TreeBasedStructureViewBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/lang/PsiStructureViewFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/structureView/StructureViewModelBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/treeView/smartTree/TreeAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#1411#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/FileStructureFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#943#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/ide/util/FileStructureDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-652">
+          <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="9" selection-end-line="169" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/python/src/com/jetbrains/python/structureView/PyStructureViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="62" column="10" lean-forward="false" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/python/src/com/jetbrains/python/structureView/PyInheritedMembersFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/editor-ui-api/src/com/intellij/ide/util/treeView/smartTree/Filter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/impl/MediaWikiInternalLinkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewSorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/idea/platform/util/src/com/intellij/icons/AllIcons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="841" column="29" lean-forward="false" selection-start-line="841" selection-start-column="29" selection-end-line="841" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/impl/MediaWikiImageOtherParameterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="e#1098#1099#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/com/mwplugin/psi/MediaWikiImageParamPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiFileStructureFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1233#1234#0" expanded="true" />
+            <element signature="e#1398#1399#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1495#1496#0" expanded="true" />
+            <element signature="e#1539#1540#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1619#1620#0" expanded="true" />
+            <element signature="e#1637#1638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/psi/impl/MediaWikiPsiImplUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="182" column="21" lean-forward="false" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="93" column="68" lean-forward="false" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
+          <folding>
+            <element signature="e#2928#2941#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mwplugin/structure/MediaWikiStructureViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+          <folding>
+            <element signature="e#1156#1157#0" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2292#2293#0" expanded="true" />
+            <element signature="e#2339#2340#0" expanded="true" />
+            <element signature="e#2358#2359#0" expanded="true" />
           </folding>
         </state>
       </provider>
