@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>org.wikipedia.tools.puggle</id>
   <name>Puggle</name>
-  <version>0.4a</version>
+  <version>0.6a</version>
   <vendor email="someone@somewhere.com" url="http://www.wikipedia.org">YourCompany</vendor>
 
   <description><![CDATA[
@@ -50,5 +50,9 @@
   </actions>
 
 
-
+  <project-components>
+    <component>
+      <implementation-class>com.mwplugin.highlighting.TableRowHighlightingPassFactory</implementation-class>
+    </component>
+  </project-components>
 </idea-plugin>

@@ -32,8 +32,11 @@ tab=\t
 %%
 <YYINITIAL> {
   "|-"                 { return tablesectionstart; }
+  "|+"                  {return tablesectionstartcaptionable;}
   "|}"                 { return tableend; }
   "{|"                 { return tablestart; }
+  "||"                 { return tablecelldoubledelimiter; }
+  "!!"                 { return tableheaderdoubledelimiter; }
   "'''''"                 { return quote5; }
   "'''"                 { return quote3; }
   "''"                 { return quote2; }

@@ -44,8 +44,8 @@ public class MediaWikiAnnotator implements Annotator
 		keysMap.put(MediaWikiTableRowStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 		keysMap.put(MediaWikiTableHeaderRowStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 		keysMap.put(MediaWikiTableSectionStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
-
-		keysMap.put(MediaWikiTableSectionStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
+		keysMap.put(MediaWikiTableCellDoubleDelimitedStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
+		keysMap.put(MediaWikiTableHeaderDoubleDelimitedStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 
 
 //				/		addNewKey(MediaWikiTypes.CONTENT, HighlighterColors.TEXT);

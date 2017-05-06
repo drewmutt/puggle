@@ -169,8 +169,12 @@ public interface MediaWikiTypes {
   IElementType TABLE = new MediaWikiElementType("TABLE");
   IElementType TABLE_BLOCK = new MediaWikiElementType("TABLE_BLOCK");
   IElementType TABLE_CELL = new MediaWikiElementType("TABLE_CELL");
+  IElementType TABLE_CELL_DOUBLE_DELIMITED = new MediaWikiElementType("TABLE_CELL_DOUBLE_DELIMITED");
+  IElementType TABLE_CELL_DOUBLE_DELIMITED_START = new MediaWikiElementType("TABLE_CELL_DOUBLE_DELIMITED_START");
   IElementType TABLE_END = new MediaWikiElementType("TABLE_END");
   IElementType TABLE_HEADER = new MediaWikiElementType("TABLE_HEADER");
+  IElementType TABLE_HEADER_DOUBLE_DELIMITED = new MediaWikiElementType("TABLE_HEADER_DOUBLE_DELIMITED");
+  IElementType TABLE_HEADER_DOUBLE_DELIMITED_START = new MediaWikiElementType("TABLE_HEADER_DOUBLE_DELIMITED_START");
   IElementType TABLE_HEADER_ROW_START = new MediaWikiElementType("TABLE_HEADER_ROW_START");
   IElementType TABLE_PARAMETERS = new MediaWikiElementType("TABLE_PARAMETERS");
   IElementType TABLE_ROW = new MediaWikiElementType("TABLE_ROW");
@@ -367,16 +371,23 @@ public interface MediaWikiTypes {
   IElementType tab = new MediaWikiTokenType("TAB");
   IElementType table_block = new MediaWikiTokenType("table_block");
   IElementType table_cell = new MediaWikiTokenType("table_cell");
+  IElementType table_cell_double_delimited = new MediaWikiTokenType("table_cell_double_delimited");
+  IElementType table_cell_double_delimited_start = new MediaWikiTokenType("table_cell_double_delimited_start");
   IElementType table_end = new MediaWikiTokenType("table_end");
   IElementType table_header = new MediaWikiTokenType("table_header");
+  IElementType table_header_double_delimited = new MediaWikiTokenType("table_header_double_delimited");
+  IElementType table_header_double_delimited_start = new MediaWikiTokenType("table_header_double_delimited_start");
   IElementType table_header_row_start = new MediaWikiTokenType("table_header_row_start");
   IElementType table_parameters = new MediaWikiTokenType("table_parameters");
   IElementType table_row = new MediaWikiTokenType("table_row");
   IElementType table_row_start = new MediaWikiTokenType("table_row_start");
   IElementType table_section_start = new MediaWikiTokenType("table_section_start");
   IElementType table_start = new MediaWikiTokenType("table_start");
+  IElementType tablecelldoubledelimiter = new MediaWikiTokenType("||");
   IElementType tableend = new MediaWikiTokenType("|}");
+  IElementType tableheaderdoubledelimiter = new MediaWikiTokenType("!!");
   IElementType tablesectionstart = new MediaWikiTokenType("|-");
+  IElementType tablesectionstartcaptionable = new MediaWikiTokenType("|+");
   IElementType tablestart = new MediaWikiTokenType("{|");
   IElementType template_block = new MediaWikiTokenType("template_block");
   IElementType template_block_end = new MediaWikiTokenType("template_block_end");
@@ -891,11 +902,23 @@ public interface MediaWikiTypes {
       else if (type == TABLE_CELL) {
         return new MediaWikiTableCellImpl(node);
       }
+      else if (type == TABLE_CELL_DOUBLE_DELIMITED) {
+        return new MediaWikiTableCellDoubleDelimitedImpl(node);
+      }
+      else if (type == TABLE_CELL_DOUBLE_DELIMITED_START) {
+        return new MediaWikiTableCellDoubleDelimitedStartImpl(node);
+      }
       else if (type == TABLE_END) {
         return new MediaWikiTableEndImpl(node);
       }
       else if (type == TABLE_HEADER) {
         return new MediaWikiTableHeaderImpl(node);
+      }
+      else if (type == TABLE_HEADER_DOUBLE_DELIMITED) {
+        return new MediaWikiTableHeaderDoubleDelimitedImpl(node);
+      }
+      else if (type == TABLE_HEADER_DOUBLE_DELIMITED_START) {
+        return new MediaWikiTableHeaderDoubleDelimitedStartImpl(node);
       }
       else if (type == TABLE_HEADER_ROW_START) {
         return new MediaWikiTableHeaderRowStartImpl(node);

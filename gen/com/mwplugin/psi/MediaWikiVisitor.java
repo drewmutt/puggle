@@ -655,11 +655,27 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitIMediaWikiNamedElement(o);
   }
 
+  public void visitTableCellDoubleDelimited(@NotNull MediaWikiTableCellDoubleDelimited o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitTableCellDoubleDelimitedStart(@NotNull MediaWikiTableCellDoubleDelimitedStart o) {
+    visitPsiElement(o);
+  }
+
   public void visitTableEnd(@NotNull MediaWikiTableEnd o) {
     visitIMediaWikiNamedElement(o);
   }
 
   public void visitTableHeader(@NotNull MediaWikiTableHeader o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitTableHeaderDoubleDelimited(@NotNull MediaWikiTableHeaderDoubleDelimited o) {
+    visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitTableHeaderDoubleDelimitedStart(@NotNull MediaWikiTableHeaderDoubleDelimitedStart o) {
     visitIMediaWikiNamedElement(o);
   }
 
