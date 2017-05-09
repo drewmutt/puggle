@@ -27,7 +27,7 @@ public class MediaWikiElementFactory
 
 	public static MediaWikiFile createFile(Project project, String text)
 	{
-		String name = "dummy.MediaWiki";
+		String name = "dummy.mediawiki";
 		return (MediaWikiFile) PsiFileFactory.getInstance(project).
 				createFileFromText(name, MediaWikiFileType.INSTANCE, text);
 	}

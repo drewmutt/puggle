@@ -8,16 +8,19 @@ import com.intellij.ui.JBColor;
 import com.intellij.ui.TextFieldWithAutoCompletion;
 import com.intellij.ui.TextFieldWithAutoCompletionListProvider;
 import com.intellij.ui.components.JBPanel;
-import com.mwplugin.template.Template;
-import com.mwplugin.template.TemplateSearchResult;
+import com.mwplugin.api.WPApiManager;
+import com.mwplugin.apitypes.Article;
+import com.mwplugin.apitypes.INamedApiElement;
+import com.mwplugin.apitypes.template.Template;
+import com.mwplugin.apitypes.template.TemplateSearchResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
-import java.net.URLEncoder;
 import java.util.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import static com.mwplugin.api.WPApiManager.makeApiCall;
 
@@ -25,8 +28,8 @@ public class InsertTemplate extends DialogWrapper
 {
 	private JPanel contentPane;
 	private Project project;
-	private TextFieldWithAutoCompletion<Template> _textField;
-	public Template selectedTemplate;
+	private TextFieldWithAutoCompletion<Article> _textField;
+	public Article selectedArticle;
 	public InsertTemplate(Project pro)
 	{
 		super(pro);
@@ -40,9 +43,10 @@ public class InsertTemplate extends DialogWrapper
 		super.doOKAction();
 		try
 		{
-			String url = "templatedata&format=json&titles=Template%3AUserbox";
-			TemplateSearchResult searchResult = (TemplateSearchResult) makeApiCall(url, new TemplateSearchResult());
-			selectedTemplate = searchResult.pages.get(0);
+			selectedArticle = new Article(_textField.getText());
+//			String url = "templatedata&format=json&titles=Template%3AUserbox";
+//			TemplateSearchResult searchResult = (TemplateSearchResult) makeApiCall(url, new TemplateSearchResult());
+//			selectedArticle
 //			selectedTemplate.name = _textField.getText();
 //			selectedTemplate.content = pageContent;
 		} catch (Exception e)
@@ -53,25 +57,26 @@ public class InsertTemplate extends DialogWrapper
 
 	@Nullable
 	@Override
+	public JComponent getPreferredFocusedComponent()
+	{
+		return _textField;
+	}
+
+	@Nullable
+	@Override
 	protected JComponent createCenterPanel()
 	{
 		JBPanel panel = new JBPanel();
 
-		Collection<Template> templates = new ArrayList<>();
-		for(int i = 0; i < 20; i++)
-		{
-			Template template = new Template();
-			template.title = "Hi " + i;
-			templates.add(template);
-		}
+		Collection<Article> articles = new ArrayList<>();
 
-		TextFieldWithAutoCompletionListProvider<Template> listprovider = new TextFieldWithAutoCompletionListProvider<Template>(templates)
+		TextFieldWithAutoCompletionListProvider<Article> listprovider = new TextFieldWithAutoCompletionListProvider<Article>(null)
 		{
 			@NotNull
 			@Override
-			protected String getLookupString(@NotNull Template item)
+			protected String getLookupString(@NotNull Article item)
 			{
-				return item.title;
+				return item.getName();
 			}
 
 
@@ -81,16 +86,24 @@ public class InsertTemplate extends DialogWrapper
 
 		try
 		{
-			TextFieldWithAutoCompletion<Template> textField = new TextFieldWithAutoCompletion<>(project, listprovider, true, "HOT DAWG!");
+//			contentPane.add(panel, BorderLayout.PAGE_START);
+			TextFieldWithAutoCompletion<Article> textField = new TextFieldWithAutoCompletion<Article>(project, listprovider, false, null);
 			_textField = textField;
-			panel.add(textField, new BorderLayout(0, 0));
-			panel.setBackground(JBColor.BLUE);
+			panel.add(textField, BorderLayout.PAGE_START);
+
+
+			panel.setLayout(new GridLayout());
+			panel.add(_textField, BorderLayout.CENTER);
+			panel.setVisible(true);
+			_textField.setPlaceholder("Article name");
+			_textField.setToolTipText("Article name");
+
 			textField.getDocument().addDocumentListener(new DocumentListener()
 			{
 				@Override
 				public void beforeDocumentChange(DocumentEvent event)
 				{
-
+					System.out.println("asdsa");
 				}
 
 				@Override
@@ -98,8 +111,11 @@ public class InsertTemplate extends DialogWrapper
 				{
 					Runnable r = new Runnable() {
 						public void run() {
-							Collection<Template> templates1 = retrieveTemplateSuggestions(textField.getText());
-							textField.setVariants(templates1);
+							if(textField.getText().length() > 2)
+							{
+								Collection<Article> templates1 = retrieveTemplateSuggestions(textField.getText());
+								textField.setVariants(templates1);
+							}
 						}
 					};
 
@@ -115,23 +131,12 @@ public class InsertTemplate extends DialogWrapper
 	}
 
 
-	private Collection<Template> retrieveTemplateSuggestions(String inputText)
+	private Collection<Article> retrieveTemplateSuggestions(String inputText)
 	{
 		try
 		{
-			String url = "opensearch&format=json&search=Template:"+ URLEncoder.encode(inputText, "UTF-8")+"&limit=10";
-			ArrayList results = (ArrayList) makeApiCall(url, new ArrayList());
-			ArrayList<String> matches = (ArrayList<String>) results.get(1);
-			ArrayList<Template> templates = new ArrayList<>();
-			for(String name : matches)
-			{
-				Template template = new Template();
-				//Strip out "Template:"
-				template.title = name.substring(9);
-				templates.add(template);
-			}
-			return templates;
-
+			Collection<Article> articles = WPApiManager.retriveArticleSuggestions(inputText);
+			return articles;
 		} catch (Exception e)
 		{
 			e.printStackTrace();

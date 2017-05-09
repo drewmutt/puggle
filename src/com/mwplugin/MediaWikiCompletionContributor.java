@@ -1,18 +1,11 @@
 package com.mwplugin;
 
-import com.google.gson.internal.LinkedTreeMap;
-import com.intellij.codeInsight.AutoPopupController;
 import com.intellij.codeInsight.completion.*;
 import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.icons.AllIcons;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorModificationUtil;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.patterns.PlatformPatterns;
-import com.intellij.psi.PsiDocumentManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.ProcessingContext;
@@ -21,19 +14,16 @@ import com.mwplugin.psi.MediaWikiTemplateBlock;
 import com.mwplugin.psi.MediaWikiTemplateName;
 import com.mwplugin.psi.MediaWikiTemplatePropertyName;
 import com.mwplugin.psi.MediaWikiTypes;
-import com.mwplugin.template.Template;
-import com.mwplugin.template.TemplateCache;
-import com.mwplugin.template.TemplateParameter;
-import com.mwplugin.template.TemplateUtil;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.StringType;
+import com.mwplugin.apitypes.template.Template;
+import com.mwplugin.apitypes.template.TemplateCache;
+import com.mwplugin.apitypes.template.TemplateParameter;
+import com.mwplugin.apitypes.template.TemplateUtil;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
-
-import static com.intellij.codeInsight.completion.CompletionInitializationContext.*;
 
 /**
  * Created by andrewsimmons on 4/26/17.

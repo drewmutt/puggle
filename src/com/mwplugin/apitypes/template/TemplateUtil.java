@@ -1,4 +1,4 @@
-package com.mwplugin.template;
+package com.mwplugin.apitypes.template;
 
 import java.util.ArrayList;
 import java.util.Collection;

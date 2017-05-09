@@ -1,7 +1,6 @@
-package com.mwplugin.template;
+package com.mwplugin.apitypes.template;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.mwplugin.template.Template;
 
 /**
  * Created by andrewsimmons on 4/26/17.

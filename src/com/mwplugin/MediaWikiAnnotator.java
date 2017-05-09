@@ -3,20 +3,12 @@ package com.mwplugin;
 import com.intellij.lang.annotation.*;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.*;
-import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.containers.HashMap;
 import com.mwplugin.psi.*;
-import com.mwplugin.psi.impl.MediaWikiLevel4HeadingImpl;
-import com.mwplugin.template.Template;
-import com.mwplugin.template.TemplateCache;
-import com.mwplugin.template.TemplateUtil;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class MediaWikiAnnotator implements Annotator

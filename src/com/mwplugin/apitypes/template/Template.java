@@ -1,19 +1,34 @@
-package com.mwplugin.template;
+package com.mwplugin.apitypes.template;
 
 import com.google.gson.internal.LinkedTreeMap;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.mwplugin.apitypes.INamedApiElement;
 
 /**
  * Created by andrewsimmons on 4/21/17.
  */
-public class Template
+public class Template implements INamedApiElement
 {
 	public String title;
 	public LinkedTreeMap<String, String> description;
 	public String content;
 	public LinkedTreeMap<String, TemplateParameter> params;
+
+	public Template(String name)
+	{
+		title = name;
+	}
+
+	@Override
+	public void setName(String name)
+	{
+		title = name;
+	}
+
+	@Override
+	public String getName()
+	{
+		return title;
+	}
 }
 
 /*

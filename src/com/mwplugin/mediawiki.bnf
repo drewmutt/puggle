@@ -1312,7 +1312,7 @@ space-tabs ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-5-heading ::= equals5 section-name equals5 newline
+level-5-heading ::= equals5 section-name equals5 whitespace? newline?
 level-5-section ::=
 	level-5-heading (!level-5-heading !level-4-heading !level-3-heading !level-2-heading all-inline-elements)*
 {
@@ -1320,7 +1320,7 @@ level-5-section ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-4-heading ::= equals4 section-name equals4 newline
+level-4-heading ::= equals4 section-name equals4 whitespace? newline?
 level-4-section ::=
 	level-4-heading (!level-4-heading !level-3-heading !level-2-heading all-inline-elements)* (!level-4-heading !level-3-heading !level-2-heading section)*
 {
@@ -1328,7 +1328,7 @@ level-4-section ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-level-3-heading ::= equals3 section-name equals3 newline
+level-3-heading ::= equals3 section-name equals3 whitespace? newline?
 level-3-section ::=
 	level-3-heading (!level-3-heading !level-2-heading all-inline-elements)* (!level-3-heading !level-2-heading section)*
 {
@@ -1337,7 +1337,7 @@ level-3-section ::=
 }
 
 section-name ::= inline-text
-level-2-heading ::= equals2 section-name equals2 newline
+level-2-heading ::= equals2 section-name equals2 whitespace? newline?
 level-2-section ::=
 	level-2-heading (!level-2-heading all-inline-elements)* (!level-2-section section)*
 {

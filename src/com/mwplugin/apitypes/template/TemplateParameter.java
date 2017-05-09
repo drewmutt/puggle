@@ -1,4 +1,4 @@
-package com.mwplugin.template;
+package com.mwplugin.apitypes.template;
 
 import com.google.gson.internal.LinkedTreeMap;
 

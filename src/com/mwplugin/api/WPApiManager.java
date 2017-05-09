@@ -2,12 +2,21 @@ package com.mwplugin.api;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.mwplugin.template.Template;
-import com.mwplugin.template.TemplateSearchResult;
+import com.mwplugin.apitypes.Article;
+import com.mwplugin.apitypes.ArticleFactory;
+import com.mwplugin.apitypes.INamedApiElement;
+import com.mwplugin.apitypes.template.IApiResultFactory;
+import com.mwplugin.apitypes.template.Template;
+import com.mwplugin.apitypes.template.TemplateFactory;
+import com.mwplugin.apitypes.template.TemplateSearchResult;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -23,7 +32,7 @@ public class WPApiManager
 
 	public static String getPageContent(String page) throws IOException
 	{
-		String url = "query&titles=Template:"+URLEncoder.encode(page, "UTF-8")+"&prop=revisions&rvprop=content&format=json";
+		String url = "query&titles="+URLEncoder.encode(page, "UTF-8")+"&prop=revisions&rvprop=content&format=json";
 		LinkedTreeMap<String, LinkedTreeMap> object = (LinkedTreeMap<String, LinkedTreeMap>) makeApiCall(url, new Object());
 //		System.out.println(object);
 		LinkedTreeMap<String, LinkedTreeMap> query = (LinkedTreeMap<String, LinkedTreeMap>) object.get("query");
@@ -51,30 +60,56 @@ public class WPApiManager
 		}
 		return null;
 	}
-
-
-	public static Collection<Template> retrieveTemplateSuggestions(String inputText)
+//	public static <T extends PsiElement> T getParentOfType(@Nullable PsiElement element, @NotNull Class<T> aClass) {
+	@Nullable
+	@Contract("null, _ -> null")
+	public static <T extends INamedApiElement> Collection<T> retrieveSuggestions(String inputText, IApiResultFactory factory, int numberResults, @NotNull Class<T> aClass)
 	{
 		try
 		{
-			String url = "opensearch&format=json&search=Template:"+ URLEncoder.encode(inputText, "UTF-8")+"&limit=10";
+			String url = "opensearch&format=json&search="+inputText+"&limit="+numberResults;
 			ArrayList results = (ArrayList) makeApiCall(url, new ArrayList());
 			ArrayList<String> matches = (ArrayList<String>) results.get(1);
-			ArrayList<Template> templates = new ArrayList<>();
+			ArrayList<T> items = new ArrayList<>();
 			for(String name : matches)
 			{
-				Template template = new Template();
-				//Strip out "Template:"
-				template.title = name.substring(9);
-				templates.add(template);
+				T item = (T) factory.createInstance(name);
+				items.add(item);
 			}
-			return templates;
+			return items;
 
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 
+		return null;
+	}
+
+
+	public static Collection<Article> retriveArticleSuggestions(String input)
+	{
+		try
+		{
+			return retrieveSuggestions(URLEncoder.encode(input, "UTF-8"), new ArticleFactory(), 10, Article.class);
+		} catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static Collection<Template> retrieveTemplateSuggestions(String inputText)
+	{
+		try
+		{
+			Collection<Template> templates = retrieveSuggestions("Template:" + URLEncoder.encode(inputText, "UTF-8"), new TemplateFactory(), 10, Template.class);
+			return templates;
+		} catch (UnsupportedEncodingException e)
+		{
+
+
+		}
 		return null;
 	}
 
