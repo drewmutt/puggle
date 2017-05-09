@@ -15,4 +15,4 @@
 5. Create a file with the `.mediawiki` extension, and add some wikitext.
 
 ## Contact us
-If you have any questions, you can join us on IRC at ##puggle on Freenode! (All IRC users with a `/wikipedia` or `/wikimedia` host-mask are automatically voiced.)
+If you have any questions, you can join us on IRC at ##puggle on Freenode! (All IRC users with a `@wikipedia` or `@wikimedia` host-mask are automatically voiced.)
