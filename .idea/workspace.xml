@@ -10,33 +10,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" line="1412" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="Added column highlighting v0.6a">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/actions/OpenWikipediaArticleAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/api/GetSuggestionsApiCall.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/Article.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/ArticleFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/INamedApiElement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/IApiResultFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/TemplateFactory.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/mwplugin/actions/DoSomething.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/template/Template.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/Template.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/template/TemplateCache.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/TemplateCache.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/template/TemplateParameter.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/TemplateParameter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/template/TemplateSearchResult.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/TemplateSearchResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/mwplugin/template/TemplateUtil.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/apitypes/template/TemplateUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiAnnotator.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/MediaWikiAnnotator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/parser/MediaWikiParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiElementFactory.class" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/psi/MediaWikiElementFactory.class" />
+    <list default="true" id="23708222-a9e9-45c5-9edb-40241b06d84f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mwplugin/parser/MediaWikiParser.java" afterPath="$PROJECT_DIR$/gen/com/mwplugin/parser/MediaWikiParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/out/production/wikimedia/com/mwplugin/mediawiki.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiAnnotator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiCompletionContributor.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/MediaWikiCompletionContributor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/api/WPApiManager.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/api/WPApiManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/dialogs/InsertTemplate.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/dialogs/InsertTemplate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" afterPath="$PROJECT_DIR$/src/com/mwplugin/mediawiki.bnf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mwplugin/psi/MediaWikiElementFactory.java" afterPath="$PROJECT_DIR$/src/com/mwplugin/psi/MediaWikiElementFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/wikimedia/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/out/production/wikimedia/META-INF/plugin.xml" />
     </list>
     <ignored path="wikimedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +40,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/mwplugin/dialogs/InsertTemplate.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="252">
-                  <caret line="108" column="25" lean-forward="true" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
+                  <caret line="108" column="25" lean-forward="false" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
                   <folding>
                     <element signature="e#1745#1746#0" expanded="true" />
                     <element signature="e#1769#1770#0" expanded="true" />
@@ -108,7 +84,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/mwplugin/actions/OpenWikipediaArticleAction.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="440">
-                  <caret line="86" column="13" lean-forward="true" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+                  <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -137,8 +113,8 @@
           <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+                <state relative-caret-position="330">
+                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -155,7 +131,7 @@
             <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/ui/TextFieldWithAutoCompletion.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="215">
-                  <caret line="45" column="60" lean-forward="true" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+                  <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
                   <folding />
                 </state>
               </provider>
@@ -165,7 +141,7 @@
             <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/util/textCompletion/TextFieldWithCompletion.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="75">
-                  <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+                  <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
                   <folding />
                 </state>
               </provider>
@@ -178,8 +154,8 @@
           <file leaf-file-name="mediawiki.bnf.preview" pinned="false" current-in-tab="true">
             <entry file="mock:///mediawiki.bnf.preview">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="122">
-                  <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+                <state relative-caret-position="140">
+                  <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -613,10 +589,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="dialogs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InsertTemplate" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1361,7 +1333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494045459999</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added some lexing fixes, added open WP article action v0.7a">
+      <created>1494304555276</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1494304555276</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1373,7 +1352,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17418844" sideWeight="0.29607666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858273" sideWeight="0.51231754" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1382,7 +1361,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17418844" sideWeight="0.70392334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17418844" sideWeight="0.70392334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2074426" sideWeight="0.39917883" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1390,7 +1369,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22034672" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32779098" sideWeight="0.40054744" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858273" sideWeight="0.4895073" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858273" sideWeight="0.4876825" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18764846" sideWeight="0.48448905" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1560219" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56136185" sideWeight="0.49270073" order="1" side_tool="false" content_ui="tabs" />
@@ -1470,7 +1449,8 @@
     <MESSAGE value="Added more autocomplete, working on structure view." />
     <MESSAGE value="Completed structure view (wipes off forehead)" />
     <MESSAGE value="Added column highlighting v0.6a" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added column highlighting v0.6a" />
+    <MESSAGE value="Added some lexing fixes, added open WP article action v0.7a" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some lexing fixes, added open WP article action v0.7a" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1951,7 +1931,7 @@
     <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/util/textCompletion/TextFieldWithCompletion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1959,7 +1939,7 @@
     <entry file="file://$USER_HOME$/Downloads/idea/platform/lang-impl/src/com/intellij/ui/TextFieldWithAutoCompletion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
-          <caret line="45" column="60" lean-forward="true" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+          <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -2010,7 +1990,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/mwplugin/actions/OpenWikipediaArticleAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
-          <caret line="86" column="13" lean-forward="true" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+          <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2018,7 +1998,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/mwplugin/dialogs/InsertTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="108" column="25" lean-forward="true" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
+          <caret line="108" column="25" lean-forward="false" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
           <folding>
             <element signature="e#1745#1746#0" expanded="true" />
             <element signature="e#1769#1770#0" expanded="true" />
@@ -2033,8 +2013,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
