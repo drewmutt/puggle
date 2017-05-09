@@ -644,7 +644,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (letter|decimal-number|"."|"/"|":"|"?"|"&"|"%"|"="|"-"|"_"|")"|"("|"'"|"~"|"+"|","|"#"|"@")+
+  // (letter|decimal-number|"."|"/"|":"|"?"|"&"|"%"|"="|"-"|"_"|")"|"("|"'"|"~"|"+"|","|"#"|"@"|"…")+
   public static boolean LEGAL_URL_ENTITY(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "LEGAL_URL_ENTITY")) return false;
     boolean r;
@@ -660,7 +660,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // letter|decimal-number|"."|"/"|":"|"?"|"&"|"%"|"="|"-"|"_"|")"|"("|"'"|"~"|"+"|","|"#"|"@"
+  // letter|decimal-number|"."|"/"|":"|"?"|"&"|"%"|"="|"-"|"_"|")"|"("|"'"|"~"|"+"|","|"#"|"@"|"…"
   private static boolean LEGAL_URL_ENTITY_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "LEGAL_URL_ENTITY_0")) return false;
     boolean r;
@@ -684,6 +684,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, ",");
     if (!r) r = consumeToken(b, "#");
     if (!r) r = consumeToken(b, "@");
+    if (!r) r = consumeToken(b, "…");
     exit_section_(b, m, null, r);
     return r;
   }
@@ -4715,7 +4716,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   // 	underscore|
   // 	"."|
   // 	","|
-  // 	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"
+  // 	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"
   public static boolean symbol(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "symbol")) return false;
     boolean r;
@@ -4754,6 +4755,8 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, "‘");
     if (!r) r = consumeToken(b, "^");
     if (!r) r = consumeToken(b, "ᴥ");
+    if (!r) r = consumeToken(b, "•");
+    if (!r) r = consumeToken(b, "…");
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -5307,51 +5310,13 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (!"|" (letter|symbol|decimaldigit|whitespace-char))*
+  // content-non-pipe
   public static boolean template_name(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "template_name")) return false;
+    boolean r;
     Marker m = enter_section_(b, l, _NONE_, TEMPLATE_NAME, "<template - name>");
-    int c = current_position_(b);
-    while (true) {
-      if (!template_name_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "template_name", c)) break;
-      c = current_position_(b);
-    }
-    exit_section_(b, l, m, true, false, null);
-    return true;
-  }
-
-  // !"|" (letter|symbol|decimaldigit|whitespace-char)
-  private static boolean template_name_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "template_name_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = template_name_0_0(b, l + 1);
-    r = r && template_name_0_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // !"|"
-  private static boolean template_name_0_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "template_name_0_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NOT_);
-    r = !consumeToken(b, pipe);
+    r = content_non_pipe(b, l + 1);
     exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  // letter|symbol|decimaldigit|whitespace-char
-  private static boolean template_name_0_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "template_name_0_1")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = letter(b, l + 1);
-    if (!r) r = symbol(b, l + 1);
-    if (!r) r = consumeToken(b, decimaldigit);
-    if (!r) r = whitespace_char(b, l + 1);
-    exit_section_(b, m, null, r);
     return r;
   }
 

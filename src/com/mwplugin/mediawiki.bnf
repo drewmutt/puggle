@@ -183,7 +183,7 @@ symbol ::=
 	underscore|
 	"."|
 	","|
-	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"
+	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -408,7 +408,7 @@ template-property-unassigned ::= inline-element-sans-pipe
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-template-name ::= (!"|" (letter|symbol|decimaldigit|whitespace-char))*
+template-name ::= content-non-pipe
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1536,7 +1536,7 @@ CSS ::= "CSS"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-LEGAL_URL_ENTITY ::= (letter|decimal-number|"."|"/"|":"|"?"|"&"|"%"|"="|"-"|"_"|")"|"("|"'"|"~"|"+"|","|"#"|"@")+
+LEGAL_URL_ENTITY ::= (letter|decimal-number|"."|"/"|":"|"?"|"&"|"%"|"="|"-"|"_"|")"|"("|"'"|"~"|"+"|","|"#"|"@"|"…")+
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
