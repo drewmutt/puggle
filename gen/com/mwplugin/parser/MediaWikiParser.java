@@ -179,6 +179,9 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     else if (t == HTML_TAG_CONTENT) {
       r = consumeToken(b, html_tag_content);
     }
+    else if (t == HTML_TAG_LINEBREAK) {
+      r = consumeToken(b, html_tag_linebreak);
+    }
     else if (t == HTML_TAG_NAME) {
       r = consumeToken(b, html_tag_name);
     }
@@ -1048,7 +1051,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ((!tableheaderdoubledelimiter !tablecelldoubledelimiter !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements)*
+  // ((!tableheaderdoubledelimiter !doublepipe !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements)*
   public static boolean cell_content(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "cell_content")) return false;
     Marker m = enter_section_(b, l, _NONE_, CELL_CONTENT, "<cell - content>");
@@ -1062,7 +1065,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // (!tableheaderdoubledelimiter !tablecelldoubledelimiter !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements
+  // (!tableheaderdoubledelimiter !doublepipe !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements
   private static boolean cell_content_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "cell_content_0")) return false;
     boolean r;
@@ -1076,7 +1079,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // !tableheaderdoubledelimiter !tablecelldoubledelimiter !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))
+  // !tableheaderdoubledelimiter !doublepipe !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))
   private static boolean cell_content_0_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "cell_content_0_0")) return false;
     boolean r;
@@ -1098,12 +1101,12 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // !tablecelldoubledelimiter
+  // !doublepipe
   private static boolean cell_content_0_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "cell_content_0_0_1")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NOT_);
-    r = !consumeToken(b, tablecelldoubledelimiter);
+    r = !consumeToken(b, doublepipe);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -1524,7 +1527,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // "!"|"$"|"%"|"&"|"("")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"
+  // "!"|"$"|"%"|"&"|"("")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"|"/"|template-block
   public static boolean friendly_ref_link_char(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "friendly_ref_link_char")) return false;
     boolean r;
@@ -1555,6 +1558,8 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, decimaldigit);
     if (!r) r = consumeToken(b, "–");
     if (!r) r = consumeToken(b, "'");
+    if (!r) r = consumeToken(b, "/");
+    if (!r) r = template_block(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -1808,7 +1813,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // htmlcommentopen whitespace? paragraph whitespace? htmlcommentclose
+  // htmlcommentopen whitespace? all-inline-elements* whitespace? htmlcommentclose
   public static boolean html_comment(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "html_comment")) return false;
     if (!nextTokenIs(b, htmlcommentopen)) return false;
@@ -1816,7 +1821,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, htmlcommentopen);
     r = r && html_comment_1(b, l + 1);
-    r = r && paragraph(b, l + 1);
+    r = r && html_comment_2(b, l + 1);
     r = r && html_comment_3(b, l + 1);
     r = r && consumeToken(b, htmlcommentclose);
     exit_section_(b, m, HTML_COMMENT, r);
@@ -1827,6 +1832,18 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   private static boolean html_comment_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "html_comment_1")) return false;
     whitespace(b, l + 1);
+    return true;
+  }
+
+  // all-inline-elements*
+  private static boolean html_comment_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_comment_2")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!all_inline_elements(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "html_comment_2", c)) break;
+      c = current_position_(b);
+    }
     return true;
   }
 
@@ -1913,40 +1930,51 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // "<!" html-tag-name html-tag-properties? ((">" html-tag-content html-tag-close)|"/>")
+  // ("<!" html-tag-name html-tag-properties? ((">" html-tag-content html-tag-close)|"/>")) | html-tag-linebreak
   public static boolean html_tag(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "html_tag")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, HTML_TAG, "<html - tag>");
-    r = consumeToken(b, "<!");
-    r = r && html_tag_name(b, l + 1);
-    r = r && html_tag_2(b, l + 1);
-    r = r && html_tag_3(b, l + 1);
+    r = html_tag_0(b, l + 1);
+    if (!r) r = html_tag_linebreak(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
+  // "<!" html-tag-name html-tag-properties? ((">" html-tag-content html-tag-close)|"/>")
+  private static boolean html_tag_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_tag_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, "<!");
+    r = r && html_tag_name(b, l + 1);
+    r = r && html_tag_0_2(b, l + 1);
+    r = r && html_tag_0_3(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
   // html-tag-properties?
-  private static boolean html_tag_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "html_tag_2")) return false;
+  private static boolean html_tag_0_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_tag_0_2")) return false;
     html_tag_properties(b, l + 1);
     return true;
   }
 
   // (">" html-tag-content html-tag-close)|"/>"
-  private static boolean html_tag_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "html_tag_3")) return false;
+  private static boolean html_tag_0_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_tag_0_3")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = html_tag_3_0(b, l + 1);
-    if (!r) r = consumeToken(b, "/>");
+    r = html_tag_0_3_0(b, l + 1);
+    if (!r) r = consumeToken(b, htmltagselfclose);
     exit_section_(b, m, null, r);
     return r;
   }
 
   // ">" html-tag-content html-tag-close
-  private static boolean html_tag_3_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "html_tag_3_0")) return false;
+  private static boolean html_tag_0_3_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_tag_0_3_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, unescapedgreaterthan);
@@ -1978,6 +2006,26 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     r = paragraph(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
+  }
+
+  /* ********************************************************** */
+  // "<br" whitespace? "/>"
+  public static boolean html_tag_linebreak(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_tag_linebreak")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, HTML_TAG_LINEBREAK, "<html - tag - linebreak>");
+    r = consumeToken(b, "<br");
+    r = r && html_tag_linebreak_1(b, l + 1);
+    r = r && consumeToken(b, htmltagselfclose);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // whitespace?
+  private static boolean html_tag_linebreak_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "html_tag_linebreak_1")) return false;
+    whitespace(b, l + 1);
+    return true;
   }
 
   /* ********************************************************** */
@@ -2627,7 +2675,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // internal-link-start article-link ("#" section-id)? ("|" (internal-link-property | internal-link-unassigned-property))* internal-link-end extra-description?
+  // internal-link-start article-link ("#" section-id)? (("|"|doublepipe) (internal-link-property | internal-link-unassigned-property))* internal-link-end extra-description?
   public static boolean internal_link(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "internal_link")) return false;
     if (!nextTokenIs(b, openbracket2)) return false;
@@ -2661,7 +2709,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // ("|" (internal-link-property | internal-link-unassigned-property))*
+  // (("|"|doublepipe) (internal-link-property | internal-link-unassigned-property))*
   private static boolean internal_link_3(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "internal_link_3")) return false;
     int c = current_position_(b);
@@ -2673,13 +2721,24 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // "|" (internal-link-property | internal-link-unassigned-property)
+  // ("|"|doublepipe) (internal-link-property | internal-link-unassigned-property)
   private static boolean internal_link_3_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "internal_link_3_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, pipe);
+    r = internal_link_3_0_0(b, l + 1);
     r = r && internal_link_3_0_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // "|"|doublepipe
+  private static boolean internal_link_3_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "internal_link_3_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, pipe);
+    if (!r) r = consumeToken(b, doublepipe);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -2817,7 +2876,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // quote2 inline-text quote2
+  // quote2 inline-text (quote2|quote3)
   public static boolean italic_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "italic_text")) return false;
     if (!nextTokenIs(b, quote2)) return false;
@@ -2825,8 +2884,19 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, quote2);
     r = r && inline_text(b, l + 1);
-    r = r && consumeToken(b, quote2);
+    r = r && italic_text_2(b, l + 1);
     exit_section_(b, m, ITALIC_TEXT, r);
+    return r;
+  }
+
+  // quote2|quote3
+  private static boolean italic_text_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "italic_text_2")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, quote2);
+    if (!r) r = consumeToken(b, quote3);
+    exit_section_(b, m, null, r);
     return r;
   }
 
@@ -3567,7 +3637,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // reference-opening-tag whitespace?  (("name" | "group") whitespace? "=" property-assignment)+ "/" unescapedgreaterthan
+  // reference-opening-tag whitespace?  (("name" | "group") whitespace? "=" property-assignment)+ htmltagselfclose
   public static boolean named_reference_block_self_closing(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "named_reference_block_self_closing")) return false;
     if (!nextTokenIs(b, refopen)) return false;
@@ -3576,8 +3646,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     r = reference_opening_tag(b, l + 1);
     r = r && named_reference_block_self_closing_1(b, l + 1);
     r = r && named_reference_block_self_closing_2(b, l + 1);
-    r = r && consumeToken(b, "/");
-    r = r && consumeToken(b, unescapedgreaterthan);
+    r = r && consumeToken(b, htmltagselfclose);
     exit_section_(b, m, NAMED_REFERENCE_BLOCK_SELF_CLOSING, r);
     return r;
   }
@@ -3775,21 +3844,21 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // nowiki-block|
+  // html-comment|
+  // 	nowiki-block|
   // 	html-block|
   // 	reference-block|
   // //	math-block|
-  // 	pre-block|
-  // 	html-comment
+  // 	pre-block
   public static boolean noparse_block(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "noparse_block")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, NOPARSE_BLOCK, "<noparse - block>");
-    r = nowiki_block(b, l + 1);
+    r = html_comment(b, l + 1);
+    if (!r) r = nowiki_block(b, l + 1);
     if (!r) r = html_block(b, l + 1);
     if (!r) r = reference_block(b, l + 1);
     if (!r) r = pre_block(b, l + 1);
-    if (!r) r = html_comment(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -4374,14 +4443,18 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // paragraph-and-more
+  // all-inline-elements*
   public static boolean reference_content(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "reference_content")) return false;
-    boolean r;
     Marker m = enter_section_(b, l, _NONE_, REFERENCE_CONTENT, "<reference - content>");
-    r = paragraph_and_more(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
-    return r;
+    int c = current_position_(b);
+    while (true) {
+      if (!all_inline_elements(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "reference_content", c)) break;
+      c = current_position_(b);
+    }
+    exit_section_(b, l, m, true, false, null);
+    return true;
   }
 
   /* ********************************************************** */
@@ -4716,7 +4789,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   // 	underscore|
   // 	"."|
   // 	","|
-  // 	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"
+  // 	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"|"`"|tableheaderdoubledelimiter|"“"|"”"|htmltagselfclose
   public static boolean symbol(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "symbol")) return false;
     boolean r;
@@ -4757,12 +4830,17 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, "ᴥ");
     if (!r) r = consumeToken(b, "•");
     if (!r) r = consumeToken(b, "…");
+    if (!r) r = consumeToken(b, "`");
+    if (!r) r = consumeToken(b, tableheaderdoubledelimiter);
+    if (!r) r = consumeToken(b, "“");
+    if (!r) r = consumeToken(b, "”");
+    if (!r) r = consumeToken(b, htmltagselfclose);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // table-start (space table-parameters)? (table-block)*  newline? table-end
+  // table-start (space? table-parameters)? (table-block)*  newline? table-end
   public static boolean table(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "table")) return false;
     if (!nextTokenIs(b, tablestart)) return false;
@@ -4777,22 +4855,29 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // (space table-parameters)?
+  // (space? table-parameters)?
   private static boolean table_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "table_1")) return false;
     table_1_0(b, l + 1);
     return true;
   }
 
-  // space table-parameters
+  // space? table-parameters
   private static boolean table_1_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "table_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, space);
+    r = table_1_0_0(b, l + 1);
     r = r && table_parameters(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
+  }
+
+  // space?
+  private static boolean table_1_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "table_1_0_0")) return false;
+    consumeToken(b, space);
+    return true;
   }
 
   // (table-block)*
@@ -4958,7 +5043,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   // table-cell-double-delimited-start cell-content newline?
   public static boolean table_cell_double_delimited(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "table_cell_double_delimited")) return false;
-    if (!nextTokenIs(b, tablecelldoubledelimiter)) return false;
+    if (!nextTokenIs(b, doublepipe)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = table_cell_double_delimited_start(b, l + 1);
@@ -4976,13 +5061,13 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // tablecelldoubledelimiter
+  // doublepipe
   public static boolean table_cell_double_delimited_start(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "table_cell_double_delimited_start")) return false;
-    if (!nextTokenIs(b, tablecelldoubledelimiter)) return false;
+    if (!nextTokenIs(b, doublepipe)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, tablecelldoubledelimiter);
+    r = consumeToken(b, doublepipe);
     exit_section_(b, m, TABLE_CELL_DOUBLE_DELIMITED_START, r);
     return r;
   }

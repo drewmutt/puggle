@@ -58,6 +58,7 @@ public interface MediaWikiTypes {
   IElementType HTML_TAG = new MediaWikiElementType("HTML_TAG");
   IElementType HTML_TAG_CLOSE = new MediaWikiElementType("HTML_TAG_CLOSE");
   IElementType HTML_TAG_CONTENT = new MediaWikiElementType("HTML_TAG_CONTENT");
+  IElementType HTML_TAG_LINEBREAK = new MediaWikiElementType("HTML_TAG_LINEBREAK");
   IElementType HTML_TAG_NAME = new MediaWikiElementType("HTML_TAG_NAME");
   IElementType HTML_TAG_PROPERTIES = new MediaWikiElementType("HTML_TAG_PROPERTIES");
   IElementType HTML_UNSAFE_SYMBOL = new MediaWikiElementType("HTML_UNSAFE_SYMBOL");
@@ -232,6 +233,7 @@ public interface MediaWikiTypes {
   IElementType decimal_number = new MediaWikiTokenType("decimal_number");
   IElementType decimaldigit = new MediaWikiTokenType("decimaldigit");
   IElementType defined_term = new MediaWikiTokenType("defined_term");
+  IElementType doublepipe = new MediaWikiTokenType("||");
   IElementType doublequote = new MediaWikiTokenType("doublequote");
   IElementType enumerated_item = new MediaWikiTokenType("enumerated_item");
   IElementType equals = new MediaWikiTokenType("=");
@@ -257,12 +259,13 @@ public interface MediaWikiTypes {
   IElementType html_tag = new MediaWikiTokenType("html_tag");
   IElementType html_tag_close = new MediaWikiTokenType("html_tag_close");
   IElementType html_tag_content = new MediaWikiTokenType("html_tag_content");
+  IElementType html_tag_linebreak = new MediaWikiTokenType("html_tag_linebreak");
   IElementType html_tag_name = new MediaWikiTokenType("html_tag_name");
   IElementType html_tag_properties = new MediaWikiTokenType("html_tag_properties");
   IElementType html_unsafe_symbol = new MediaWikiTokenType("html_unsafe_symbol");
-  IElementType htmlcomentclose = new MediaWikiTokenType("-->");
-  IElementType htmlcommentclose = new MediaWikiTokenType("htmlcommentclose");
+  IElementType htmlcommentclose = new MediaWikiTokenType("-->");
   IElementType htmlcommentopen = new MediaWikiTokenType("<!--");
+  IElementType htmltagselfclose = new MediaWikiTokenType("/>");
   IElementType image_align_center = new MediaWikiTokenType("image_align_center");
   IElementType image_align_left = new MediaWikiTokenType("image_align_left");
   IElementType image_align_none = new MediaWikiTokenType("image_align_none");
@@ -383,7 +386,6 @@ public interface MediaWikiTypes {
   IElementType table_row_start = new MediaWikiTokenType("table_row_start");
   IElementType table_section_start = new MediaWikiTokenType("table_section_start");
   IElementType table_start = new MediaWikiTokenType("table_start");
-  IElementType tablecelldoubledelimiter = new MediaWikiTokenType("||");
   IElementType tableend = new MediaWikiTokenType("|}");
   IElementType tableheaderdoubledelimiter = new MediaWikiTokenType("!!");
   IElementType tablesectionstart = new MediaWikiTokenType("|-");
@@ -568,6 +570,9 @@ public interface MediaWikiTypes {
       }
       else if (type == HTML_TAG_CONTENT) {
         return new MediaWikiHtmlTagContentImpl(node);
+      }
+      else if (type == HTML_TAG_LINEBREAK) {
+        return new MediaWikiHtmlTagLinebreakImpl(node);
       }
       else if (type == HTML_TAG_NAME) {
         return new MediaWikiHtmlTagNameImpl(node);

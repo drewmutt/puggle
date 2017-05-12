@@ -14,10 +14,14 @@ public class MediaWikiFindUsagesProvider implements FindUsagesProvider {
 	@Nullable
 	@Override
 	public WordsScanner getWordsScanner() {
+
 		return new DefaultWordsScanner(new MediaWikiLexerAdapter(),
 				TokenSet.create(MediaWikiTypes.REFERENCE_BLOCK),
 				TokenSet.create(MediaWikiTypes.REFERENCE_NAME),
 				TokenSet.EMPTY);
+
+
+
 	}
 
 	@Override

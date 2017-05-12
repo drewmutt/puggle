@@ -20,7 +20,6 @@ import static com.mwplugin.psi.MediaWikiTypes.*;
 %unicode
 
 EOL=\R
-
 newline=[\r\n]
 otherletter=[\p{L}]
 lcaseletter=[a-z]
@@ -35,21 +34,23 @@ tab=\t
   "|+"                  {return tablesectionstartcaptionable;}
   "|}"                 { return tableend; }
   "{|"                 { return tablestart; }
-  "||"                 { return tablecelldoubledelimiter; }
+  "||"                 { return doublepipe; }
   "!!"                 { return tableheaderdoubledelimiter; }
+  "<!--"                {return htmlcommentopen;}
+  "-->"                {return htmlcommentclose;}
   "'''''"                 { return quote5; }
   "'''"                 { return quote3; }
   "''"                 { return quote2; }
-  "<!--"                 { return htmlcommentopen; }
-    "-->"                 { return htmlcommentclose; }
     "<ref>"             { return refopencomplete; }
     "<ref"             { return refopen; }
     "</ref>"             { return refclose; }
+//    "<br/>"                 {return htmltagnewline;}
   "====="              { return equals5; }
   "===="              { return equals4; }
   "==="              { return equals3; }
   "=="              { return equals2; }
   "="              { return equals; }
+  "/>"              { return htmltagselfclose; }
   "{{"              { return curlyopen2; }
   "[["              { return openbracket2; }
     "]]"              { return closebracket2; }

@@ -106,8 +106,8 @@ public class MediaWikiLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 2912 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\6\1\1\2\0\1\1\22\0\1\31\1\14\1\32\3\0\1\27\1\15\3\0\1\11\1\0\1\10"+
-    "\1\0\1\23\12\5\2\0\1\16\1\24\1\17\2\0\32\4\1\25\1\0\1\26\1\0\1\30\1\0\4\3"+
+    "\11\0\1\6\1\1\2\0\1\1\22\0\1\31\1\14\1\32\3\0\1\27\1\17\3\0\1\11\1\0\1\10"+
+    "\1\0\1\23\12\5\2\0\1\15\1\24\1\16\2\0\32\4\1\25\1\0\1\26\1\0\1\30\1\0\4\3"+
     "\1\21\1\22\13\3\1\20\10\3\1\13\1\7\1\12\14\0\1\2\12\0\1\2\4\0\1\2\5\0\27\2"+
     "\1\0\12\2\4\0\14\2\16\0\5\2\7\0\1\2\1\0\1\2\1\0\5\2\1\0\2\2\2\0\4\2\1\0\1"+
     "\2\6\0\1\2\1\0\3\2\1\0\1\2\1\0\4\2\1\0\23\2\1\0\13\2\10\0\6\2\1\0\26\2\2\0"+
@@ -154,14 +154,14 @@ public class MediaWikiLexer implements FlexLexer {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\5\1\1\11\1\12\1\13\1\14\1\15\1\16"+
-    "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\0"+
-    "\1\26\1\27\1\30\1\31\1\32\3\0\1\33\1\34"+
-    "\1\35\1\36\1\37\3\0\1\40\1\0\1\41\1\42"+
-    "\1\0\1\43\1\44\1\45\1\0\1\46\1\47";
+    "\1\10\4\1\1\11\1\12\2\1\1\13\1\14\1\15"+
+    "\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25"+
+    "\1\0\1\26\1\27\1\30\1\31\3\0\1\32\1\33"+
+    "\1\34\1\35\1\36\1\37\3\0\1\40\1\41\1\42"+
+    "\1\43\2\0\1\44\1\45\1\0\1\46\1\47\1\50";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[55];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -187,15 +187,16 @@ public class MediaWikiLexer implements FlexLexer {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\33\0\33\0\33\0\33\0\33\0\33\0\33"+
-    "\0\66\0\121\0\154\0\207\0\242\0\275\0\330\0\33"+
-    "\0\363\0\u010e\0\u0129\0\33\0\33\0\33\0\33\0\33"+
-    "\0\33\0\33\0\33\0\u0144\0\33\0\33\0\33\0\33"+
-    "\0\u015f\0\u017a\0\u0195\0\u01b0\0\u01cb\0\33\0\33\0\33"+
-    "\0\u01e6\0\u0201\0\u021c\0\u0237\0\u0252\0\u026d\0\33\0\u0288"+
-    "\0\u02a3\0\u02be\0\33\0\33\0\u02d9\0\33\0\33";
+    "\0\66\0\121\0\154\0\207\0\242\0\275\0\33\0\330"+
+    "\0\363\0\u010e\0\u0129\0\u0144\0\33\0\33\0\33\0\33"+
+    "\0\33\0\33\0\33\0\33\0\u015f\0\33\0\33\0\33"+
+    "\0\33\0\u017a\0\u0195\0\u01b0\0\u01cb\0\33\0\u01e6\0\33"+
+    "\0\33\0\33\0\u0201\0\u021c\0\u0237\0\u0252\0\u026d\0\33"+
+    "\0\u0288\0\u02a3\0\u02be\0\u02d9\0\33\0\u02f4\0\33\0\33"+
+    "\0\33";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[55];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -220,18 +221,19 @@ public class MediaWikiLexer implements FlexLexer {
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
     "\1\12\1\2\1\13\1\14\1\15\1\16\1\17\1\20"+
-    "\3\5\1\2\1\21\1\22\1\23\1\24\1\25\1\26"+
-    "\1\27\42\0\1\30\1\31\1\32\1\33\30\0\1\34"+
-    "\34\0\1\35\27\0\1\36\3\0\1\37\33\0\1\40"+
-    "\33\0\1\41\31\0\1\42\3\0\1\43\2\0\1\44"+
-    "\33\0\1\45\33\0\1\46\33\0\1\47\23\0\1\50"+
-    "\30\0\1\51\25\0\1\52\43\0\1\53\31\0\1\54"+
-    "\36\0\1\55\23\0\1\56\25\0\1\57\44\0\1\60"+
-    "\31\0\1\61\35\0\1\62\23\0\1\63\34\0\1\64"+
-    "\35\0\1\65\34\0\1\66\25\0\1\67\13\0";
+    "\3\5\1\21\1\22\1\23\1\24\1\25\1\26\1\27"+
+    "\1\30\42\0\1\31\1\32\1\33\1\34\30\0\1\35"+
+    "\34\0\1\36\27\0\1\37\3\0\1\40\33\0\1\41"+
+    "\32\0\1\42\3\0\1\43\2\0\1\44\26\0\1\45"+
+    "\31\0\1\46\40\0\1\47\33\0\1\50\33\0\1\51"+
+    "\22\0\1\52\24\0\1\53\43\0\1\54\31\0\1\55"+
+    "\31\0\1\56\37\0\1\57\16\0\1\60\44\0\1\61"+
+    "\31\0\1\62\30\0\1\63\37\0\1\64\24\0\1\65"+
+    "\36\0\1\66\27\0\1\67\37\0\1\70\24\0\1\71"+
+    "\14\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[756];
+    int [] result = new int[783];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -269,12 +271,12 @@ public class MediaWikiLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\7\11\7\1\1\11\3\1\10\11\1\0\4\11"+
-    "\1\1\3\0\1\1\3\11\1\1\3\0\1\1\1\0"+
-    "\1\11\1\1\1\0\1\1\2\11\1\0\2\11";
+    "\1\0\7\11\6\1\1\11\5\1\10\11\1\0\4\11"+
+    "\3\0\1\1\1\11\1\1\3\11\3\0\2\1\1\11"+
+    "\1\1\2\0\1\1\1\11\1\0\3\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[55];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -582,159 +584,163 @@ public class MediaWikiLexer implements FlexLexer {
           case 1: 
             { return com.intellij.psi.TokenType.BAD_CHARACTER;
             }
-          case 40: break;
+          case 41: break;
           case 2: 
             { return newline;
             }
-          case 41: break;
+          case 42: break;
           case 3: 
             { return otherletter;
             }
-          case 42: break;
+          case 43: break;
           case 4: 
             { return lcaseletter;
             }
-          case 43: break;
+          case 44: break;
           case 5: 
             { return ucaseletter;
             }
-          case 44: break;
+          case 45: break;
           case 6: 
             { return decimaldigit;
             }
-          case 45: break;
+          case 46: break;
           case 7: 
             { return tab;
             }
-          case 46: break;
+          case 47: break;
           case 8: 
             { return pipe;
             }
-          case 47: break;
+          case 48: break;
           case 9: 
             { return unescapedlessthan;
             }
-          case 48: break;
+          case 49: break;
           case 10: 
             { return unescapedgreaterthan;
             }
-          case 49: break;
+          case 50: break;
           case 11: 
             { return equals;
             }
-          case 50: break;
+          case 51: break;
           case 12: 
             { return openbracket;
             }
-          case 51: break;
+          case 52: break;
           case 13: 
             { return closebracket;
             }
-          case 52: break;
+          case 53: break;
           case 14: 
             { return unescapedampersand;
             }
-          case 53: break;
+          case 54: break;
           case 15: 
             { return underscore;
             }
-          case 54: break;
+          case 55: break;
           case 16: 
             { return space;
             }
-          case 55: break;
+          case 56: break;
           case 17: 
             { return doublequote;
             }
-          case 56: break;
-          case 18: 
-            { return tablecelldoubledelimiter;
-            }
           case 57: break;
+          case 18: 
+            { return doublepipe;
+            }
+          case 58: break;
           case 19: 
             { return tablesectionstart;
             }
-          case 58: break;
+          case 59: break;
           case 20: 
             { return tablesectionstartcaptionable;
             }
-          case 59: break;
+          case 60: break;
           case 21: 
             { return tableend;
             }
-          case 60: break;
+          case 61: break;
           case 22: 
             { return curlyclose2;
             }
-          case 61: break;
+          case 62: break;
           case 23: 
             { return tablestart;
             }
-          case 62: break;
+          case 63: break;
           case 24: 
             { return curlyopen2;
             }
-          case 63: break;
+          case 64: break;
           case 25: 
             { return tableheaderdoubledelimiter;
             }
-          case 64: break;
+          case 65: break;
           case 26: 
             { return quote2;
             }
-          case 65: break;
-          case 27: 
-            { return equals2;
-            }
           case 66: break;
-          case 28: 
-            { return openbracket2;
+          case 27: 
+            { return htmltagselfclose;
             }
           case 67: break;
-          case 29: 
-            { return closebracket2;
+          case 28: 
+            { return equals2;
             }
           case 68: break;
-          case 30: 
-            { return htmlcommentclose;
+          case 29: 
+            { return openbracket2;
             }
           case 69: break;
-          case 31: 
-            { return quote3;
+          case 30: 
+            { return closebracket2;
             }
           case 70: break;
-          case 32: 
-            { return equals3;
+          case 31: 
+            { return htmlcommentclose;
             }
           case 71: break;
-          case 33: 
-            { return htmlcommentopen;
+          case 32: 
+            { return quote3;
             }
           case 72: break;
-          case 34: 
-            { return refopen;
+          case 33: 
+            { return equals3;
             }
           case 73: break;
-          case 35: 
-            { return equals4;
+          case 34: 
+            { return htmlcommentopen;
             }
           case 74: break;
-          case 36: 
-            { return quote5;
+          case 35: 
+            { return refopen;
             }
           case 75: break;
+          case 36: 
+            { return equals4;
+            }
+          case 76: break;
           case 37: 
             { return refopencomplete;
             }
-          case 76: break;
-          case 38: 
-            { return equals5;
-            }
           case 77: break;
-          case 39: 
-            { return refclose;
+          case 38: 
+            { return quote5;
             }
           case 78: break;
+          case 39: 
+            { return equals5;
+            }
+          case 79: break;
+          case 40: 
+            { return refclose;
+            }
+          case 80: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

@@ -215,6 +215,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitHtmlTagLinebreak(@NotNull MediaWikiHtmlTagLinebreak o) {
+    visitPsiElement(o);
+  }
+
   public void visitHtmlTagName(@NotNull MediaWikiHtmlTagName o) {
     visitPsiElement(o);
   }

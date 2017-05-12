@@ -31,14 +31,15 @@
         tablestart = "{|"
         tableend = "|}"
         tableheaderdoubledelimiter = "!!"
-        tablecelldoubledelimiter = "||"
+        doublepipe = "||"
         htmlcommentopen = "<!--"
-        htmlcomentclose = "-->"
+        htmlcommentclose = "-->"
         openbracket = "["
         closebracket = "]"
         refopencomplete = "<ref>"
         refopen = "<ref"
         refclose = "</ref>"
+        htmltagselfclose = "/>"
         openbracket2 = "[["
         closebracket2 = "]]"
         newline='regexp:[\r\n]'
@@ -183,7 +184,7 @@ symbol ::=
 	underscore|
 	"."|
 	","|
-	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"
+	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"|"`"|tableheaderdoubledelimiter|"“"|"”"|htmltagselfclose
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -537,7 +538,7 @@ link ::=
 }
 
 internal-link ::=
-	internal-link-start article-link ("#" section-id)? ("|" (internal-link-property | internal-link-unassigned-property))* internal-link-end extra-description?
+	internal-link-start article-link ("#" section-id)? (("|"|doublepipe) (internal-link-property | internal-link-unassigned-property))* internal-link-end extra-description?
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -961,12 +962,12 @@ media-extension ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-html-tag ::= "<!" html-tag-name html-tag-properties? ((">" html-tag-content html-tag-close)|"/>")
+html-tag ::= ("<!" html-tag-name html-tag-properties? ((">" html-tag-content html-tag-close)|"/>")) | html-tag-linebreak
 html-tag-close ::= "</" html-tag-name ">"
 html-tag-properties ::= (!">" (letter | decimaldigit | symbol | whitespace))*
 html-tag-name ::= (letter | decimaldigit)+
 html-tag-content ::= paragraph
-
+html-tag-linebreak ::= "<br" whitespace? "/>"
 
 text-with-formatting ::=
 	formatted-text |
@@ -1008,19 +1009,19 @@ bold-text ::=
 }
 
 italic-text ::=
-	quote2 inline-text quote2
+	quote2 inline-text (quote2|quote3)
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
 noparse-block ::=
+	html-comment|
 	nowiki-block|
 	html-block|
 	reference-block|
 //	math-block|
-	pre-block|
-	html-comment
+	pre-block
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1087,13 +1088,13 @@ named-reference-block-url ::=
 }
 
 named-reference-block-self-closing ::=
-	reference-opening-tag whitespace?  (("name" | "group") whitespace? "=" property-assignment)+ "/" unescapedgreaterthan
+	reference-opening-tag whitespace?  (("name" | "group") whitespace? "=" property-assignment)+ htmltagselfclose
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-reference-content ::= paragraph-and-more
+reference-content ::= all-inline-elements*
 
 //Don't need quotes unless you have whitespace
 property-assignment ::= (whitespace? doublequote? reference-name doublequote? whitespace?)//|(whitespace? doublequote reference-name whitespace doublequote whitespace?)
@@ -1179,7 +1180,7 @@ pre-closing-tag ::=
 }
 
 html-comment ::=
-	htmlcommentopen whitespace? paragraph whitespace? htmlcommentclose
+	htmlcommentopen whitespace? all-inline-elements* whitespace? htmlcommentclose
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1257,7 +1258,7 @@ plain-text ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-friendly-ref-link-char ::= ("!"|"$"|"%"|"&"|"("")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'")
+friendly-ref-link-char ::= ("!"|"$"|"%"|"&"|"("")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"|"/"|template-block)
 
 unicode-wiki ::=
 	letter |
@@ -1398,7 +1399,7 @@ bullet-item ::=
 }
 
 table ::=
-	table-start (space table-parameters)? (table-block)*  newline? table-end
+	table-start (space? table-parameters)? (table-block)*  newline? table-end
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1412,7 +1413,7 @@ table-parameters ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-table-cell-double-delimited-start ::= tablecelldoubledelimiter
+table-cell-double-delimited-start ::= doublepipe
 table-cell-double-delimited ::=  table-cell-double-delimited-start cell-content newline?
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
@@ -1490,7 +1491,7 @@ cell-formatting ::= cell-content
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-cell-content ::= ((!tableheaderdoubledelimiter !tablecelldoubledelimiter !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements)*
+cell-content ::= ((!tableheaderdoubledelimiter !doublepipe !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"

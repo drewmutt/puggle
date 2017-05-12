@@ -1,6 +1,8 @@
 package com.mwplugin.actions;
 
 import com.intellij.ide.highlighter.JavaFileType;
+import com.intellij.ide.scratch.ScratchFileService;
+import com.intellij.ide.scratch.ScratchRootType;
 import com.intellij.ide.util.PackageUtil;
 import com.intellij.ide.util.PlatformPackageUtil;
 import com.intellij.lang.java.JavaLanguage;
@@ -22,6 +24,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
 import com.intellij.openapi.vfs.newvfs.impl.VirtualDirectoryImpl;
 import com.intellij.psi.*;
+import com.intellij.util.PathUtil;
 import com.intellij.util.containers.ContainerUtil;
 import com.mwplugin.MediaWikiFileType;
 import com.mwplugin.MediaWikiLanguage;
@@ -86,8 +89,15 @@ Implement the createCenterPanel() method to return the component comprising the 
 				e1.printStackTrace();
 			}
 
+			String fileName = templateDialog.selectedArticle.getName();
 
-			String fileName = templateDialog.selectedArticle.getName() + ".mediawiki";
+			ScratchFileService.Option option = ScratchFileService.Option.create_if_missing;
+			VirtualFile f = ScratchRootType.getInstance().createScratchFile(e.getProject(), PathUtil.makeFileName(fileName, "mediawiki"), MediaWikiLanguage.INSTANCE, content, option);
+			if (f != null) {
+				FileEditorManager.getInstance(e.getProject()).openFile(f, true);
+			}
+
+/*
 			PsiFile file = PsiFileFactory.getInstance(e.getProject()).createFileFromText(fileName, MediaWikiLanguage.INSTANCE,  content);
 			PsiDirectory[] allContentRoots = ProjectRootUtil.getAllContentRoots(e.getProject());
 			PsiDirectory allContentRoot = allContentRoots[0];
@@ -112,7 +122,7 @@ Implement the createCenterPanel() method to return the component comprising the 
 			}
 			PsiElement add = allContentRoot.add(file);
 			file.navigate(true);
-
+*/
 		}
 
 	}
