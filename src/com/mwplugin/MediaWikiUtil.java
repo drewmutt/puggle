@@ -60,4 +60,18 @@ public class MediaWikiUtil
 		}
 		return result;
 	}*/
+
+	public static String sanitizeFileName(String fileName)
+	{
+		fileName = fileName.replace("<", "");
+		fileName = fileName.replace(">", "");
+		fileName = fileName.replace(":", "");
+		fileName = fileName.replace("\"", "");
+		fileName = fileName.replace("/", "");
+		fileName = fileName.replace("\\", "");
+		fileName = fileName.replace("|", "");
+		fileName = fileName.replace("?", "");
+		fileName = fileName.replace("*", "");
+		return fileName;
+	}
 }

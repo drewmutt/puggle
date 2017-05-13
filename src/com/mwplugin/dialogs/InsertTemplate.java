@@ -1,5 +1,8 @@
 package com.mwplugin.dialogs;
 
+import com.intellij.codeInsight.completion.InsertHandler;
+import com.intellij.codeInsight.completion.InsertionContext;
+import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.openapi.editor.event.DocumentEvent;
 import com.intellij.openapi.editor.event.DocumentListener;
 import com.intellij.openapi.project.Project;
@@ -79,7 +82,19 @@ public class InsertTemplate extends DialogWrapper
 				return item.getName();
 			}
 
-
+			@Nullable
+			@Override
+			protected InsertHandler<LookupElement> createInsertHandler(@NotNull Article item)
+			{
+				return new InsertHandler<LookupElement>()
+				{
+					@Override
+					public void handleInsert(InsertionContext context, LookupElement item)
+					{
+						_textField.setText(item.getLookupString());
+					}
+				};
+			}
 		};
 
 
@@ -103,8 +118,9 @@ public class InsertTemplate extends DialogWrapper
 				@Override
 				public void beforeDocumentChange(DocumentEvent event)
 				{
-					System.out.println("asdsa");
+
 				}
+
 
 				@Override
 				public void documentChanged(DocumentEvent event)

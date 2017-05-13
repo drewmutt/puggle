@@ -36,6 +36,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.Objects;
 
+import static com.intellij.openapi.util.io.FileUtil.sanitizeFileName;
 import static com.mwplugin.api.WPApiManager.getPageContent;
 import static com.mwplugin.psi.MediaWikiElementFactory.createFile;
 
@@ -90,7 +91,8 @@ Implement the createCenterPanel() method to return the component comprising the 
 			}
 
 			String fileName = templateDialog.selectedArticle.getName();
-
+			fileName = sanitizeFileName(fileName);
+			fileName = fileName.replace("_", " "); //Because I like spaces!
 			ScratchFileService.Option option = ScratchFileService.Option.create_if_missing;
 			VirtualFile f = ScratchRootType.getInstance().createScratchFile(e.getProject(), PathUtil.makeFileName(fileName, "mediawiki"), MediaWikiLanguage.INSTANCE, content, option);
 			if (f != null) {

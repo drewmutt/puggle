@@ -1121,6 +1121,8 @@ html-opening-tag ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
+
+
 reference-opening-tag-complete ::=
 	refopencomplete
 

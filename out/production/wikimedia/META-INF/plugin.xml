@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>org.wikipedia.tools.puggle</id>
   <name>Puggle</name>
-  <version>0.7a</version>
+  <version>0.9a</version>
   <vendor email="someone@somewhere.com" url="http://www.wikipedia.org">YourCompany</vendor>
 
   <description><![CDATA[
@@ -17,9 +17,7 @@
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
-  -->
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
@@ -38,6 +36,7 @@
     <completion.contributor language="MediaWiki" implementationClass="com.mwplugin.MediaWikiCompletionContributor"/>
     <lang.braceMatcher language="MediaWiki" implementationClass="com.mwplugin.MediaWikiPairedBraceMatcher"/>
     <editorTypedHandler implementationClass="com.mwplugin.bracematching.TagMatchTypedActionHandler"/>
+    <lang.commenter language="MediaWiki" implementationClass="com.mwplugin.MediaWikiCommenter"/>
   </extensions>
 
 
