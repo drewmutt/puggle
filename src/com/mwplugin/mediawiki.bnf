@@ -23,13 +23,15 @@
     tokens = [
 //        space='regexp:\s+'
 //        comment='regexp://.*'
-        tablesectionstart = "|-"
-        tablesectionstartcaptionable = "|+"
+        galleryopen = "<gallery>"
+        galleryclose = "</gallery>"
+        pipedash = "|-"
+        pipeplus = "|+"
         quote5 = "'''''"
         quote3 = "'''"
         quote2 = "''"
         tablestart = "{|"
-        tableend = "|}"
+        pipeclosecurly = "|}"
         tableheaderdoubledelimiter = "!!"
         doublepipe = "||"
         htmlcommentopen = "<!--"
@@ -63,6 +65,7 @@
         curlyopen2 = "{{"
         curlyclose2 = "}}"
         pipe = "|"
+        symboltoken = "regexp:[\.,\(\)\-\:#\/';–\!%\?_—\+\$~·’†½\*@−‘\^ᴥ•…`“”、」「』『。\"±€‐×°]"
 
 //        okaysymbols = "regexp:[\(|\)|_|\.|\!|\/|\-|\:|#]"
 //        lcaseletter="regexp:\d"
@@ -182,9 +185,11 @@ letter ::=
 symbol ::=
 	html-unsafe-symbol|
 	underscore|
-	"."|
-	","|
-	"("|")"|"-"|":"|"#"|"/"|"'"|";"|"|"|"–"|doublequote|"!"|"%"|"?"|"_"|"—"|"+"|"$"|"~"|"·"|"’"|equals|"†"|"½"|"*"|"@"|"−"|"‘"|"^"|"ᴥ"|"•"|"…"|"`"|tableheaderdoubledelimiter|"“"|"”"|htmltagselfclose
+	symboltoken|
+	doublequote|
+	equals|
+	tableheaderdoubledelimiter|
+	htmltagselfclose
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -261,7 +266,7 @@ interwiki-prefix ::=
 }
 
 interwiki ::=
-	"Wikipedia"|"File"
+	"Wikipedia"|"File"|"Image"
 
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
@@ -387,7 +392,8 @@ template-block-end ::= "}}"
 }
 
 
-template-block ::=  template-block-start template-name whitespace? newline*  ("|" whitespace? (template-property-named|template-property-unassigned)? whitespace? newline* noparse-block?)* template-block-end
+//(("|"|doublepipe) (internal-link-property | internal-link-unassigned-property))*
+template-block ::=  template-block-start template-name whitespace? newline*  (("|"|doublepipe|pipedash|pipeplus) whitespace? (template-property-named|template-property-unassigned)? whitespace? newline* noparse-block?)* (template-block-end|pipeclosecurly "}")
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -460,15 +466,16 @@ inline-text ::=
 inline-element-sans-pipe ::= ( !"|"  (all-inline-elements))*
 
 all-inline-elements ::= (letter|symbol|decimaldigit|whitespace-char|inline-element|special-block)
+all-inline-elements-including-pipe ::= (letter|symbol|decimaldigit|whitespace-char|inline-element|special-block|"|")
 
 inline-element ::=
+	gallery-block |
 	html-tag |
 	url|
 	category-link |
 	link |
 	magic-link |
 	image-inline |
-	gallery-block |
 	media-inline |
 	text-with-formatting |
 	template-block
@@ -570,7 +577,7 @@ extra-description ::=
 }
 
 external-link ::=
-	openbracket url whitespace? (inline-element)* closebracket
+	openbracket url whitespace? (all-inline-elements-including-pipe)* closebracket
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -711,7 +718,13 @@ image-extension ::=
 	"png"|
 	"svg"|
 	"gif"|
-	"bmp"
+	"bmp"|
+	"JPG"|
+    "JPEG"|
+    "PNG"|
+    "SVG"|
+    "GIF"|
+    "BMP"
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -748,7 +761,7 @@ image-mode-manual-thumb ::=
 }
 
 image-name ::=
-	page-name "." image-extension
+	interwiki-prefix (letter|decimal-number|symbol|whitespace)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -934,7 +947,7 @@ image-param-border ::=
 }
 
 gallery-block ::=
-	"<gallery>" newline? gallery-image (newline? gallery-image)* newline? "</gallery>"
+	galleryopen newline? gallery-image (newline? gallery-image)* newline? galleryclose
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1182,7 +1195,7 @@ pre-closing-tag ::=
 }
 
 html-comment ::=
-	htmlcommentopen whitespace? all-inline-elements* whitespace? htmlcommentclose
+	htmlcommentopen whitespace? all-inline-elements-including-pipe* whitespace? htmlcommentclose
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1260,7 +1273,7 @@ plain-text ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-friendly-ref-link-char ::= ("!"|"$"|"%"|"&"|"("")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"|"/"|template-block)
+friendly-ref-link-char ::= ("!"|"$"|"%"|"&"|"("|")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"|"/"|template-block|"?"|"’")
 
 unicode-wiki ::=
 	letter |
@@ -1451,13 +1464,13 @@ table-start ::= tablestart
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-table-end ::= tableend
+table-end ::= pipeclosecurly
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-table-section-start ::= (tablesectionstart | tablesectionstartcaptionable)
+table-section-start ::= (pipedash | pipeplus)
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1493,14 +1506,14 @@ cell-formatting ::= cell-content
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-cell-content ::= ((!tableheaderdoubledelimiter !doublepipe !(newline whitespace? (tablesectionstart | tablesectionstartcaptionable))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements)*
+cell-content ::= ((!tableheaderdoubledelimiter !doublepipe !(newline whitespace? (pipedash | pipeplus))) (!(newline whitespace? "|}")) !(newline whitespace? "|") (!(newline whitespace? "!")) all-inline-elements)*
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
 paragraph-and-more ::=
-	paragraph (EOF | newline? special-block-and-more | newline paragraph-and-more |  (tablesectionstart | tablesectionstartcaptionable))?
+	paragraph (EOF | newline? special-block-and-more | newline paragraph-and-more |  (pipedash | pipeplus))?
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"

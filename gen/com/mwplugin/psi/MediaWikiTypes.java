@@ -9,6 +9,7 @@ import com.mwplugin.psi.impl.*;
 public interface MediaWikiTypes {
 
   IElementType ALL_INLINE_ELEMENTS = new MediaWikiElementType("ALL_INLINE_ELEMENTS");
+  IElementType ALL_INLINE_ELEMENTS_INCLUDING_PIPE = new MediaWikiElementType("ALL_INLINE_ELEMENTS_INCLUDING_PIPE");
   IElementType ANY_SUPPORTED_UNICODE_CHARACTER = new MediaWikiElementType("ANY_SUPPORTED_UNICODE_CHARACTER");
   IElementType ARTICLE = new MediaWikiElementType("ARTICLE");
   IElementType ARTICLE_LINK = new MediaWikiElementType("ARTICLE_LINK");
@@ -207,6 +208,7 @@ public interface MediaWikiTypes {
   IElementType WIKI_MARKUP_CHARACTERS = new MediaWikiElementType("WIKI_MARKUP_CHARACTERS");
 
   IElementType all_inline_elements = new MediaWikiTokenType("all_inline_elements");
+  IElementType all_inline_elements_including_pipe = new MediaWikiTokenType("all_inline_elements_including_pipe");
   IElementType any_supported_unicode_character = new MediaWikiTokenType("any_supported_unicode_character");
   IElementType article_link = new MediaWikiTokenType("article_link");
   IElementType article_title = new MediaWikiTokenType("article_title");
@@ -247,6 +249,8 @@ public interface MediaWikiTypes {
   IElementType friendly_ref_link_char = new MediaWikiTokenType("friendly_ref_link_char");
   IElementType gallery_block = new MediaWikiTokenType("gallery_block");
   IElementType gallery_image = new MediaWikiTokenType("gallery_image");
+  IElementType galleryclose = new MediaWikiTokenType("</gallery>");
+  IElementType galleryopen = new MediaWikiTokenType("<gallery>");
   IElementType hex_digit = new MediaWikiTokenType("hex_digit");
   IElementType hex_number = new MediaWikiTokenType("hex_number");
   IElementType horizontal_rule = new MediaWikiTokenType("horizontal_rule");
@@ -340,6 +344,9 @@ public interface MediaWikiTypes {
   IElementType page_name = new MediaWikiTokenType("page_name");
   IElementType paragraph_and_more = new MediaWikiTokenType("paragraph_and_more");
   IElementType pipe = new MediaWikiTokenType("|");
+  IElementType pipeclosecurly = new MediaWikiTokenType("|}");
+  IElementType pipedash = new MediaWikiTokenType("|-");
+  IElementType pipeplus = new MediaWikiTokenType("|+");
   IElementType plain_text = new MediaWikiTokenType("plain_text");
   IElementType pmid_number = new MediaWikiTokenType("pmid_number");
   IElementType pre_block = new MediaWikiTokenType("pre_block");
@@ -371,6 +378,7 @@ public interface MediaWikiTypes {
   IElementType special_block_and_more = new MediaWikiTokenType("special_block_and_more");
   IElementType sub_page = new MediaWikiTokenType("sub_page");
   IElementType sub_page_separator = new MediaWikiTokenType("sub_page_separator");
+  IElementType symboltoken = new MediaWikiTokenType("symboltoken");
   IElementType tab = new MediaWikiTokenType("TAB");
   IElementType table_block = new MediaWikiTokenType("table_block");
   IElementType table_cell = new MediaWikiTokenType("table_cell");
@@ -386,10 +394,7 @@ public interface MediaWikiTypes {
   IElementType table_row_start = new MediaWikiTokenType("table_row_start");
   IElementType table_section_start = new MediaWikiTokenType("table_section_start");
   IElementType table_start = new MediaWikiTokenType("table_start");
-  IElementType tableend = new MediaWikiTokenType("|}");
   IElementType tableheaderdoubledelimiter = new MediaWikiTokenType("!!");
-  IElementType tablesectionstart = new MediaWikiTokenType("|-");
-  IElementType tablesectionstartcaptionable = new MediaWikiTokenType("|+");
   IElementType tablestart = new MediaWikiTokenType("{|");
   IElementType template_block = new MediaWikiTokenType("template_block");
   IElementType template_block_end = new MediaWikiTokenType("template_block_end");
@@ -423,6 +428,9 @@ public interface MediaWikiTypes {
       IElementType type = node.getElementType();
        if (type == ALL_INLINE_ELEMENTS) {
         return new MediaWikiAllInlineElementsImpl(node);
+      }
+      else if (type == ALL_INLINE_ELEMENTS_INCLUDING_PIPE) {
+        return new MediaWikiAllInlineElementsIncludingPipeImpl(node);
       }
       else if (type == ANY_SUPPORTED_UNICODE_CHARACTER) {
         return new MediaWikiAnySupportedUnicodeCharacterImpl(node);

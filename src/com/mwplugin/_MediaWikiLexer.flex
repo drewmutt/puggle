@@ -26,13 +26,14 @@ lcaseletter=[a-z]
 ucaseletter=[A-Z]
 decimaldigit=[0-9]
 tab=\t
+symboltoken = [\.,\(\)\-\:#\/';–\!%\?_—\+\$~·’†½\*@−‘\^ᴥ•…`“”、」「』『。\"±‐×°]
 //okaysymbols = "regexp:[\(|\)|_|\.|\!|\/|\\|\-|\:|#]"
 
 %%
 <YYINITIAL> {
-  "|-"                 { return tablesectionstart; }
-  "|+"                  {return tablesectionstartcaptionable;}
-  "|}"                 { return tableend; }
+  "|-"                 { return pipedash; }
+  "|+"                  {return pipeplus;}
+  "|}"                 { return pipeclosecurly; }
   "{|"                 { return tablestart; }
   "||"                 { return doublepipe; }
   "!!"                 { return tableheaderdoubledelimiter; }
@@ -44,6 +45,8 @@ tab=\t
     "<ref>"             { return refopencomplete; }
     "<ref"             { return refopen; }
     "</ref>"             { return refclose; }
+    "<gallery>" {return galleryopen;}
+    "</gallery>" {return galleryclose;}
 //    "<br/>"                 {return htmltagnewline;}
   "====="              { return equals5; }
   "===="              { return equals4; }
@@ -65,6 +68,7 @@ tab=\t
 "["                 { return openbracket; }
 "]"                 { return closebracket; }
 
+
 //  {okaysymbols}              { return okaysymbols; }
   {newline}           { return newline; }
   {lcaseletter}       { return lcaseletter; }
@@ -72,7 +76,7 @@ tab=\t
   {decimaldigit}      { return decimaldigit; }
   {otherletter}      { return otherletter; }
   {tab}               { return tab; }
-
+    {symboltoken}   {return symboltoken;}
 }
 
 [^] { return com.intellij.psi.TokenType.BAD_CHARACTER; }

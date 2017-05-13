@@ -27,6 +27,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitAllInlineElementsIncludingPipe(@NotNull MediaWikiAllInlineElementsIncludingPipe o) {
+    visitPsiElement(o);
+  }
+
   public void visitAnySupportedUnicodeCharacter(@NotNull MediaWikiAnySupportedUnicodeCharacter o) {
     visitIMediaWikiNamedElement(o);
   }

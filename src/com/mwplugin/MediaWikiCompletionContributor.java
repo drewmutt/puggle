@@ -46,10 +46,10 @@ public class MediaWikiCompletionContributor extends CompletionContributor
 		int selectionEndOffset = context.getSelectionEndOffset();
 		int  identifierEndOffset = context.getIdentifierEndOffset();
 
-		System.out.println(replacementOffset );
-		System.out.println(startOffset );
-		System.out.println(selectionEndOffset );
-		System.out.println(identifierEndOffset );
+//		System.out.println(replacementOffset );
+//		System.out.println(startOffset );
+//		System.out.println(selectionEndOffset );
+//		System.out.println(identifierEndOffset );
 	}
 
 

@@ -40,6 +40,9 @@ public class MediaWikiAnnotator implements Annotator
 		keysMap.put(MediaWikiTableHeaderDoubleDelimitedStart.class, TextAttributesKey.createTextAttributesKey("MEDIAWIKI_TABLE"));
 
 
+		keysMap.put(MediaWikiGalleryBlock.class, DefaultLanguageHighlighterColors.STRING);
+		keysMap.put(MediaWikiImageName.class, DefaultLanguageHighlighterColors.NUMBER);
+
 //				/		addNewKey(MediaWikiTypes.CONTENT, HighlighterColors.TEXT);
 //		addNewKey(MediaWikiTypes.LINK, DefaultLanguageHighlighterColors.STRING);
 //		addNewKey(MediaWikiTypes.TEMPLATE, DefaultLanguageHighlighterColors.CONSTANT);
