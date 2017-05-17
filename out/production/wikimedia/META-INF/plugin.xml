@@ -44,8 +44,10 @@
       <group id="MediaWiki.Actions" text="_Puggle" description="Puggle">
         <add-to-group group-id="MainMenu" anchor="last"  />
         <action id="com.whatever" class="com.mwplugin.actions.OpenWikipediaArticleAction" text="Open Wikipedia Article" description="Open the source of an article on Wikipedia"/>
+        <action id="com.mwplugin.actions.ReplaceURLWithCitationAction"
+                class="com.mwplugin.actions.ReplaceURLWithCitationAction" text="Replace URL With Citation"
+                description="Replace URL With Citation from Citoid"/>
       </group>
-
   </actions>
 
 

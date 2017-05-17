@@ -584,7 +584,7 @@ external-link ::=
     methods=[getPresentation]
 }
 
-url ::= LEGAL_URL_ENTITY+//protocol url-path
+url ::= protocol LEGAL_URL_ENTITY+//protocol url-path
 {
     mixin="com.mwplugin.psi.impl.MediaWikiNamedElementImpl"
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
@@ -1107,7 +1107,7 @@ named-reference-block-self-closing ::=
     implements="com.mwplugin.psi.IMediaWikiNamedElement"
 }
 
-reference-content ::= all-inline-elements*
+reference-content ::= url? all-inline-elements*
 
 //Don't need quotes unless you have whitespace
 property-assignment ::= (whitespace? doublequote? reference-name doublequote? whitespace?)//|(whitespace? doublequote reference-name whitespace doublequote whitespace?)

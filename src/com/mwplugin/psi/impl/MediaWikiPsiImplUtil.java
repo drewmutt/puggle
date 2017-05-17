@@ -3,6 +3,7 @@ package com.mwplugin.psi.impl;
 import com.intellij.icons.AllIcons;
 import com.intellij.lang.ASTNode;
 import com.intellij.navigation.ItemPresentation;
+import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
@@ -13,6 +14,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+
+import static com.mwplugin.psi.MediaWikiElementFactory.createFile;
 
 public class MediaWikiPsiImplUtil {
 	public static String getReferenceName(MediaWikiNamedReferenceBlock element) {
@@ -31,6 +34,7 @@ public class MediaWikiPsiImplUtil {
 		MediaWikiUrl urlNode = PsiTreeUtil.findChildOfType(element, MediaWikiUrl.class);
 		return urlNode != null ? urlNode.getText() : null;
 	}
+
 /*
 	public static String setURL(IMediaWikiNamedElement element) {
 		ASTNode valueNode = element.getNode().findChildByType(MediaWikiTypes.URL);

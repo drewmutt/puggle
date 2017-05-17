@@ -1547,7 +1547,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // "!"|"$"|"%"|"&"|"("|")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"|"/"|template-block|"?"
+  // "!"|"$"|"%"|"&"|"("|")"|"*"|","|"-"|"."|":"|";"|"<"|"@"|"["|"]"|"^"|"_"|"`"|"{"|"|"|"}"|"~"|letter|decimaldigit|"–"|"'"|"/"|template-block|"?"|"’"
   public static boolean friendly_ref_link_char(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "friendly_ref_link_char")) return false;
     boolean r;
@@ -1582,6 +1582,7 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, "/");
     if (!r) r = template_block(b, l + 1);
     if (!r) r = consumeToken(b, "?");
+    if (!r) r = consumeToken(b, "’");
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -4492,17 +4493,33 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // all-inline-elements*
+  // url? all-inline-elements*
   public static boolean reference_content(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "reference_content")) return false;
+    boolean r;
     Marker m = enter_section_(b, l, _NONE_, REFERENCE_CONTENT, "<reference - content>");
+    r = reference_content_0(b, l + 1);
+    r = r && reference_content_1(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // url?
+  private static boolean reference_content_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "reference_content_0")) return false;
+    url(b, l + 1);
+    return true;
+  }
+
+  // all-inline-elements*
+  private static boolean reference_content_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "reference_content_1")) return false;
     int c = current_position_(b);
     while (true) {
       if (!all_inline_elements(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "reference_content", c)) break;
+      if (!empty_element_parsed_guard_(b, "reference_content_1", c)) break;
       c = current_position_(b);
     }
-    exit_section_(b, l, m, true, false, null);
     return true;
   }
 
@@ -5739,19 +5756,30 @@ public class MediaWikiParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // LEGAL_URL_ENTITY+
+  // protocol LEGAL_URL_ENTITY+
   public static boolean url(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "url")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, URL, "<url>");
+    r = protocol(b, l + 1);
+    r = r && url_1(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // LEGAL_URL_ENTITY+
+  private static boolean url_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "url_1")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
     r = LEGAL_URL_ENTITY(b, l + 1);
     int c = current_position_(b);
     while (r) {
       if (!LEGAL_URL_ENTITY(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "url", c)) break;
+      if (!empty_element_parsed_guard_(b, "url_1", c)) break;
       c = current_position_(b);
     }
-    exit_section_(b, l, m, r, false, null);
+    exit_section_(b, m, null, r);
     return r;
   }
 

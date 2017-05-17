@@ -5,11 +5,17 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.*;
+import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.containers.HashMap;
 import com.mwplugin.psi.*;
+import com.mwplugin.quickfix.CombineDuplicateReferencesQuickFix;
+import com.mwplugin.quickfix.ConvertUrlToCitationQuickFix;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 
 public class MediaWikiAnnotator implements Annotator
 {
@@ -79,6 +85,66 @@ public class MediaWikiAnnotator implements Annotator
 //				List<MediaWikiProperty> properties = MediaWikiUtil.findProperties(project, key);
 //				if (properties.size() == 1)
 //				{
+
+		if(element instanceof MediaWikiReferenceBlock)
+		{
+			MediaWikiReferenceBlock referenceBlock = (MediaWikiReferenceBlock) element;
+			MediaWikiTemplateBlock innerTemplateBlock = PsiTreeUtil.findChildOfAnyType(referenceBlock, MediaWikiTemplateBlock.class);
+			MediaWikiUrl innerUrlBlock = PsiTreeUtil.findChildOfAnyType(referenceBlock, MediaWikiUrl.class);
+
+			if(innerTemplateBlock == null && innerUrlBlock != null)
+			{
+				TextRange range = new TextRange(element.getTextRange().getStartOffset(), element.getTextRange().getEndOffset());
+				holder.createWeakWarningAnnotation(range, "Can use cite template").registerFix(new ConvertUrlToCitationQuickFix(innerUrlBlock));
+			}
+
+			MediaWikiFile mediaWikiFile = PsiTreeUtil.getParentOfType(element, MediaWikiFile.class);
+			Collection<MediaWikiReferenceBlock> references = PsiTreeUtil.findChildrenOfAnyType(mediaWikiFile, MediaWikiReferenceBlock.class);
+
+			ArrayList<MediaWikiReferenceBlock> duplicateRefs  = new ArrayList<>();
+			MediaWikiReferenceContent refBlockContent = PsiTreeUtil.findChildOfAnyType(referenceBlock, MediaWikiReferenceContent.class);
+			if(refBlockContent != null)
+			{
+				String refBlockContentString = refBlockContent.getText();
+				for (MediaWikiReferenceBlock refBlock : references)
+				{
+//					if (refBlock != referenceBlock)
+//					{
+						MediaWikiReferenceContent thisRefContent = PsiTreeUtil.findChildOfAnyType(refBlock, MediaWikiReferenceContent.class);
+						if(thisRefContent != null)
+						{
+							String refContent = thisRefContent.getText();
+							if (Objects.equals(refContent, refBlockContentString))
+							{
+								duplicateRefs.add(refBlock);
+							}
+						}
+//					}
+				}
+			}
+
+			//We're expecting to have yourself in there
+			if(duplicateRefs.size() > 1)
+			{
+
+				for (MediaWikiReferenceBlock ref : duplicateRefs)
+				{
+					if(ref != referenceBlock)
+					{
+						TextRange range = new TextRange(ref.getTextRange().getStartOffset(), ref.getTextRange().getEndOffset());
+						holder.createWeakWarningAnnotation(range, "Duplicate Reference").registerFix(new CombineDuplicateReferencesQuickFix(duplicateRefs));
+					}
+				}
+//				TextRange range = new TextRange(element.getTextRange().getStartOffset(), element.getTextRange().getEndOffset());
+//				holder.createWeakWarningAnnotation(range, "Duplicate Reference").registerFix(new ConvertUrlToCitationQuickFix(innerUrlBlock));
+			}
+
+
+		}
+
+
+
+
 		for (Map.Entry<Class, TextAttributesKey> entry : keysMap.entrySet())
 		{
 			if(entry.getKey().isInstance(element))
@@ -128,7 +194,7 @@ public class MediaWikiAnnotator implements Annotator
 //				{
 //					TextRange range = new TextRange(element.getTextRange().getStartOffset() + 8, element.getTextRange().getEndOffset());
 //					holder.createErrorAnnotation(range, "Unresolved property").
-//							registerFix(new CreatePropertyQuickFix(key));
+//							registerFix(new ConvertUrlToCitationQuickFix(key));
 //		}
 	}
 

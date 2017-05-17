@@ -2,15 +2,28 @@ package com.mwplugin.psi;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
+import com.intellij.psi.util.PsiTreeUtil;
 import com.mwplugin.MediaWikiFileType;
 
 public class MediaWikiElementFactory
 {
 
-	public static MediaWikiTemplateBlock createTemplate(Project project, String name)
+	public static MediaWikiTemplateBlock createTemplate(Project project, String content)
 	{
-		final MediaWikiFile file = createFile(project, "{{" + name + "}}");
-		return (MediaWikiTemplateBlock) file.getFirstChild();
+		final MediaWikiFile file = createFile(project, content);
+		return (MediaWikiTemplateBlock) PsiTreeUtil.findChildOfAnyType(file, MediaWikiTemplateBlock.class);
+	}
+
+	public static MediaWikiReferenceBlock createEmptyNamedReference(Project project, String referenceName)
+	{
+		final MediaWikiFile file = createFile(project, "<ref name=\""+referenceName+"\"/>");
+		return (MediaWikiReferenceBlock) PsiTreeUtil.findChildOfAnyType(file, MediaWikiReferenceBlock.class);
+	}
+
+	public static MediaWikiReferenceBlock createPopulatedNamedReference(Project project, String referenceName, String content)
+	{
+		final MediaWikiFile file = createFile(project, "<ref name=\""+referenceName+"\">"+content+"</ref>");
+		return (MediaWikiReferenceBlock) PsiTreeUtil.findChildOfAnyType(file, MediaWikiReferenceBlock.class);
 	}
 
 	/*public static MediaWikiReference createReference(Project project, String name)

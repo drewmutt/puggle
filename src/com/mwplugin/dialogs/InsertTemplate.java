@@ -7,15 +7,11 @@ import com.intellij.openapi.editor.event.DocumentEvent;
 import com.intellij.openapi.editor.event.DocumentListener;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.ui.JBColor;
 import com.intellij.ui.TextFieldWithAutoCompletion;
 import com.intellij.ui.TextFieldWithAutoCompletionListProvider;
 import com.intellij.ui.components.JBPanel;
 import com.mwplugin.api.WPApiManager;
 import com.mwplugin.apitypes.Article;
-import com.mwplugin.apitypes.INamedApiElement;
-import com.mwplugin.apitypes.template.Template;
-import com.mwplugin.apitypes.template.TemplateSearchResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,9 +19,6 @@ import java.awt.*;
 import java.util.*;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-
-import static com.mwplugin.api.WPApiManager.makeApiCall;
 
 public class InsertTemplate extends DialogWrapper
 {
@@ -48,7 +41,7 @@ public class InsertTemplate extends DialogWrapper
 		{
 			selectedArticle = new Article(_textField.getText());
 //			String url = "templatedata&format=json&titles=Template%3AUserbox";
-//			TemplateSearchResult searchResult = (TemplateSearchResult) makeApiCall(url, new TemplateSearchResult());
+//			TemplateSearchResult searchResult = (TemplateSearchResult) makeWPApiCall(url, new TemplateSearchResult());
 //			selectedArticle
 //			selectedTemplate.name = _textField.getText();
 //			selectedTemplate.content = pageContent;

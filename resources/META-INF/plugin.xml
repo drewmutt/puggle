@@ -1,11 +1,11 @@
 <idea-plugin version="2">
   <id>org.wikipedia.tools.puggle</id>
   <name>Puggle</name>
-  <version>0.9a</version>
+  <version>0.11a</version>
   <vendor email="someone@somewhere.com" url="http://www.wikipedia.org">YourCompany</vendor>
 
   <description><![CDATA[
-      A smart editor for editting MediaWiki
+      A smart editor for editing MediaWiki
     ]]></description>
 
   <change-notes><![CDATA[
@@ -44,8 +44,10 @@
       <group id="MediaWiki.Actions" text="_Puggle" description="Puggle">
         <add-to-group group-id="MainMenu" anchor="last"  />
         <action id="com.whatever" class="com.mwplugin.actions.OpenWikipediaArticleAction" text="Open Wikipedia Article" description="Open the source of an article on Wikipedia"/>
+        <action id="com.mwplugin.actions.ReplaceURLWithCitationAction"
+                class="com.mwplugin.actions.ReplaceURLWithCitationAction" text="Replace URL With Citation"
+                description="Replace URL With Citation from Citoid"/>
       </group>
-
   </actions>
 
 

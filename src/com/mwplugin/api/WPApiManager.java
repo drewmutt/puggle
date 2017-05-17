@@ -2,8 +2,10 @@ package com.mwplugin.api;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.reflect.TypeToken;
 import com.mwplugin.apitypes.Article;
 import com.mwplugin.apitypes.ArticleFactory;
+import com.mwplugin.apitypes.Citation;
 import com.mwplugin.apitypes.INamedApiElement;
 import com.mwplugin.apitypes.template.IApiResultFactory;
 import com.mwplugin.apitypes.template.Template;
@@ -17,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -33,7 +36,7 @@ public class WPApiManager
 	public static String getPageContent(String page) throws IOException
 	{
 		String url = "query&titles="+URLEncoder.encode(page, "UTF-8")+"&prop=revisions&rvprop=content&format=json";
-		LinkedTreeMap<String, LinkedTreeMap> object = (LinkedTreeMap<String, LinkedTreeMap>) makeApiCall(url, new Object());
+		LinkedTreeMap<String, LinkedTreeMap> object = (LinkedTreeMap<String, LinkedTreeMap>) makeWPApiCall(url, new Object());
 //		System.out.println(object);
 		LinkedTreeMap<String, LinkedTreeMap> query = (LinkedTreeMap<String, LinkedTreeMap>) object.get("query");
 		LinkedTreeMap<String, LinkedTreeMap> pages = query.get("pages");
@@ -45,12 +48,36 @@ public class WPApiManager
 		return pageContent;
 	}
 
+	public static String getCitationFromURL(String url)
+	{
+		try
+		{
+			String apiUrl = "https://en.wikipedia.org/api/rest_v1/data/citation/mediawiki/" + URLEncoder.encode(url, "UTF-8");
+//			ArrayList<Citation> citations = (ArrayList<Citation>) makeApiCall(apiUrl, new ArrayList<Citation>());
+			String response = fetchResponseFromURL(apiUrl);
+
+			Gson gson = new Gson();
+			Type collectionType = new TypeToken<Collection<Citation>>(){}.getType();
+			ArrayList<Citation> citations = gson.fromJson(response, collectionType);
+
+			return citations.get(0).getMediaWikiText();
+
+		} catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public static Template getTemplate(String name)
 	{
 		try
 		{
 			String url = "templatedata&format=json&redirects=1&titles=Template:"+URLEncoder.encode(name, "UTF-8");
-			TemplateSearchResult searchResult = (TemplateSearchResult) makeApiCall(url, new TemplateSearchResult());
+			TemplateSearchResult searchResult = (TemplateSearchResult) makeWPApiCall(url, new TemplateSearchResult());
 			Object[] keySet = searchResult.pages.keySet().toArray();
 			Template template = searchResult.pages.get(keySet[0]);
 			return template;
@@ -68,7 +95,7 @@ public class WPApiManager
 		try
 		{
 			String url = "opensearch&format=json&search="+inputText+"&limit="+numberResults;
-			ArrayList results = (ArrayList) makeApiCall(url, new ArrayList());
+			ArrayList results = (ArrayList) makeWPApiCall(url, new ArrayList());
 			ArrayList<String> matches = (ArrayList<String>) results.get(1);
 			ArrayList<T> items = new ArrayList<>();
 			for(String name : matches)
@@ -113,19 +140,29 @@ public class WPApiManager
 		return null;
 	}
 
-	public static Object makeApiCall(String queryString, Object object) throws IOException
+	public static Object makeApiCall(String fullQueryString, Object object) throws IOException
 	{
-		String url = "https://en.wikipedia.org/w/api.php?action=" + queryString;
+		String response = fetchResponseFromURL(fullQueryString);
+
+
+		Gson gson = new Gson();
+		object = gson.fromJson(response, object.getClass());
+		return object;
+	}
+
+	@NotNull
+	private static String fetchResponseFromURL(String fullQueryString) throws IOException
+	{
 		HttpURLConnection con = null;
 		URL obj = null;
 
-		obj = new URL(url);
+		obj = new URL(fullQueryString);
 		con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("GET");
 		con.setRequestProperty("User-Agent", USER_AGENT);
 
 		int responseCode = con.getResponseCode();
-		System.out.println("\nSending 'GET' request to URL : " + url);
+		System.out.println("\nSending 'GET' request to URL : " + fullQueryString);
 		System.out.println("Response Code : " + responseCode);
 		Map<String, List<String>> headerFields = con.getHeaderFields();
 		BufferedReader in = null;
@@ -136,11 +173,13 @@ public class WPApiManager
 		while ((inputLine = in.readLine()) != null) {
 			response.append(inputLine);
 		}
+		return response.toString();
+	}
 
-		in.close();
-		Gson gson = new Gson();
-		object = gson.fromJson(response.toString(), object.getClass());
-		return object;
+	public static Object makeWPApiCall(String queryString, Object object) throws IOException
+	{
+		String url = "https://en.wikipedia.org/w/api.php?action=" + queryString;
+		return makeApiCall(url, object);
 	}
 
 }
