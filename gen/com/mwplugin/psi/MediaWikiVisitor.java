@@ -31,6 +31,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitAllInlineElementsWithoutNewline(@NotNull MediaWikiAllInlineElementsWithoutNewline o) {
+    visitPsiElement(o);
+  }
+
   public void visitAnySupportedUnicodeCharacter(@NotNull MediaWikiAnySupportedUnicodeCharacter o) {
     visitIMediaWikiNamedElement(o);
   }
@@ -81,6 +85,10 @@ public class MediaWikiVisitor extends PsiElementVisitor {
 
   public void visitBoldText(@NotNull MediaWikiBoldText o) {
     visitIMediaWikiNamedElement(o);
+  }
+
+  public void visitBracketedContent(@NotNull MediaWikiBracketedContent o) {
+    visitPsiElement(o);
   }
 
   public void visitBulletItem(@NotNull MediaWikiBulletItem o) {

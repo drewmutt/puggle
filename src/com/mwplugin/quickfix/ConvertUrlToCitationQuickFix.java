@@ -97,15 +97,16 @@ public class ConvertUrlToCitationQuickFix extends BaseIntentionAction
 							public void run()
 							{
 								String citationFromURL = getCitationFromURL(url.getText());
-								if(citationFromURL != null)
+								if (citationFromURL != null)
 								{
 									progressIndicator.setFraction(0.90);
 									progressIndicator.setText("Replacing URL");
 
-									PsiElement parent = url.getParent();
+									PsiElement referenceContent = PsiTreeUtil.getParentOfType(url, MediaWikiReferenceContent.class);
 									MediaWikiTemplateBlock templateBlock = MediaWikiElementFactory.createTemplate(project, citationFromURL);
-									parent.add(templateBlock);
-									url.delete();
+									referenceContent.replace(templateBlock);
+									//									parent.add(templateBlock);
+//									url.delete();
 								}
 							}
 						}.execute();

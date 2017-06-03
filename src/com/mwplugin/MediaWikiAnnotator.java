@@ -86,6 +86,15 @@ public class MediaWikiAnnotator implements Annotator
 //				if (properties.size() == 1)
 //				{
 
+
+//		if(element instanceof MediaWikiExternalLink)
+//		{
+//			MediaWikiReferenceBlock externalLink = (MediaWikiExternalLink) element;
+//			TextRange range = new TextRange(element.getTextRange().getStartOffset(), element.getTextRange().getEndOffset());
+//			Annotation annotation = holder.createInfoAnnotation(range, null);
+//			annotation.setTextAttributes(entry.getValue());
+//		}
+
 		if(element instanceof MediaWikiReferenceBlock)
 		{
 			MediaWikiReferenceBlock referenceBlock = (MediaWikiReferenceBlock) element;

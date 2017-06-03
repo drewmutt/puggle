@@ -22,7 +22,6 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <lang.findUsagesProvider language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFindUsagesProvider"/>
-    <lang.findUsagesProvider language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFindUsagesProvider"/>
     <lang.foldingBuilder language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFoldingBuilder"/>
     <fileTypeFactory implementation="com.mwplugin.MediaWikiFileFactory"/>
     <lang.parserDefinition language="MediaWiki" implementationClass="com.mwplugin.MediaWikiParserDefinition"/>

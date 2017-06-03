@@ -25,8 +25,9 @@ otherletter=[\p{L}]
 lcaseletter=[a-z]
 ucaseletter=[A-Z]
 decimaldigit=[0-9]
+galleryopen=<gallery.*>
 tab=\t
-symboltoken = [\.,\(\)\-\:#\/';–\!%\?_—\+\$~·’†½\*@−‘\^ᴥ•…`“”、」「』『。\"±‐×°]
+symboltoken = [\.,\(\)\-\:#\/';–\!%\?_—\+\$~·’†½\*@®−‘\^ᴥ•…`“‑§”、」「✋«』『。\"±‐×°′́aʿמָשִׁיחַמשיח[^\x00-\x7F]]
 //okaysymbols = "regexp:[\(|\)|_|\.|\!|\/|\\|\-|\:|#]"
 
 %%
@@ -45,7 +46,6 @@ symboltoken = [\.,\(\)\-\:#\/';–\!%\?_—\+\$~·’†½\*@−‘\^ᴥ•…`�
     "<ref>"             { return refopencomplete; }
     "<ref"             { return refopen; }
     "</ref>"             { return refclose; }
-    "<gallery>" {return galleryopen;}
     "</gallery>" {return galleryclose;}
 //    "<br/>"                 {return htmltagnewline;}
   "====="              { return equals5; }
@@ -71,6 +71,7 @@ symboltoken = [\.,\(\)\-\:#\/';–\!%\?_—\+\$~·’†½\*@−‘\^ᴥ•…`�
 
 //  {okaysymbols}              { return okaysymbols; }
   {newline}           { return newline; }
+  {galleryopen}           { return galleryopen; }
   {lcaseletter}       { return lcaseletter; }
   {ucaseletter}       { return ucaseletter; }
   {decimaldigit}      { return decimaldigit; }

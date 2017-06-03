@@ -1,11 +1,11 @@
 <idea-plugin version="2">
   <id>org.wikipedia.tools.puggle</id>
   <name>Puggle</name>
-  <version>0.9a</version>
+  <version>0.11a</version>
   <vendor email="someone@somewhere.com" url="http://www.wikipedia.org">YourCompany</vendor>
 
   <description><![CDATA[
-      A smart editor for editting MediaWiki
+      A smart editor for editing MediaWiki
     ]]></description>
 
   <change-notes><![CDATA[
@@ -21,7 +21,6 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <lang.findUsagesProvider language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFindUsagesProvider"/>
     <lang.findUsagesProvider language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFindUsagesProvider"/>
     <lang.foldingBuilder language="MediaWiki" implementationClass="com.mwplugin.MediaWikiFoldingBuilder"/>
     <fileTypeFactory implementation="com.mwplugin.MediaWikiFileFactory"/>
