@@ -8,7 +8,7 @@
 4. Run the project's "Plugin" run configuration.
 
 ### Using a binary release
-1. Download [a release](https://github.com/drewmutt/puggle/releases).
+1. Download the [latest release](https://github.com/drewmutt/puggle/releases).
 2. In IntelliJ, go to Settings > Plugins > Install plugin from disk.
 3. Find where you saved the plugin (.zip file) and restart IntelliJ when prompted.
 4. Create a new empty IntelliJ project (specialized MediaWiki project coming soon).
