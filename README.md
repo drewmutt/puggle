@@ -1,10 +1,7 @@
 # Puggle: MediaWiki editing in IntelliJ IDEA
 
-## What's new - Version 0.13a
-* Added the following quickfixes to inline external links..
-  * Convert to reference
-  * Move to external links section (create if not exist)
-  * Remove
+## What's new - Version 0.14a
+Added increment series. If you have a table with an incrementing numeric value in a column, you can insert something and it will update all the values below it (used for "rank" in tables).
   
 ## Installing Puggle
 ### From source
