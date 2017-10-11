@@ -1,4 +1,4 @@
-# Puggle: MediaWiki editing in IntelliJ IDEA
+# Puggle: MediaWiki editing in IntelliJ IDEA (https://en.wikipedia.org/wiki/Wikipedia:Puggle)
 
 ## What's new - Version 0.14a
 Added increment series. If you have a table with an incrementing numeric value in a column, you can insert something and it will update all the values below it (used for "rank" in tables).
